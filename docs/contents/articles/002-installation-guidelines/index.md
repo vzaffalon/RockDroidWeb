@@ -8,7 +8,7 @@ template: article.jade
 
 ## Prerequisites
 
-Despite BlurAdmin can be run without any development experience, it would be much easier if you already know something about it. In general following instruction do allow to run local copy by complete newbie, but it doesn't answer questions that can arise in the process of installation.
+Despite RockDroid can be run without any development experience, it would be much easier if you already know something about it. In general following instruction do allow to run local copy by complete newbie, but it doesn't answer questions that can arise in the process of installation.
 
 ## Install tools
 
@@ -20,7 +20,7 @@ If you don't havee any of these tools installed already, you will need to:
 
 ## Clone repository and install dependencies
 
-You will need to clone source code of BlurAdmin GitHub repository. To do this open console and execute following lines:
+You will need to clone source code of RockDroid GitHub repository. To do this open console and execute following lines:
 ```bash
 git clone https://github.com/akveo/blur-admin.git
 ```
@@ -29,7 +29,7 @@ After repository is cloned, go inside of repository directory and install depend
 cd blur-admin
 npm install
 ```
-This will setup a working copy of BlurAdmin on your local machine
+This will setup a working copy of RockDroid on your local machine
 
 ## Running local copy
 

@@ -27,7 +27,7 @@ This will allow you to easily switch off some pages in the future if needed.
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.myNewPage', [])
+  angular.module('RockDroid.pages.myNewPage', [])
       .config(routeConfig);
 
   /** @ngInject */
@@ -45,7 +45,7 @@ This will allow you to easily switch off some pages in the future if needed.
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.myNewPage', [])
+  angular.module('RockDroid.pages.myNewPage', [])
       .config(routeConfig);
 
   /** @ngInject */

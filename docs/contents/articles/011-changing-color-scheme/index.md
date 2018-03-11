@@ -6,11 +6,11 @@ group: Customization
 template: article.jade
 ---
 
-We tried to make the process of changing color scheme in BlurAdmin as easy as possible. 
+We tried to make the process of changing color scheme in RockDroid as easy as possible. 
 
-By default BlurAdmin has two color profiles: mint and blur.
+By default RockDroid has two color profiles: mint and blur.
 This article will help you to create your own color profile.
-Let's say you want to make BlurAdmin dark.
+Let's say you want to make RockDroid dark.
 
 First we advice you to take some colorscheme file as a basis. 
 For light themes we suggest you to take `src/sass/theme/conf/colorScheme/_mint.scss` one and for dark take `src/sass/theme/conf/colorScheme/_blur.scss` one.

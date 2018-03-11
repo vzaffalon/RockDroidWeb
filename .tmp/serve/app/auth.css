@@ -201,8 +201,7 @@ a {
       box-sizing: content-box;
       font-size: 16px; }
       .al-share li i:hover {
-        -webkit-transform: scale(1.2);
-                transform: scale(1.2); }
+        transform: scale(1.2); }
     .al-share li i.fa-facebook-square {
       color: #3b5998; }
     .al-share li i.fa-twitter-square {
@@ -282,8 +281,7 @@ a {
   transition: all 0.1s ease; }
 
 .btn:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2); }
+  transform: scale(1.2); }
 
 .open > .btn.dropdown-toggle.btn.btn-primary {
   background: #209e91;
@@ -326,8 +324,7 @@ button.btn.btn-primary {
     button.btn.btn-primary.disabled:hover, button.btn.btn-primary[disabled]:hover, fieldset[disabled] button.btn.btn-primary:hover, button.btn.btn-primary.disabled:hover:hover, button.btn.btn-primary[disabled]:hover:hover,
     fieldset[disabled] button.btn.btn-primary:hover:hover, button.btn.btn-primary.disabled:focus:hover, button.btn.btn-primary[disabled]:focus:hover, fieldset[disabled] button.btn.btn-primary:focus:hover, button.btn.btn-primary.disabled.focus:hover, button.btn.btn-primary[disabled].focus:hover, fieldset[disabled] button.btn.btn-primary.focus:hover, button.btn.btn-primary.disabled:active:hover, button.btn.btn-primary[disabled]:active:hover, fieldset[disabled] button.btn.btn-primary:active:hover, button.btn.btn-primary.disabled.active:hover, button.btn.btn-primary[disabled].active:hover,
     fieldset[disabled] button.btn.btn-primary.active:hover {
-      -webkit-transform: none;
-              transform: none; }
+      transform: none; }
   button.btn.btn-primary:hover, button.btn.btn-primary:focus, button.btn.btn-primary.focus, button.btn.btn-primary:active, button.btn.btn-primary.active {
     background: #209e91;
     border-color: #088679; }
@@ -347,8 +344,7 @@ button.btn.btn-default {
     button.btn.btn-default.disabled:hover, button.btn.btn-default[disabled]:hover, fieldset[disabled] button.btn.btn-default:hover, button.btn.btn-default.disabled:hover:hover, button.btn.btn-default[disabled]:hover:hover,
     fieldset[disabled] button.btn.btn-default:hover:hover, button.btn.btn-default.disabled:focus:hover, button.btn.btn-default[disabled]:focus:hover, fieldset[disabled] button.btn.btn-default:focus:hover, button.btn.btn-default.disabled.focus:hover, button.btn.btn-default[disabled].focus:hover, fieldset[disabled] button.btn.btn-default.focus:hover, button.btn.btn-default.disabled:active:hover, button.btn.btn-default[disabled]:active:hover, fieldset[disabled] button.btn.btn-default:active:hover, button.btn.btn-default.disabled.active:hover, button.btn.btn-default[disabled].active:hover,
     fieldset[disabled] button.btn.btn-default.active:hover {
-      -webkit-transform: none;
-              transform: none; }
+      transform: none; }
   button.btn.btn-default:hover, button.btn.btn-default:focus, button.btn.btn-default.focus, button.btn.btn-default:active, button.btn.btn-default.active {
     background: transparent;
     border-color: #bebebe; }
@@ -367,8 +363,7 @@ button.btn.btn-success {
     button.btn.btn-success.disabled:hover, button.btn.btn-success[disabled]:hover, fieldset[disabled] button.btn.btn-success:hover, button.btn.btn-success.disabled:hover:hover, button.btn.btn-success[disabled]:hover:hover,
     fieldset[disabled] button.btn.btn-success:hover:hover, button.btn.btn-success.disabled:focus:hover, button.btn.btn-success[disabled]:focus:hover, fieldset[disabled] button.btn.btn-success:focus:hover, button.btn.btn-success.disabled.focus:hover, button.btn.btn-success[disabled].focus:hover, fieldset[disabled] button.btn.btn-success.focus:hover, button.btn.btn-success.disabled:active:hover, button.btn.btn-success[disabled]:active:hover, fieldset[disabled] button.btn.btn-success:active:hover, button.btn.btn-success.disabled.active:hover, button.btn.btn-success[disabled].active:hover,
     fieldset[disabled] button.btn.btn-success.active:hover {
-      -webkit-transform: none;
-              transform: none; }
+      transform: none; }
   button.btn.btn-success:hover, button.btn.btn-success:focus, button.btn.btn-success.focus, button.btn.btn-success:active, button.btn.btn-success.active {
     background: #90b900;
     border-color: #78a100; }
@@ -386,8 +381,7 @@ button.btn.btn-info {
     button.btn.btn-info.disabled:hover, button.btn.btn-info[disabled]:hover, fieldset[disabled] button.btn.btn-info:hover, button.btn.btn-info.disabled:hover:hover, button.btn.btn-info[disabled]:hover:hover,
     fieldset[disabled] button.btn.btn-info:hover:hover, button.btn.btn-info.disabled:focus:hover, button.btn.btn-info[disabled]:focus:hover, fieldset[disabled] button.btn.btn-info:focus:hover, button.btn.btn-info.disabled.focus:hover, button.btn.btn-info[disabled].focus:hover, fieldset[disabled] button.btn.btn-info.focus:hover, button.btn.btn-info.disabled:active:hover, button.btn.btn-info[disabled]:active:hover, fieldset[disabled] button.btn.btn-info:active:hover, button.btn.btn-info.disabled.active:hover, button.btn.btn-info[disabled].active:hover,
     fieldset[disabled] button.btn.btn-info.active:hover {
-      -webkit-transform: none;
-              transform: none; }
+      transform: none; }
   button.btn.btn-info:hover, button.btn.btn-info:focus, button.btn.btn-info.focus, button.btn.btn-info:active, button.btn.btn-info.active {
     background: #2dacd1;
     border-color: #1594b9; }
@@ -405,8 +399,7 @@ button.btn.btn-warning {
     button.btn.btn-warning.disabled:hover, button.btn.btn-warning[disabled]:hover, fieldset[disabled] button.btn.btn-warning:hover, button.btn.btn-warning.disabled:hover:hover, button.btn.btn-warning[disabled]:hover:hover,
     fieldset[disabled] button.btn.btn-warning:hover:hover, button.btn.btn-warning.disabled:focus:hover, button.btn.btn-warning[disabled]:focus:hover, fieldset[disabled] button.btn.btn-warning:focus:hover, button.btn.btn-warning.disabled.focus:hover, button.btn.btn-warning[disabled].focus:hover, fieldset[disabled] button.btn.btn-warning.focus:hover, button.btn.btn-warning.disabled:active:hover, button.btn.btn-warning[disabled]:active:hover, fieldset[disabled] button.btn.btn-warning:active:hover, button.btn.btn-warning.disabled.active:hover, button.btn.btn-warning[disabled].active:hover,
     fieldset[disabled] button.btn.btn-warning.active:hover {
-      -webkit-transform: none;
-              transform: none; }
+      transform: none; }
   button.btn.btn-warning:hover, button.btn.btn-warning:focus, button.btn.btn-warning.focus, button.btn.btn-warning:active, button.btn.btn-warning.active {
     background: #dfb81c;
     border-color: #c7a004; }
@@ -424,8 +417,7 @@ button.btn.btn-danger {
     button.btn.btn-danger.disabled:hover, button.btn.btn-danger[disabled]:hover, fieldset[disabled] button.btn.btn-danger:hover, button.btn.btn-danger.disabled:hover:hover, button.btn.btn-danger[disabled]:hover:hover,
     fieldset[disabled] button.btn.btn-danger:hover:hover, button.btn.btn-danger.disabled:focus:hover, button.btn.btn-danger[disabled]:focus:hover, fieldset[disabled] button.btn.btn-danger:focus:hover, button.btn.btn-danger.disabled.focus:hover, button.btn.btn-danger[disabled].focus:hover, fieldset[disabled] button.btn.btn-danger.focus:hover, button.btn.btn-danger.disabled:active:hover, button.btn.btn-danger[disabled]:active:hover, fieldset[disabled] button.btn.btn-danger:active:hover, button.btn.btn-danger.disabled.active:hover, button.btn.btn-danger[disabled].active:hover,
     fieldset[disabled] button.btn.btn-danger.active:hover {
-      -webkit-transform: none;
-              transform: none; }
+      transform: none; }
   button.btn.btn-danger:hover, button.btn.btn-danger:focus, button.btn.btn-danger.focus, button.btn.btn-danger:active, button.btn.btn-danger.active {
     background: #e85656;
     border-color: #d03e3e; }
@@ -444,8 +436,7 @@ button.btn.btn-inverse {
     button.btn.btn-inverse.disabled:hover, button.btn.btn-inverse[disabled]:hover, fieldset[disabled] button.btn.btn-inverse:hover, button.btn.btn-inverse.disabled:hover:hover, button.btn.btn-inverse[disabled]:hover:hover,
     fieldset[disabled] button.btn.btn-inverse:hover:hover, button.btn.btn-inverse.disabled:focus:hover, button.btn.btn-inverse[disabled]:focus:hover, fieldset[disabled] button.btn.btn-inverse:focus:hover, button.btn.btn-inverse.disabled.focus:hover, button.btn.btn-inverse[disabled].focus:hover, fieldset[disabled] button.btn.btn-inverse.focus:hover, button.btn.btn-inverse.disabled:active:hover, button.btn.btn-inverse[disabled]:active:hover, fieldset[disabled] button.btn.btn-inverse:active:hover, button.btn.btn-inverse.disabled.active:hover, button.btn.btn-inverse[disabled].active:hover,
     fieldset[disabled] button.btn.btn-inverse.active:hover {
-      -webkit-transform: none;
-              transform: none; }
+      transform: none; }
   button.btn.btn-inverse:hover, button.btn.btn-inverse:focus, button.btn.btn-inverse.focus, button.btn.btn-inverse:active, button.btn.btn-inverse.active {
     background: #949494;
     border-color: #7c7c7c; }
@@ -457,8 +448,7 @@ button.btn.btn-inverse {
   margin-right: 10px; }
 
 .btn-group :hover, .btn-toolbar :hover {
-  -webkit-transform: none;
-          transform: none; }
+  transform: none; }
 
 .btn-group button.btn.btn-primary {
   border-color: #149285; }
@@ -499,16 +489,13 @@ button.progress-button .progress {
   border-radius: 0; }
 
 button.progress-button:hover {
-  -webkit-transform: none;
-          transform: none; }
+  transform: none; }
 
 button.progress-button.progress-button-style-shrink.btn.disabled.progress-button-dir-horizontal:hover {
-  -webkit-transform: scaleY(0.3);
-          transform: scaleY(0.3); }
+  transform: scaleY(0.3); }
 
 button.progress-button.progress-button-style-shrink.btn.disabled.progress-button-dir-vertical:hover {
-  -webkit-transform: scaleX(0.1);
-          transform: scaleX(0.1); }
+  transform: scaleX(0.1); }
 
 button.progress-button.btn.btn-primary {
   border-radius: 0; }
@@ -766,11 +753,8 @@ textarea.form-control {
       position: relative;
       width: 126px;
       cursor: pointer;
-      -webkit-transform: translate3d(-42px, 0, 0);
-              transform: translate3d(-42px, 0, 0);
-      transition: -webkit-transform .2s linear;
-      transition: transform .2s linear;
-      transition: transform .2s linear, -webkit-transform .2s linear; }
+      transform: translate3d(-42px, 0, 0);
+      transition: transform .2s linear; }
       .switcher-container .switcher .handle-container .handle {
         width: 42px;
         float: left;
@@ -785,8 +769,7 @@ textarea.form-control {
   .switcher-container input:checked + .switcher {
     border: solid 1px #d6d6d6; }
     .switcher-container input:checked + .switcher .handle-container {
-      -webkit-transform: translate3d(0, 0, 0);
-              transform: translate3d(0, 0, 0); }
+      transform: translate3d(0, 0, 0); }
 
 .switch-container {
   display: inline-block; }
@@ -1261,12 +1244,10 @@ body {
   opacity: 0.6; }
 
 .auth-main {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   height: 100%;
   width: 100%; }
 

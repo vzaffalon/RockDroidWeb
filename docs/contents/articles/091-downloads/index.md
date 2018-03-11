@@ -6,7 +6,7 @@ group: Other
 template: article.jade
 ---
 
-If you have problems installing node.js and/or other tools to build and run BlurAdmin on your machine and you just want to download html/js/css files, you can find links for download on this page.
+If you have problems installing node.js and/or other tools to build and run RockDroid on your machine and you just want to download html/js/css files, you can find links for download on this page.
 
 Development (non-compressed) files can be found in `{ARCHIVE_ROOT}/blur-admin-{VERSION}/dev-release` directory. Compressed files are in `{ARCHIVE_ROOT}/blur-admin-{VERSION}/release` directory.
 Then you can just open `index.html` to view your local version.
@@ -33,6 +33,6 @@ start chrome --user-data-dir="C:/Chrome dev session" --disable-web-security
 
 ## Links for downloads
 
-[BlurAdmin 1.3.1](/blur-admin/downloads/blur-admin-1.3.1.zip)
-[BlurAdmin 1.2.0](/blur-admin/downloads/blur-admin-1.2.0.zip)
+[RockDroid 1.3.1](/blur-admin/downloads/blur-admin-1.3.1.zip)
+[RockDroid 1.2.0](/blur-admin/downloads/blur-admin-1.2.0.zip)
 
