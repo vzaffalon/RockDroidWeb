@@ -1,7 +1,3 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
@@ -20,6 +16,24 @@
             icon: 'ion-grid',
             order: 300,
           },
+        })
+        .state('stages', {
+          url: '/stages',
+          controller: 'StagesCtrl',
+          templateUrl: 'app/my_pages/projects/stages/stages.html',
+          title: 'Etapas',
+        })
+        .state('outcrops', {
+          url: '/outcrops',
+          controller: 'OutcropsCtrl',
+          templateUrl: 'app/my_pages/projects/outcrops/outcrops.html',
+          title: 'Afloramentos',
+        })
+        .state('outcrop_info', {
+          url: '/outcrop_info',
+          controller: 'OutcropInfoCtrl',
+          templateUrl: 'app/my_pages/projects/outcropInfo/outcrop_info.html',
+          title: 'Informações do afloramento',
         })
   }
 

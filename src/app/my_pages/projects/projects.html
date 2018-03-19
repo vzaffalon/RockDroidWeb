@@ -1,38 +1,49 @@
 <div class="widgets">
 
   <div class="row">
-    <div class="col-lg-6 col-md-12">
-      <div ba-panel ba-panel-title="Hover Rows" ba-panel-class="with-scroll table-panel">
-        <div include-with-scope="app/pages/tables/widgets/hoverRows.html"></div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
-      <div ba-panel ba-panel-title="Bordered Table" ba-panel-class="with-scroll table-panel">
-        <div include-with-scope="app/pages/tables/widgets/borderedTable.html"></div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-md-12">
-      <div ba-panel ba-panel-title="Condensed Table" ba-panel-class="with-scroll table-panel">
-        <div include-with-scope="app/pages/tables/widgets/condensedTable.html"></div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
-      <div ba-panel ba-panel-title="Striped Rows" ba-panel-class="with-scroll table-panel">
-        <div include-with-scope="app/pages/tables/widgets/stripedRows.html"></div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-md-12">
-      <div ba-panel ba-panel-title="Contextual Table" ba-panel-class="with-scroll table-panel">
-        <div include-with-scope="app/pages/tables/widgets/contextualTable.html"></div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
-      <div ba-panel ba-panel-title="Responsive Table" ba-panel-class="with-scroll table-panel">
-        <div include-with-scope="app/pages/tables/widgets/responsiveTable.html"></div>
+    <div class="col-lg-12 col-md-12">
+      <div ba-panel>
+        <div class="horizontal-scroll">
+          <div class="add-row-editable-table" style="text-align: right">
+              <button class="btn btn-primary" ng-click="addUser()">Novo projeto</button>
+          </div>
+          <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+            <thead>
+               
+            <tr class="sortable ">
+              <th st-sort="firstName">Nome</th>
+              <th st-sort="lastName">Criado em</th>
+              <th st-sort="lastName">Ações</th>
+            </tr>
+            <!-- <tr>
+              <th></th>
+              <th><input st-search="firstName" placeholder="Buscar por Nome" class="input-sm form-control search-input"
+                         type="search"/></th>
+              <th><input st-search="lastName" placeholder="Buscar por data de criação" class="input-sm form-control search-input"
+                         type="search"/></th>
+            </tr> -->
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in smartTableData" style="cursor: pointer;" ng-click="goToStages();">
+              <td>{{item.name}}</td>
+              <td>{{item.created_at}}</td>
+              <td>
+                  <div class="buttons">
+                      <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
+                      <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
+                  </div>
+              </td>
+            </tr>
+            </tbody>
+            <tfoot >
+            <tr>
+              <td colspan="6" class="text-center" style="padding-bottom: 15px;">
+                <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
       </div>
     </div>
   </div>
