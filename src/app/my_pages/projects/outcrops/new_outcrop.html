@@ -1,0 +1,74 @@
+<div style="padding: 15px;">
+        <form>
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" class="form-control" id="input01" placeholder="Nome">
+                </div>
+                <div class="input-demo radio-demo row">
+                        <div class="col-md-4">
+                          <label class="radio-inline custom-radio nowrap">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <span>Geográfica (WGS-84)</span>
+                          </label>
+                        </div>
+                        <div class="col-md-4">
+                          <label class="radio-inline custom-radio nowrap">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <span>UTM</span>
+                          </label>
+                        </div>
+                </div>
+
+                <div ng-show="true">
+                    <div class="form-group">
+                            <label for="name">Latitude</label>
+                            <input type="number" class="form-control" id="input02" placeholder="Latitude">
+                    </div>
+
+                    <div class="form-group">
+                            <label for="name">Longitude</label>
+                            <input type="number" class="form-control" id="input02" placeholder="Longitude">
+                    </div>
+                </div>
+
+                <div ng-show="true">
+                        <div class="form-group col-sm-6" style="padding-right: 0px; padding-left: 0px;">
+                                <label for="name">Zona longitudinal</label>
+                                <input type="number" class="form-control" id="input02" placeholder="Zona longitudinal">
+                        </div>
+
+                        <div class="form-group col-sm-6" style="padding-right: 0px; padding-left: 0px; margin-left: 10px;">
+                            <select class="form-control selectpicker" style="display: block !important;" title="Zona latitudinal" ng-model="selectedZone" selectpicker>
+                                    <option>N</option>
+                                    <option>S</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="name">Easting</label>
+                                <input type="number" class="form-control" id="input02" placeholder="Easting">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="name">Northing</label>
+                                <input type="number" class="form-control" id="input02" placeholder="Northing">
+                        </div>
+                </div>
+
+                <div class="form-group">
+                        <label for="name">Altitude</label>
+                        <input type="number" class="form-control" id="input02" placeholder="Altitude">
+                </div>
+                <div class="form-group">
+                        <label for="name">Toponímia</label>
+                        <input type="text" class="form-control" id="input03" placeholder="Toponímia">
+                </div>
+                <div class="form-group">
+                        <label for="name">Descrição</label>
+                        <input type="text" class="form-control" id="input04" placeholder="Descrição">
+                </div>
+                <div style="text-align: right;">
+                    <button type="submit" class="btn btn-primary" ng-click="closeModal()">Confirmar</button>
+                </div>
+        </form>
+</div>

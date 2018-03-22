@@ -6,14 +6,28 @@
         .controller('OutcropsCtrl', OutcropsCtrl);
   
     /** @ngInject */
-    function OutcropsCtrl($scope, $filter, editableOptions, editableThemes,$state) {
+    function OutcropsCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal) {
   
-      $scope.smartTablePageSize = 5;
+      $scope.smartTablePageSize = 10;
 
 
       $scope.goToOutcropInfo = function(){
         $state.go('outcrop_info');
       }
+
+      $scope.newOutcrop = function () {
+        $uibModal.open({
+          animation: true,
+          templateUrl: 'app/my_pages/projects/outcrops/new_outcrop.html',
+          controller: 'NewOutcropCtrl',
+          size: 'md',
+          resolve: {
+            items: function () {
+              return $scope.items;
+            }
+          }
+        });
+      };
 
 
       $scope.smartTableData = [

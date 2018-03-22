@@ -1,0 +1,56 @@
+<div style="padding: 15px;">
+        <form>
+                <div class="form-group">
+                    <label for="name">Tipo:</label>
+                    <div class="input-demo radio-demo row">
+                            <div class="col-md-4">
+                            <label class="radio-inline custom-radio nowrap">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <span>Primária</span>
+                            </label>
+                            </div>
+                            <div class="col-md-4">
+                            <label class="radio-inline custom-radio nowrap">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <span>Secundária</span>
+                            </label>
+                            </div>
+                    </div>
+                </div>
+
+
+                <div ng-show="true">
+                    <div class="form-group">
+                            <label for="name">Descrição</label>
+                            <input type="text" class="form-control" id="input01" placeholder="Descrição">
+                    </div>
+                </div>
+
+                <div ng-show="true">
+                        <div class="form-group">
+                                <label for="name">Tipo de plano</label>
+                                <input type="text" class="form-control" id="input01" placeholder="Tipo de plano">
+                        </div>
+                        <div class="form-group">
+                                <label for="name">Fase</label>
+                                <input type="text" class="form-control" id="input01" placeholder="Fase">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="name">Mergulho</label>
+                                <input type="number" class="form-control" id="input01" placeholder="Mergulho">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="name">Direção do mergulho</label>
+                                <input type="text" class="form-control" id="input01" placeholder="Direção do mergulho">
+                        </div>
+                </div>
+
+                
+
+                <div style="text-align: right;">
+                    <button type="submit" class="btn btn-primary" ng-click="closeModal()">Confirmar</button>
+                </div>
+        </form>
+</div>

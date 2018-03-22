@@ -6,13 +6,27 @@
         .controller('StagesCtrl', StagesCtrl);
   
     /** @ngInject */
-    function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state) {
+    function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal) {
   
-      $scope.smartTablePageSize = 5;
+      $scope.smartTablePageSize = 10;
 
       $scope.goToOutcrops = function () {
         $state.go('outcrops');
       }
+
+      $scope.newStage = function () {
+        $uibModal.open({
+          animation: true,
+          templateUrl: 'app/my_pages/projects/stages/new_stage.html',
+          controller: 'NewStageCtrl',
+          size: 'md',
+          resolve: {
+            items: function () {
+              return $scope.items;
+            }
+          }
+        });
+      };
 
       $scope.smartTableData = [
         {

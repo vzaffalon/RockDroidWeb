@@ -6,9 +6,9 @@
       .controller('ProjectsCtrl', ProjectsCtrl);
 
   /** @ngInject */
-  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project) {
+  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project,$uibModal) {
 
-    $scope.smartTablePageSize = 5;
+    $scope.smartTablePageSize = 10;
 
     $scope.goToStages = function () {
       $state.go('stages');
@@ -17,6 +17,20 @@
     Project.listProjects().then(function (response) {
       debugger;
     })
+
+    $scope.newProject = function () {
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'app/my_pages/projects/new_project.html',
+        controller: 'NewProjectCtrl',
+        size: 'md',
+        resolve: {
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+    };
 
     $scope.smartTableData = [
       {

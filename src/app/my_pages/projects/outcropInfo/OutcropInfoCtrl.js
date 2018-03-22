@@ -11,6 +11,7 @@
         var vm = this;
         vm.navigationCollapsed = true;
 
+        $state.go('outcrop_info.rocks');
         $scope.selectTab = function (tab) {
             $state.go('outcrop_info.' + tab);
         }

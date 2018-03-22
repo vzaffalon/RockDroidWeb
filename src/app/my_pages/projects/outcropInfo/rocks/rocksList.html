@@ -1,63 +1,52 @@
 <div class="side-message-navigation" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
-  <div class="mail-messages-control side-message-navigation-item">
-    <div class="toggle-navigation-container">
-      <a href class="collapse-navigation-link ion-navicon"
-         ng-click="tabCtrl.navigationCollapsed=!tabCtrl.navigationCollapsed"></a>
-    </div>
-    <label class="checkbox-inline custom-checkbox nowrap">
-      <input type="checkbox" id="inlineCheckbox01" value="option1">
-      <span class="select-all-label">Select All</span>
-    </label>
-    <button type="button" class="btn  btn-icon refresh-button"><i class="ion-refresh"></i></button>
-    <div class="btn-group" uib-dropdown>
-      <button type="button" class="btn more-button" uib-dropdown-toggle>
-        More <span class="caret"></span>
+  <div class="mail-messages-control side-message-navigation-item" style="text-align: right;">
+      <button type="button" class="btn btn-primary compose-button" ng-click="newRock();">
+          Nova rocha
       </button>
-      <ul uib-dropdown-menu>
-        <li><a href>Action</a></li>
-        <li><a href>Another action</a></li>
-        <li><a href>Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href>Separated link</a></li>
-      </ul>
-    </div>
   </div>
   <div class="messages">
-    <table>
-      <tr ng-repeat="m in listCtrl.rocks"
-          class="side-message-navigation-item little-human shineHover {{m.tag}}">
-        <td class="check-td">
-          <div class="mail-checkbox">
-            <label class="checkbox-inline custom-checkbox nowrap">
-              <input type="checkbox">
-              <span></span>
-            </label>
-          </div>
-        </td>
-        <td>
-          <div class="name-container">
-            <div><span class="name">Nome</span></div>
-          </div>
-        </td>
-        <td>
-          <div class="additional-info">
-            <span class="subject">Tipo de Rocha</span>
-          </div>
-        </td>
-        <td>
-            <div class="additional-info">
-              <span class="subject">Textura</span>
-            </div>
-        </td>
-        <td>
-              <div class="additional-info">
-                <span class="subject">Mineralogia</span>
+    <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+        <thead>
+           
+        <tr class="sortable ">
+          <th st-sort="firstName">Nome</th>
+          <th st-sort="lastName">Tipo de rocha</th>
+          <th st-sort="lastName">Textura</th>
+          <th st-sort="lastName">Mineralogia</th>
+          <th st-sort="lastName">Criado em</th>
+          <th st-sort="lastName">Ações</th>
+        </tr>
+        <!-- <tr>
+          <th></th>
+          <th><input st-search="firstName" placeholder="Buscar por Nome" class="input-sm form-control search-input"
+                     type="search"/></th>
+          <th><input st-search="lastName" placeholder="Buscar por data de criação" class="input-sm form-control search-input"
+                     type="search"/></th>
+        </tr> -->
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in listCtrl.rocks"
+        class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;" ng-click="goToStages();">
+          <td>{{item.name}}</td>
+          <td>{{item.rock_type}}</td>
+          <td>{{item.texture}}</td>
+          <td>{{item.mineralogy}}</td>
+          <td>{{item.created_at}}</td>
+          <td>
+              <div class="buttons">
+                  <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
+                  <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
               </div>
-        </td>
-        <td class="date">
-          <span>{{m.date | date : 'MMM d HH:mm'}}</span>
-        </td>
-      </tr>
-    </table>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot >
+        <tr>
+          <td colspan="6" class="text-center" style="padding-bottom: 15px;">
+            <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
   </div>
 </div>

@@ -1,0 +1,34 @@
+<div style="padding: 15px;">
+        <form>
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" class="form-control" id="input01" placeholder="Nome">
+                </div>
+                <div class="form-group">
+                        <label for="name">Município</label>
+                        <input type="text" class="form-control" id="input02" placeholder="Município">
+                </div>
+                <div class="form-group">
+                        <select class="form-control selectpicker" style="display: block !important;" title="Distrito" ng-model="selectedDistrict" selectpicker>
+                                <option ng-repeat="district in districts">{{district}}</option>
+                        </select>
+
+                </div>   
+                <div class="form-group">
+                        <!-- <div class="col-xlg-6 col-md-12 col-sm-6" ng-controller="datepickerpopupCtrl"> -->
+                                <label>Data de início: <em>{{dt | date:'fullDate' }}</em></label>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" ng-model="dt" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                                </p>
+                            <!-- <label>Format: <span class="muted-text">(manual alternate <em>{{altInputFormats[0]}}</em>)</span></label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select> -->
+                            <!-- </div> -->
+                </div>
+                
+                <div style="text-align: right;">
+                    <button type="submit" class="btn btn-primary" ng-click="closeModal()">Confirmar</button>
+                </div>
+        </form>
+</div>
