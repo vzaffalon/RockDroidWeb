@@ -11,6 +11,11 @@
       $scope.smartTablePageSize = 5;
 
 
+      $scope.goToOutcropInfo = function(){
+        $state.go('outcrop_info');
+      }
+
+
       $scope.smartTableData = [
         {
           id: 1,

@@ -1,0 +1,52 @@
+<div class="row mail-client-container transparent">
+  <div class="col-md-12">
+    <div ba-panel ba-panel-class="mail-panel" style="height: 200px">
+      <div class="letter-layout" style="height: 200px">
+        <div style="padding: 15px 15px 10px">
+          <div style="padding: 15px;">
+            <div style="font-weight: 300; margin-bottom: 0; font-size: 24px;">Nome: afloramento 1</div>
+          </div>
+          <div class="line"></div>
+          <div style="padding: 15px;">
+            <div class="col-lg-4" style="font-size: 18px; font-weight: 100;">
+              <div>Coordenadas geográficas:</div>
+              <div>Latitude: 15.80091 S</div>
+              <div>Longitude: 47.92337</div>
+            </div>
+            <div class="col-lg-4" style="font-size: 18px; font-weight: 100;">
+              <div>Coordenadas UTM:</div>
+              <div>Zona longitudinal: S</div>
+              <div>Esting: 21474.83647m</div>
+              <div>Northing: 21474.83647m</div>
+            </div>
+            <div class="col-lg-4" style="font-size: 18px; font-weight: 100;">
+              <div>Altitude: 0.0m</div>
+              <div>Toponímia: alta</div>
+              <div>Descrição: pedra azul</div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mail-client-container transparent" style="margin-top: 25px;">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-class="xmedium-panel mail-panel">
+        <div class="letter-layout">
+          <div class="mail-navigation-container" ng-class="{'expanded' : !tabCtrl.navigationCollapsed}">
+            <div class="text-center">
+              <button type="button" class="btn btn-default compose-button" ng-click="tabCtrl.showCompose('','','')">
+                Adicionar nova
+              </button>
+            </div>
+            <div ng-repeat="t in tabCtrl.tabs" ui-sref-active="active" class="mail-navigation"
+                 ng-click="selectTab(t.label)">
+              {{t.name}}<span class="new-mails" ng-show="t.newMails">{{t.newMails}}</span>
+            </div>
+          </div>
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -6,13 +6,17 @@
       .controller('ProjectsCtrl', ProjectsCtrl);
 
   /** @ngInject */
-  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state) {
+  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project) {
 
     $scope.smartTablePageSize = 5;
 
     $scope.goToStages = function () {
       $state.go('stages');
     }
+
+    Project.listProjects().then(function (response) {
+      debugger;
+    })
 
     $scope.smartTableData = [
       {
