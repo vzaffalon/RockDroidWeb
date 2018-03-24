@@ -24,13 +24,13 @@
             </tr> -->
             </thead>
             <tbody>
-            <tr ng-repeat="item in smartTableData" style="cursor: pointer;" ng-click="goToStages();">
-              <td>{{item.name}}</td>
-              <td>{{item.created_at}}</td>
+            <tr ng-repeat="project in projects" style="cursor: pointer;">
+              <td ng-click="goToStages();">{{project.name}}</td>
+              <td ng-click="goToStages();">{{project.created_at | date : 'd/M/yyyy'}}</td>
               <td>
                   <div class="buttons">
                       <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
-                      <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
+                      <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteProject(project.uuid)">Excluir</button>
                   </div>
               </td>
             </tr>

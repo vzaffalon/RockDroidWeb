@@ -3,16 +3,14 @@
     moment.locale('pt-br');
   
     angular.module('RockDroid.pages.projects')
-        .controller('NewProjectCtrl', NewProjectCtrl);
+        .controller('DeleteProjectCtrl', DeleteProjectCtrl);
   
     /** @ngInject */
-    function NewProjectCtrl($scope, $filter,$uibModalInstance,userId) {
-        
-        $scope.project = {};
-        $scope.project.user_id = userId;
+    function DeleteProjectCtrl($scope, $filter,$uibModalInstance,projectId,Project) {
 
-        $scope.newproject = function () {
-            Project.newProject($scope.project).then(function (response) {
+        $scope.deleteProject = function () {
+            debugger;
+            Project.deleteProject(projectId).then(function (response) {
                 debugger;
                 $uibModalInstance.close();
             })

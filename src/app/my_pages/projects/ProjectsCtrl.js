@@ -10,65 +10,58 @@
 
     $scope.smartTablePageSize = 10;
 
+    $scope.projects = [];
+
     $scope.goToStages = function () {
       $state.go('stages');
     }
 
-    Project.listProjects().then(function (response) {
-      debugger;
-    })
+    var getProjects = function () {
+      Project.listProjects().then(function (response) {
+        $scope.projects = response.data;
+      }) 
+    }
+
+    getProjects();
 
     $scope.newProject = function () {
-      $uibModal.open({
+      var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'app/my_pages/projects/new_project.html',
         controller: 'NewProjectCtrl',
         size: 'md',
         resolve: {
-          items: function () {
-            return $scope.items;
+          userId: function () {
+            return '7c41df28098935a81504727064243022e6dca-e3d9-44ee-bca8-36ee74f4278f';
           }
         }
       });
+      modalInstance.result.then(function (selectedItem) {
+       
+      }, function () {
+        
+      });
     };
 
-    $scope.smartTableData = [
-      {
-        id: 1,
-        name: 'Projeto A',
-        created_at: moment().locale('pt-br').format('LL'),
-      },
-      {
-        id: 2,
-        name: 'Projeto B',
-        created_at: moment().format('LL'),
-      },
-      {
-        id: 3,
-        name: 'Projeto C',
-        created_at: moment().format('LL'),
-      },
-      {
-        id: 4,
-        name: 'Projeto D',
-        created_at: moment().format('LL'),
-      },
-      {
-        id: 5,
-        name: 'Projeto E',
-        created_at: moment().format('LL'),
-      },
-      {
-        id: 6,
-        name: 'Projeto F',
-        created_at: moment().format('LL'),
-      },
-      {
-        id: 7,
-        name: 'Projeto G',
-        created_at: moment().format('LL'),
-      },
-    ];
+    $scope.deleteProject = function (id) {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'app/my_pages/projects/delete_project.html',
+        controller: 'DeleteProjectCtrl',
+        size: 'md',
+        resolve: {
+          projectId: function () {
+            return id;
+          }
+        }
+      });
+
+      modalInstance.result.then(function () {
+        getProjects();
+      }, function () {
+      });
+
+    };
 }
 
 })();

@@ -37,10 +37,13 @@ angular.module('RockDroid.pages').factory('Project', function ($http, $q, ApiEnd
         });
     };
 
-    ProjectModel.deleteProject = function (id) {
+    ProjectModel.deleteProject = function (uuid) {
         return $http({
-            url: baseUrl + id,
-            method: "DELETE"
+            url: baseUrl,
+            method: "DELETE",
+            params: {
+                uuid: uuid,
+            }
         });
     };
 
