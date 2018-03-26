@@ -29,9 +29,9 @@ angular.module('RockDroid.pages').factory('Project', function ($http, $q, ApiEnd
         });
     };
 
-    ProjectModel.updateProject = function (id, data) {
+    ProjectModel.updateProject = function (data) {
         return $http({
-            url: baseUrl,
+            url: baseUrl + data.uuid,
             method: "PATCH",
             data: data
         });

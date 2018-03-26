@@ -29,18 +29,21 @@ angular.module('RockDroid.pages').factory('Outcrop', function ($http, $q, ApiEnd
         });
     };
 
-    OutcropModel.updateOutcrop = function (id, data) {
+    OutcropModel.updateOutcrop = function (data) {
         return $http({
-            url: baseUrl,
+            url: baseUrl + data.uuid,
             method: "PATCH",
             data: data
         });
     };
 
-    OutcropModel.deleteOutcrop = function (id) {
+    OutcropModel.deleteOutcrop = function (uuid) {
         return $http({
-            url: baseUrl + id,
-            method: "DELETE"
+            url: baseUrl,
+            method: "DELETE",
+            params: {
+                uuid: uuid,
+            }
         });
     };
 

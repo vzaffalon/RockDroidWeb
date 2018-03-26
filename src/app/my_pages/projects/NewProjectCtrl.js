@@ -6,14 +6,13 @@
         .controller('NewProjectCtrl', NewProjectCtrl);
   
     /** @ngInject */
-    function NewProjectCtrl($scope, $filter,$uibModalInstance,userId) {
+    function NewProjectCtrl($scope, $filter,$uibModalInstance,userId,Project) {
         
         $scope.project = {};
         $scope.project.user_id = userId;
 
-        $scope.newproject = function () {
-            Project.newProject($scope.project).then(function (response) {
-                debugger;
+        $scope.newProject = function () {
+            Project.createProject($scope.project).then(function (response) {
                 $uibModalInstance.close();
             })
         }

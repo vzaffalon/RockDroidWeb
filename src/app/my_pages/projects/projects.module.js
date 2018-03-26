@@ -18,7 +18,7 @@
           },
         })
         .state('stages', {
-          url: '/stages',
+          url: '/project/:projectId/stages',
           controller: 'StagesCtrl',
           templateUrl: 'app/my_pages/projects/stages/stages.html',
           title: 'Etapas',

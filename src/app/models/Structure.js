@@ -29,18 +29,21 @@ angular.module('RockDroid.pages').factory('Structure', function ($http, $q, ApiE
         });
     };
 
-    StructureModel.updateStructure = function (id, data) {
+    StructureModel.updateStructure = function (data) {
         return $http({
-            url: baseUrl,
+            url: baseUrl + data.uuid,
             method: "PATCH",
             data: data
         });
     };
 
-    StructureModel.deleteStructure = function (id) {
+    StructureModel.deleteStructure = function (uuid) {
         return $http({
-            url: baseUrl + id,
-            method: "DELETE"
+            url: baseUrl,
+            method: "DELETE",
+            params: {
+                uuid: uuid,
+            }
         });
     };
 

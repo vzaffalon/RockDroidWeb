@@ -6,7 +6,7 @@
         .controller('StagesCtrl', StagesCtrl);
   
     /** @ngInject */
-    function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal) {
+    function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Stage,$stateParams) {
   
       $scope.smartTablePageSize = 10;
 
@@ -14,71 +14,75 @@
         $state.go('outcrops');
       }
 
+      $scope.stages = [];
+  
+      var getStages = function () {
+        Stage.listStages().then(function (response) {
+          debugger;
+          $scope.stages = response.data;
+        }) 
+      }
+
+      getStages();
+
       $scope.newStage = function () {
-        $uibModal.open({
+        var modalInstance = $uibModal.open({
           animation: true,
           templateUrl: 'app/my_pages/projects/stages/new_stage.html',
           controller: 'NewStageCtrl',
           size: 'md',
           resolve: {
-            items: function () {
-              return $scope.items;
+            projectId: function () {
+              return $stateParams.projectId;
             }
           }
         });
+
+      modalInstance.result.then(function (selectedItem) {
+          getStages();
+      }, function () {
+        
+      });
       };
 
-      $scope.smartTableData = [
-        {
-          id: 1,
-          name: 'Etapa A',
-          city: 'Brasília',
-          uf: 'DF',
-          initial_date: moment().locale('pt-br').format('LL'),
-          created_at: moment().locale('pt-br').format('LL'),
-        },
-        {
-            id:2,
-            name: 'Etapa B',
-            city: 'Brasília',
-            uf: 'DF',
-            initial_date: moment().locale('pt-br').format('LL'),
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-          {
-            id: 3,
-            name: 'Etapa C',
-            city: 'Brasília',
-            uf: 'DF',
-            initial_date: moment().locale('pt-br').format('LL'),
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-          {
-            id: 1,
-            name: 'Etapa D',
-            city: 'Brasília',
-            uf: 'DF',
-            initial_date: moment().locale('pt-br').format('LL'),
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-          {
-            id: 1,
-            name: 'Etapa E',
-            city: 'Brasília',
-            uf: 'DF',
-            initial_date: moment().locale('pt-br').format('LL'),
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-          {
-            id: 1,
-            name: 'Etapa F',
-            city: 'Brasília',
-            uf: 'DF',
-            initial_date: moment().locale('pt-br').format('LL'),
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-      ];
+      $scope.editStage = function (stage) {
+        var modalInstance = $uibModal.open({
+          animation: true,
+          templateUrl: 'app/my_pages/projects/stages/edit_stage.html',
+          controller: 'EditStageCtrl',
+          size: 'md',
+          resolve: {
+            stageObject: function () {
+              return angular.copy(stage);
+            }
+          }
+        });
+        modalInstance.result.then(function () {
+            getStages();
+        }, function () {
+          
+        });
+      };
+  
+      $scope.deleteStage = function (id) {
+        var modalInstance = $uibModal.open({
+          animation: true,
+          templateUrl: 'app/my_pages/projects/stages/delete_stage.html',
+          controller: 'DeleteStageCtrl',
+          size: 'md',
+          resolve: {
+            stageId: function () {
+              return id;
+            }
+          }
+        });
+  
+        modalInstance.result.then(function () {
+          getStages();
+        }, function () {
+        });
   }
+}
   
   })();
   

@@ -29,18 +29,21 @@ angular.module('RockDroid.pages').factory('Stage', function ($http, $q, ApiEndpo
         });
     };
 
-    StageModel.updateStage = function (id, data) {
+    StageModel.updateStage = function (data) {
         return $http({
-            url: baseUrl,
+            url: baseUrl + data.uuid,
             method: "PATCH",
             data: data
         });
     };
 
-    StageModel.deleteStage = function (id) {
+    StageModel.deleteStage = function (uuid) {
         return $http({
-            url: baseUrl + id,
-            method: "DELETE"
+            url: baseUrl,
+            method: "DELETE",
+            params: {
+                uuid: uuid,
+            }
         });
     };
 

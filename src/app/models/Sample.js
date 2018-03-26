@@ -29,18 +29,21 @@ angular.module('RockDroid.pages').factory('Sample', function ($http, $q, ApiEndp
         });
     };
 
-    SampleModel.updateSample = function (id, data) {
+    SampleModel.updateSample = function (data) {
         return $http({
-            url: baseUrl,
+            url: baseUrl + data.uuid,
             method: "PATCH",
             data: data
         });
     };
 
-    SampleModel.deleteSample = function (id) {
+    SampleModel.deleteSample = function (uuid) {
         return $http({
-            url: baseUrl + id,
-            method: "DELETE"
+            url: baseUrl,
+            method: "DELETE",
+            params: {
+                uuid: uuid,
+            }
         });
     };
 

@@ -29,18 +29,21 @@ angular.module('RockDroid.pages').factory('Rock', function ($http, $q, ApiEndpoi
         });
     };
 
-    RockModel.updateRock = function (id, data) {
+    RockModel.updateRock = function (data) {
         return $http({
-            url: baseUrl,
+            url: baseUrl + data.uuid,
             method: "PATCH",
             data: data
         });
     };
 
-    RockModel.deleteRock = function (id) {
+    RockModel.deleteRock = function (uuid) {
         return $http({
             url: baseUrl + id,
-            method: "DELETE"
+            method: "DELETE",
+            params: {
+                uuid: uuid,
+            }
         });
     };
 

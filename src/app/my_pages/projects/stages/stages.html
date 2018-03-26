@@ -27,16 +27,16 @@
                   </tr> -->
                   </thead>
                   <tbody>
-                  <tr ng-repeat="item in smartTableData" style="cursor: pointer;" ng-click="goToOutcrops();">
-                    <td>{{item.name}}</td>
-                    <td>{{item.city}}</td>
-                    <td>{{item.uf}}</td>
-                    <td>{{item.initial_date}}</td>
-                    <td>{{item.created_at}}</td>
+                  <tr ng-repeat="stage in stages" style="cursor: pointer;">
+                    <td ng-click="goToOutcrops();">{{stage.name}}</td>
+                    <td ng-click="goToOutcrops();">{{stage.city}}</td>
+                    <td ng-click="goToOutcrops();">{{stage.uf}}</td>
+                    <td ng-click="goToOutcrops();">{{stage.initial_date}}</td>
+                    <td ng-click="goToOutcrops();">{{stage.created_at}}</td>
                     <td>
                         <div class="buttons">
-                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
-                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
+                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="editStage(stage)">Editar</button>
+                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteStage(stage.uuid)">Excluir</button>
                         </div>
                     </td>
                   </tr>

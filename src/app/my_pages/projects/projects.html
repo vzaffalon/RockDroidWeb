@@ -25,11 +25,11 @@
             </thead>
             <tbody>
             <tr ng-repeat="project in projects" style="cursor: pointer;">
-              <td ng-click="goToStages();">{{project.name}}</td>
-              <td ng-click="goToStages();">{{project.created_at | date : 'd/M/yyyy'}}</td>
+              <td ng-click="goToStages(project);">{{project.name}}</td>
+              <td ng-click="goToStages(project);">{{project.created_at | date : 'd/M/yyyy'}}</td>
               <td>
                   <div class="buttons">
-                      <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
+                      <button class="btn btn-primary editable-table-button btn-xs" ng-click="editProject(project)">Editar</button>
                       <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteProject(project.uuid)">Excluir</button>
                   </div>
               </td>

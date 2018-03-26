@@ -3,21 +3,16 @@
     moment.locale('pt-br');
   
     angular.module('RockDroid.pages.projects')
-        .controller('NewStageCtrl', NewStageCtrl);
+        .controller('EditStageCtrl', EditStageCtrl);
   
     /** @ngInject */
-    function NewStageCtrl($scope, $filter,$uibModalInstance,projectId,Stage) {
-
-        $scope.selectedDistrict = 'DF';
-
+    function EditStageCtrl($scope, $filter,$uibModalInstance,Stage,stageObject) {
         $scope.districts = ['DF','EU','BA','BE','BI','BU'];
 
-        $scope.stage = {};
-        $scope.initialDate = moment();
-        $scope.stage.project_id = projectId;
+        $scope.stage = stageObject;
 
-        $scope.newStage = function () {
-            Stage.createStage($scope.stage).then(function (response) {
+        $scope.editStage = function () {
+            Stage.updateStage($scope.stage).then(function (response) {
                 debugger;
                 $uibModalInstance.close();
             })

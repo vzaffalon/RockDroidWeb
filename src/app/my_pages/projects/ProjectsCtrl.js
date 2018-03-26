@@ -12,8 +12,8 @@
 
     $scope.projects = [];
 
-    $scope.goToStages = function () {
-      $state.go('stages');
+    $scope.goToStages = function (project) {
+      $state.go('stages',{projectId: project.uuid});
     }
 
     var getProjects = function () {
@@ -37,7 +37,27 @@
         }
       });
       modalInstance.result.then(function (selectedItem) {
-       
+          getProjects();
+      }, function () {
+        
+      });
+    };
+
+
+    $scope.editProject = function (project) {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'app/my_pages/projects/edit_project.html',
+        controller: 'EditProjectCtrl',
+        size: 'md',
+        resolve: {
+          projectObject: function () {
+            return angular.copy(project);
+          }
+        }
+      });
+      modalInstance.result.then(function (selectedItem) {
+          getProjects();
       }, function () {
         
       });
