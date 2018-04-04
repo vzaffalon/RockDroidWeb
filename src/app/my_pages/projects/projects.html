@@ -7,7 +7,7 @@
           <div class="add-row-editable-table" style="text-align: right">
               <button class="btn btn-primary" ng-click="newProject()">Novo projeto</button>
           </div>
-          <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+          <table class="table table-bordered table-hover table-condensed"  st-table="projects"  st-safe-src="projects1">
             <thead>
                
             <tr class="sortable ">
@@ -37,7 +37,7 @@
             </tbody>
             <tfoot >
             <tr>
-              <td colspan="10" class="text-center" style="padding-bottom: 15px;">
+              <td colspan="6" class="text-center" style="padding-bottom: 15px;">
                 <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
               </td>
             </tr>

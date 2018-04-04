@@ -1,3 +1,4 @@
+<div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Nova estrutura</span></div>
 <div style="padding: 15px;">
         <form>
                 <div class="form-group">
@@ -5,13 +6,13 @@
                     <div class="input-demo radio-demo row">
                             <div class="col-md-4">
                             <label class="radio-inline custom-radio nowrap">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input type="radio" ng-model="structure.structure_type" name="inlineRadioOptions" id="inlineRadio1" value="primary">
                                 <span>Primária</span>
                             </label>
                             </div>
                             <div class="col-md-4">
                             <label class="radio-inline custom-radio nowrap">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <input type="radio" ng-model="structure.structure_type" name="inlineRadioOptions" id="inlineRadio2" value="secondary">
                                 <span>Secundária</span>
                             </label>
                             </div>
@@ -21,36 +22,37 @@
 
                 <div ng-show="true">
                     <div class="form-group">
-                            <label for="name">Descrição</label>
-                            <input type="text" class="form-control" id="input01" placeholder="Descrição">
+                            <label for="description">Descrição</label>
+                            <input ng-model="structure.description" type="text" class="form-control" id="description" placeholder="Descrição">
                     </div>
                 </div>
 
                 <div ng-show="true">
                         <div class="form-group">
                                 <label for="name">Tipo de plano</label>
-                                <input type="text" class="form-control" id="input01" placeholder="Tipo de plano">
+                                <input type="structure.name" class="form-control" id="name" placeholder="Tipo de plano">
                         </div>
                         <div class="form-group">
-                                <label for="name">Fase</label>
-                                <input type="text" class="form-control" id="input01" placeholder="Fase">
-                        </div>
-
-                        <div class="form-group">
-                                <label for="name">Mergulho</label>
-                                <input type="number" class="form-control" id="input01" placeholder="Mergulho">
+                                <label for="phase">Fase</label>
+                                <input type="structure.phase" class="form-control" id="phase" placeholder="Fase">
                         </div>
 
                         <div class="form-group">
-                                <label for="name">Direção do mergulho</label>
-                                <input type="text" class="form-control" id="input01" placeholder="Direção do mergulho">
+                                <label for="dip">Mergulho</label>
+                                <input type="structure.dip" class="form-control" id="dip" placeholder="Mergulho">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="dip_direction">Direção do mergulho</label>
+                                <input ng-model="structure.dip_direction" type="text" class="form-control" id="dip_direction" placeholder="Direção do mergulho">
                         </div>
                 </div>
 
                 
 
                 <div style="text-align: right;">
-                    <button type="submit" class="btn btn-primary" ng-click="closeModal()">Confirmar</button>
+                        <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                        <button type="submit" class="btn btn-danger" ng-click="newStructure()">Confirmar</button>
                 </div>
         </form>
 </div>

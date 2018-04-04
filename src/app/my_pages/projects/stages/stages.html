@@ -7,7 +7,7 @@
                 <div class="add-row-editable-table" style="text-align: right">
                     <button class="btn btn-primary" ng-click="newStage()">Nova etapa</button>
                 </div>
-                <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+                <table class="table table-bordered table-hover table-condensed" st-table="stages" st-safe-src="stages1">
                   <thead>
                      
                   <tr class="sortable ">
@@ -28,11 +28,11 @@
                   </thead>
                   <tbody>
                   <tr ng-repeat="stage in stages" style="cursor: pointer;">
-                    <td ng-click="goToOutcrops();">{{stage.name}}</td>
-                    <td ng-click="goToOutcrops();">{{stage.city}}</td>
-                    <td ng-click="goToOutcrops();">{{stage.uf}}</td>
-                    <td ng-click="goToOutcrops();">{{stage.initial_date}}</td>
-                    <td ng-click="goToOutcrops();">{{stage.created_at}}</td>
+                    <td ng-click="goToOutcrops(stage);">{{stage.name}}</td>
+                    <td ng-click="goToOutcrops(stage);">{{stage.city}}</td>
+                    <td ng-click="goToOutcrops(stage);">{{stage.uf}}</td>
+                    <td ng-click="goToOutcrops(stage);">{{stage.initial_date | date : 'd/M/yyyy'}}</td>
+                    <td ng-click="goToOutcrops(stage);">{{stage.created_at | date : 'd/M/yyyy'}}</td>
                     <td>
                         <div class="buttons">
                             <button class="btn btn-primary editable-table-button btn-xs" ng-click="editStage(stage)">Editar</button>

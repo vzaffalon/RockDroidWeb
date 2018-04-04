@@ -1,41 +1,72 @@
+<div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Nova rocha</span></div>
 <div style="padding: 15px;">
         <form>
                 <div class="form-group">
                   <label for="name">Nome</label>
-                  <input type="text" class="form-control" id="input01" placeholder="Nome">
+                  <input ng-model="rock.name" type="text" class="form-control" id="name" placeholder="Nome">
                 </div>
                 <div class="form-group">
                     <label for="name">Tipo de rocha:</label>
                     <div class="input-demo radio-demo row">
                             <div class="col-md-4">
-                            <label class="radio-inline custom-radio nowrap">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                <span>Sedimentar</span>
-                            </label>
+                                <label class="radio-inline custom-radio nowrap">
+                                        <input ng-model="rock_type" type="radio" name="inlineRadioOptions" id="sedimentar" value="sedimentar">
+                                        <span>Sedimentar</span>
+                                </label>
                             </div>
                             <div class="col-md-4">
-                            <label class="radio-inline custom-radio nowrap">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <span>Ígnea</span>
-                            </label>
+                                <label class="radio-inline custom-radio nowrap">
+                                        <input ng-model="rock_type" type="radio" name="inlineRadioOptions" id="ignea" value="ignea">
+                                        <span>Ígnea</span>
+                                </label>
                             </div>
                             <div class="col-md-4">
                                     <label class="radio-inline custom-radio nowrap">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <input ng-model="rock_type" type="radio" name="inlineRadioOptions" id="metamorfica" value="metamorfica">
                                     <span>Metamórfica</span>
                                     </label>
                             </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                        <label for="name">Textura</label>
-                        <input type="text" class="form-control" id="input03" placeholder="Textura">
+                <div ng-show="rock_type == 'ignea'" class="form-group">
+                        <label for="composition">Cor e composição</label>
+                        <input ng-model="rock.composition" type="text" class="form-control" id="color_and_composition" placeholder="Cor e composição">
                 </div>
 
-                <div class="form-group">
-                        <label for="name">Mineralogia</label>
-                        <input type="text" class="form-control" id="input04" placeholder="Mineralogia">
+                <div ng-show="rock_type == 'ignea' || rock_type == 'sedimentar'" class="form-group">
+                        <label for="texture">Textura</label>
+                        <input ng-model="rock.texture" type="text" class="form-control" id="texture" placeholder="Textura">
+                </div>
+
+                <div ng-show="rock_type == 'ignea'" class="form-group">
+                        <label for="size">Tamanho</label>
+                        <input ng-model="rock.size" type="text" class="form-control" id="size" placeholder="Tamanho">
+                </div>
+
+                <div ng-show="rock_type == 'ignea'" class="form-group">
+                        <label for="trama">Trama</label>
+                        <input ng-model="rock.trama" type="text" class="form-control" id="trama" placeholder="Trama">
+                </div>
+
+                <div ng-show="rock_type == 'ignea' || rock_type == 'sedimentar'" class="form-group">
+                        <label for="mineralogy">Mineralogia</label>
+                        <input ng-model="rock.mineralogy" type="text" class="form-control" id="mineralogy" placeholder="Mineralogia">
+                </div>
+
+                <div ng-show="rock_type == 'ignea'" class="form-group">
+                                <label for="nomenclature">Nomenclatura</label>
+                                <input ng-model="rock.nomenclature" type="text" class="form-control" id="nomenclature" placeholder="Nomenclature">
+                </div>
+
+                <div ng-show="rock_type == 'metamorfica'" class="form-group">
+                        <label for="degree">Grau metamórfico</label>
+                        <input ng-model="rock.degree" type="text" class="form-control" id="degree" placeholder="Grau metamórfico">
+                </div>
+
+                <div ng-show="rock_type == 'metamorfica'" class="form-group">
+                        <label for="composition">Composição</label>
+                        <input ng-model="rock.composition" type="text" class="form-control" id="composition" placeholder="Composição">
                 </div>
 
                 <div class="form-group">
@@ -47,7 +78,8 @@
                 </div>
 
                 <div style="text-align: right;">
-                    <button type="submit" class="btn btn-primary" ng-click="closeModal()">Confirmar</button>
+                                <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                                <button type="submit" class="btn btn-danger" ng-click="newRock()">Confirmar</button>
                 </div>
         </form>
 </div>

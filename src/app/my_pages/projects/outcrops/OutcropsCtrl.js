@@ -6,64 +6,83 @@
         .controller('OutcropsCtrl', OutcropsCtrl);
   
     /** @ngInject */
-    function OutcropsCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal) {
+    function OutcropsCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Outcrop,$stateParams) {
   
-      $scope.smartTablePageSize = 10;
+      $scope.smartTablePageSize = 8;
+
+      $scope.outcrops = [];
+  
+      var getOutcrops = function () {
+        Outcrop.listOutcrops().then(function (response) {
+          $scope.outcrops1 = response.data;
+        }) 
+      }
+
+      getOutcrops();
 
 
-      $scope.goToOutcropInfo = function(){
-        $state.go('outcrop_info');
+      $scope.goToOutcropInfo = function(id){
+        debugger;
+        $state.go('outcrop_info',{outcropId: id});
       }
 
       $scope.newOutcrop = function () {
-        $uibModal.open({
+        var modalInstance = $uibModal.open({
           animation: true,
           templateUrl: 'app/my_pages/projects/outcrops/new_outcrop.html',
           controller: 'NewOutcropCtrl',
           size: 'md',
           resolve: {
-            items: function () {
-              return $scope.items;
+            stageId: function () {
+              return $stateParams.stageId;
             }
           }
         });
+
+        modalInstance.result.then(function () {
+          getOutcrops();
+      }, function () {
+        
+      });
       };
 
-
-      $scope.smartTableData = [
-        {
-          id: 1,
-          name: 'Afloramento A',
-          altitude: 10000,
-          toponomy: 'Toponomia A',
-          description: 'Perto do rio',
-          created_at: moment().locale('pt-br').format('LL'),
-        },
-        {
-            id: 2,
-            name: 'Afloramento B',
-            altitude: 10000,
-            toponomy: 'Toponomia B',
-            description: 'Perto do rio',
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-          {
-            id: 3,
-            name: 'Afloramento C',
-            altitude: 10000,
-            toponomy: 'Toponomia c',
-            description: 'Perto do rio',
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-          {
-            id: 4,
-            name: 'Afloramento D',
-            altitude: 10000,
-            toponomy: 'Toponomia D',
-            description: 'Perto do rio',
-            created_at: moment().locale('pt-br').format('LL'),
-          },
-      ];
+      $scope.editOutcrop = function (outcrop) {
+        var modalInstance = $uibModal.open({
+          animation: true,
+          templateUrl: 'app/my_pages/projects/outcrops/edit_outcrop.html',
+          controller: 'EditOutcropCtrl',
+          size: 'md',
+          resolve: {
+            outcropObject: function () {
+              return angular.copy(outcrop);
+            }
+          }
+        });
+        modalInstance.result.then(function () {
+            getOutcrops();
+        }, function () {
+          
+        });
+      };
+  
+      $scope.deleteOutcrop = function (id) {
+        var modalInstance = $uibModal.open({
+          animation: true,
+          templateUrl: 'app/my_pages/projects/outcrops/delete_outcrop.html',
+          controller: 'DeleteOutcropCtrl',
+          size: 'md',
+          resolve: {
+            outcropId: function () {
+              return id;
+            }
+          }
+        });
+  
+        modalInstance.result.then(function () {
+          getOutcrops();
+        }, function () {
+        });
+      }
   }
   
   })();

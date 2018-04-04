@@ -13,10 +13,11 @@
         $scope.districts = ['DF','EU','BA','BE','BI','BU'];
 
         $scope.stage = {};
-        $scope.initialDate = moment();
+        $scope.stage.initial_date = moment().toDate();
         $scope.stage.project_id = projectId;
 
         $scope.newStage = function () {
+            debugger;
             Stage.createStage($scope.stage).then(function (response) {
                 debugger;
                 $uibModalInstance.close();

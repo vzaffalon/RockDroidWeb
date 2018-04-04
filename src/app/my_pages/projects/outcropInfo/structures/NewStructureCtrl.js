@@ -6,10 +6,23 @@
         .controller('NewStructureCtrl', NewStructureCtrl);
   
     /** @ngInject */
-    function NewStructureCtrl($scope, $filter,$uibModalInstance) {
+    function NewStructureCtrl($scope, $filter,$uibModalInstance,Structure,outcropId) {
+
+
+        $scope.structure = {};
+        $scope.structure.outcrop_id = outcropId;
+
+        $scope.structure.structure_type = 'primary';
+
+        $scope.newStructure = function () {
+            Structure.createStructure($scope.structure).then(function (response) {
+                debugger;
+                $uibModalInstance.close();
+            })
+        }
 
         $scope.closeModal = function () {
-            $uibModalInstance.close();
+            $uibModalInstance.dismiss();
         }
   }
   

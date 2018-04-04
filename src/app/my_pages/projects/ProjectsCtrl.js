@@ -8,9 +8,10 @@
   /** @ngInject */
   function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project,$uibModal) {
 
-    $scope.smartTablePageSize = 10;
+    $scope.smartTablePageSize = 8;
 
     $scope.projects = [];
+    debugger;
 
     $scope.goToStages = function (project) {
       $state.go('stages',{projectId: project.uuid});
@@ -18,7 +19,8 @@
 
     var getProjects = function () {
       Project.listProjects().then(function (response) {
-        $scope.projects = response.data;
+        $scope.projects1 = response.data;
+        debugger;
       }) 
     }
 

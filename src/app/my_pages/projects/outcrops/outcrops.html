@@ -7,7 +7,7 @@
                 <div class="add-row-editable-table" style="text-align: right">
                     <button class="btn btn-primary" ng-click="newOutcrop()">Novo afloramento</button>
                 </div>
-                <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+                <table class="table table-bordered table-hover table-condensed" st-table="outcrops" st-safe-src="outcrops1">
                   <thead>
                      
                   <tr class="sortable ">
@@ -27,16 +27,16 @@
                   </tr> -->
                   </thead>
                   <tbody>
-                  <tr ng-repeat="item in smartTableData" style="cursor: pointer;" ng-click="goToOutcropInfo();">
-                    <td>{{item.name}}</td>
-                    <td>{{item.altitude}}</td>
-                    <td>{{item.toponomy}}</td>
-                    <td>{{item.description}}</td>
-                    <td>{{item.created_at}}</td>
+                  <tr ng-repeat="outcrop in outcrops" style="cursor: pointer;">
+                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.name}}</td>
+                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.altitude}}</td>
+                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.toponomy}}</td>
+                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.description}}</td>
+                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.created_at | date : 'd/M/yyyy'}}</td>
                     <td>
                         <div class="buttons">
-                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
-                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
+                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="editOutcrop(outcrop)">Editar</button>
+                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteOutcrop(outcrop.uuid)">Excluir</button>
                         </div>
                     </td>
                   </tr>

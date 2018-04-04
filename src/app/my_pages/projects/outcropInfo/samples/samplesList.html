@@ -5,7 +5,7 @@
                 </button>
         </div>
         <div class="messages">
-                <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+                <table class="table table-bordered table-hover table-condensed" st-table="samples" st-safe-src="samples1">
                         <thead>
                            
                         <tr class="sortable ">
@@ -22,14 +22,14 @@
                         </tr> -->
                         </thead>
                         <tbody>
-                        <tr ng-repeat="item in listCtrl.samples"
+                        <tr ng-repeat="sample in samples"
                         class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;" ng-click="goToStages();">
-                          <td>Nome</td>
-                          <td>Criado em</td>
+                          <td>{{sample.name}}</td>
+                          <td>{{sample.created_at | date : 'd/M/yyyy'}}</td>
                           <td>
                               <div class="buttons">
-                                  <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
-                                  <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
+                                  <button class="btn btn-primary editable-table-button btn-xs" ng-click="editSample(sample)">Editar</button>
+                                  <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteSample(sample.uuid)">Excluir</button>
                               </div>
                           </td>
                         </tr>

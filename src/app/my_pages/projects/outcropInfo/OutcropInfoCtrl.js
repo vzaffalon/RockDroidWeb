@@ -6,29 +6,43 @@
         .controller('OutcropInfoCtrl', OutcropInfoCtrl);
   
     /** @ngInject */
-    function OutcropInfoCtrl($scope, $filter, editableOptions, editableThemes,$state) {
+    function OutcropInfoCtrl($scope, $filter, editableOptions, editableThemes,$state,$stateParams,Outcrop) {
 
-        var vm = this;
-        vm.navigationCollapsed = true;
+        $scope.outcrop = {};
 
         $state.go('outcrop_info.rocks');
+
         $scope.selectTab = function (tab) {
             $state.go('outcrop_info.' + tab);
         }
+
+        var getOutcrop = function () {
+            debugger;
+            Outcrop.getOutcrop($stateParams.outcropId).then(function (response) {
+                debugger;
+              $scope.outcrop = response.data;
+            }) 
+        }
+        getOutcrop();
 
         var tabs =  [{
             label: 'rocks',
             name: 'Rochas',
             newMails: 7
           }, {
-            label: 'structures',
-            name: 'Estruturas'
-          }, {
+            label: 'primary_structures',
+            name: 'Estrutura Primária'
+          },
+          {
+            label: 'secondary_structures',
+            name: 'Estrutura Secundária'
+          },
+           {
             label: 'samples',
             name: 'Amostras'
         }]
     
-        vm.tabs = tabs;
+        $scope.tabs = tabs;
   }
   
   })();

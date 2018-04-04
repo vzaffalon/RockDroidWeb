@@ -1,0 +1,75 @@
+<div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Editar afloramento</span></div>
+<div style="padding: 15px;">
+    <form>
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" ng-model="outcrop.name" class="form-control" id="name" placeholder="Nome">
+            </div>
+            <div class="input-demo radio-demo row">
+                    <div class="col-md-4">
+                      <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" ng-model="outcrop.type" name="inlineRadioOptions" id="inlineRadio1" value="wgs">
+                        <span>Geográfica (WGS-84)</span>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="radio-inline custom-radio nowrap">
+                        <input type="radio" ng-model="outcrop.type" name="inlineRadioOptions" id="inlineRadio2" value="utm">
+                        <span>UTM</span>
+                      </label>
+                    </div>
+            </div>
+
+            <div ng-show="location.type == 'wgs'">
+                <div class="form-group">
+                        <label for="name">Latitude</label>
+                        <input type="number" ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="Latitude">
+                </div>
+
+                <div class="form-group">
+                        <label for="name">Longitude</label>
+                        <input type="number" ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="Longitude">
+                </div>
+            </div>
+
+            <div ng-show="location.type == 'utm'">
+                    <div class="form-group" style="padding-right: 0px; padding-left: 0px;">
+                            <label for="name">Zona longitudinal</label>
+                            <div>
+                                    <input class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="Zona longitudinal">
+                                    <select class="col-sm-6 form-control selectpicker" style="display: block !important;" title="Zona latitudinal" ng-model="selectedZone" selectpicker>
+                                            <option>N</option>
+                                            <option>S</option>
+                                    </select>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="name">Easting</label>
+                            <input type="number" ng-model="outcrop.easting" class="form-control" id="easting" placeholder="Easting">
+                    </div>
+
+                    <div class="form-group">
+                            <label for="name">Northing</label>
+                            <input type="number" ng-model="outcrop.northing" class="form-control" id="northing" placeholder="Northing">
+                    </div>
+            </div>
+
+            <div class="form-group">
+                    <label for="name">Altitude</label>
+                    <input type="number" ng-model="outcrop.altitude" class="form-control" id="input02" placeholder="Altitude">
+            </div>
+            <div class="form-group">
+                    <label for="name">Toponímia</label>
+                    <input type="text" ng-model="outcrop.toponomy" class="form-control" id="input03" placeholder="Toponímia">
+            </div>
+            <div class="form-group">
+                    <label for="name">Descrição</label>
+                    <input type="text" ng-model="outcrop.description" class="form-control" id="input04" placeholder="Descrição">
+            </div>
+            <div style="text-align: right;">
+                    <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-danger" ng-click="editOutcrop()">Confirmar</button>
+            </div>
+    </form>
+</div>

@@ -8,8 +8,11 @@ angular.module('RockDroid.pages').factory('Outcrop', function ($http, $q, ApiEnd
 
     OutcropModel.getOutcrop = function(id) {
         return $http({
-            url:  baseUrl + id,
-            method: "GET"
+            url:  baseUrl + 'search/findById',
+            method: "GET",
+            params: {
+                uuid: id,
+            }
         });
     };
 

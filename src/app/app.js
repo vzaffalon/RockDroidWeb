@@ -15,4 +15,5 @@ angular.module('RockDroid', [
 
   'RockDroid.theme',
   'RockDroid.pages',
+  'auth',
 ]);

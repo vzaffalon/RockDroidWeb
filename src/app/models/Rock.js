@@ -39,7 +39,7 @@ angular.module('RockDroid.pages').factory('Rock', function ($http, $q, ApiEndpoi
 
     RockModel.deleteRock = function (uuid) {
         return $http({
-            url: baseUrl + id,
+            url: baseUrl,
             method: "DELETE",
             params: {
                 uuid: uuid,

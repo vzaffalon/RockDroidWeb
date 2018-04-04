@@ -8,10 +8,10 @@
     /** @ngInject */
     function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Stage,$stateParams) {
   
-      $scope.smartTablePageSize = 10;
+      $scope.smartTablePageSize = 8;
 
-      $scope.goToOutcrops = function () {
-        $state.go('outcrops');
+      $scope.goToOutcrops = function (stage) {
+        $state.go('outcrops',{stageId: stage.uuid});
       }
 
       $scope.stages = [];
@@ -19,7 +19,7 @@
       var getStages = function () {
         Stage.listStages().then(function (response) {
           debugger;
-          $scope.stages = response.data;
+          $scope.stages1 = response.data;
         }) 
       }
 

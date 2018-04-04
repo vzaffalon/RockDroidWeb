@@ -24,16 +24,15 @@
           title: 'Etapas',
         })
         .state('outcrops', {
-          url: '/outcrops',
+          url: '/stages/:stageId/outcrops',
           controller: 'OutcropsCtrl',
           templateUrl: 'app/my_pages/projects/outcrops/outcrops.html',
           title: 'Afloramentos',
         })
         .state('outcrop_info', {
-          url: '/outcrop_info',
+          url: '/outcrops/:outcropId/outcrop_info',
           controller: 'OutcropInfoCtrl',
           templateUrl: 'app/my_pages/projects/outcropInfo/outcropInfo.html',
-          controllerAs: "tabCtrl",
           title: 'Informações do afloramento',
         })
         .state('outcrop_info.rocks', {
@@ -43,11 +42,19 @@
           controller: "RocksCtrl",
           controllerAs: "listCtrl"
         })
-        .state('outcrop_info.structures', {
+        .state('outcrop_info.primary_structures', {
           url: '/structures',
-          templateUrl: 'app/my_pages/projects/outcropInfo/structures/structuresList.html',
-          title: 'Estruturas',
-          controller: "StructuresCtrl",
+          templateUrl: 'app/my_pages/projects/outcropInfo/structures/primary_structures.html',
+          title: 'Estruturas Primárias',
+          controller: "PrimaryStructuresCtrl",
+          controllerAs: "listCtrl"
+        })
+
+        .state('outcrop_info.secondary_structures', {
+          url: '/structures',
+          templateUrl: 'app/my_pages/projects/outcropInfo/structures/secondary_structures.html',
+          title: 'Estruturas Secundárias',
+          controller: "SecondaryStructuresCtrl",
           controllerAs: "listCtrl"
         })
         .state('outcrop_info.samples', {

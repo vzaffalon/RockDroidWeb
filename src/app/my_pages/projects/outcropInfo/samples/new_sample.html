@@ -1,11 +1,13 @@
+<div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Nova amostra</span></div>
 <div style="padding: 15px;">
         <form>
                 <div class="form-group">
                   <label for="name">Nome</label>
-                  <input type="text" class="form-control" id="input01" placeholder="Nome">
+                  <input ng-model="sample.name" type="text" class="form-control" id="name" placeholder="Nome">
                 </div>
                 <div style="text-align: right;">
-                    <button type="submit" class="btn btn-primary" ng-click="closeModal()">Confirmar</button>
+                        <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                        <button type="submit" class="btn btn-danger" ng-click="newSample()">Confirmar</button>
                 </div>
         </form>
 </div>

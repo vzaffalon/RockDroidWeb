@@ -1,0 +1,48 @@
+<div class="side-message-navigation" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
+    <div class="mail-messages-control side-message-navigation-item" style="text-align: right;">
+            <button type="button" class="btn btn-primary compose-button" ng-click="newStructure();">
+                Nova estrutura
+            </button>
+    </div>
+    <div class="messages">
+            <table class="table table-bordered table-hover table-condensed" st-table="structures" st-safe-src="structures1">
+                    <thead>
+                       
+                    <tr class="sortable ">
+                      <th st-sort="firstName">Tipo de estrutura</th>
+                      <th st-sort="lastName">Descrição</th>
+                      <th st-sort="lastName">Criado em</th>
+                      <th st-sort="lastName">Ações</th>
+                    </tr>
+                    <!-- <tr>
+                      <th></th>
+                      <th><input st-search="firstName" placeholder="Buscar por Nome" class="input-sm form-control search-input"
+                                 type="search"/></th>
+                      <th><input st-search="lastName" placeholder="Buscar por data de criação" class="input-sm form-control search-input"
+                                 type="search"/></th>
+                    </tr> -->
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="structure in structures"
+                    class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;">
+                      <td>{{getStructureType(structure.structure_type)}}</td>
+                      <td>{{structure.description}}</td>
+                      <td>{{structure.created_at | date : 'd/M/yyyy'}}</td>
+                      <td>
+                          <div class="buttons">
+                              <button class="btn btn-primary editable-table-button btn-xs" ng-click="editStructure(structure)">Editar</button>
+                              <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteStructure(structure.uuid)">Excluir</button>
+                          </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                    <tfoot >
+                    <tr>
+                      <td colspan="6" class="text-center" style="padding-bottom: 15px;">
+                        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                      </td>
+                    </tr>
+                    </tfoot>
+        </table>
+    </div>
+  </div>

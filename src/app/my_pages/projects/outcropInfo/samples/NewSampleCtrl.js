@@ -6,10 +6,20 @@
         .controller('NewSampleCtrl', NewSampleCtrl);
   
     /** @ngInject */
-    function NewSampleCtrl($scope, $filter,$uibModalInstance) {
+    function NewSampleCtrl($scope, $filter,$uibModalInstance,outcropId,Sample) {
+
+        $scope.sample = {};
+        $scope.sample.outcrop_id = outcropId;
+
+        $scope.newSample = function () {
+            Sample.createSample($scope.sample).then(function (response) {
+                debugger;
+                $uibModalInstance.close();
+            })
+        }
 
         $scope.closeModal = function () {
-            $uibModalInstance.close();
+            $uibModalInstance.dismiss();
         }
   }
   

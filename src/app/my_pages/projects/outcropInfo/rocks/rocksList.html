@@ -5,7 +5,7 @@
       </button>
   </div>
   <div class="messages">
-    <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+    <table class="table table-bordered table-hover table-condensed" st-table="rocks" st-safe-src="rocks1">
         <thead>
            
         <tr class="sortable ">
@@ -25,17 +25,17 @@
         </tr> -->
         </thead>
         <tbody>
-        <tr ng-repeat="item in listCtrl.rocks"
-        class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;" ng-click="goToStages();">
-          <td>{{item.name}}</td>
-          <td>{{item.rock_type}}</td>
-          <td>{{item.texture}}</td>
-          <td>{{item.mineralogy}}</td>
-          <td>{{item.created_at}}</td>
+        <tr ng-repeat="rock in rocks"
+        class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;">
+          <td>{{rock.name}}</td>
+          <td>{{getRockType(rock.rock_type)}}</td>
+          <td>{{rock.texture}}</td>
+          <td>{{rock.mineralogy}}</td>
+          <td>{{rock.created_at | date : 'd/M/yyyy'}}</td>
           <td>
               <div class="buttons">
-                  <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
-                  <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
+                  <button class="btn btn-primary editable-table-button btn-xs" ng-click="editRock(rock)">Editar</button>
+                  <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteRock(rock.uuid)">Excluir</button>
               </div>
           </td>
         </tr>

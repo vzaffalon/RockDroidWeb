@@ -1,3 +1,4 @@
+<div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Editando etapa</span></div>
 <div style="padding: 15px;">
         <form>
                 <div class="form-group">
@@ -18,7 +19,7 @@
                         <!-- <div class="col-xlg-6 col-md-12 col-sm-6" ng-controller="datepickerpopupCtrl"> -->
                                 <label>Data de início: <em>{{dt | date:'fullDate' }}</em></label>
                                 <p class="input-group">
-                                    <input ng-model="stage.initialDate" type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                    <input ng-model="stage.initial_date" type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
                                   <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
                                   </span>

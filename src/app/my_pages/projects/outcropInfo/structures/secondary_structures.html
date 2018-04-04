@@ -5,14 +5,14 @@
                 </button>
         </div>
         <div class="messages">
-                <table class="table table-bordered table-hover table-condensed" st-table="smartTableData">
+                <table class="table table-bordered table-hover table-condensed" st-table="structures" st-safe-src="structures1">
                         <thead>
                            
                         <tr class="sortable ">
-                          <th st-sort="firstName">Nome</th>
-                          <th st-sort="lastName">Tipo de rocha</th>
-                          <th st-sort="lastName">Textura</th>
-                          <th st-sort="lastName">Mineralogia</th>
+                          <th st-sort="firstName">Tipo de estrutura</th>
+                          <th st-sort="lastName">Fase</th>
+                          <th st-sort="lastName">Mergulho</th>
+                          <th st-sort="lastName">Direção do mergulho</th>
                           <th st-sort="lastName">Criado em</th>
                           <th st-sort="lastName">Ações</th>
                         </tr>
@@ -25,17 +25,17 @@
                         </tr> -->
                         </thead>
                         <tbody>
-                        <tr ng-repeat="item in listCtrl.structures"
-                        class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;" ng-click="goToStages();">
-                          <td>name</td>
-                          <td>rock_type</td>
-                          <td>texture</td>
-                          <td>{mineralogy</td>
-                          <td>created_at</td>
+                        <tr ng-repeat="structure in structures"
+                        class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;">
+                          <td>{{getStructureType(structure.structure_type)}}</td>
+                          <td>{{structure.phase}}</td>
+                          <td>{{structure.dip}}</td>
+                          <td>{{structure.dip_direction}}</td>
+                          <td>{{structure.created_at | date : 'd/M/yyyy'}}</td>
                           <td>
                               <div class="buttons">
-                                  <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Editar</button>
-                                  <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Excluir</button>
+                                  <button class="btn btn-primary editable-table-button btn-xs" ng-click="editStructure(structure)">Editar</button>
+                                  <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteStructure(structure.uuid)">Excluir</button>
                               </div>
                           </td>
                         </tr>

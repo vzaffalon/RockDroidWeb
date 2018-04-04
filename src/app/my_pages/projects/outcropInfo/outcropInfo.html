@@ -4,25 +4,25 @@
       <div class="letter-layout" style="height: 200px">
         <div style="padding: 15px 15px 10px">
           <div style="padding: 15px;">
-            <div style="font-weight: 300; margin-bottom: 0; font-size: 24px;">Nome: afloramento 1</div>
+            <div style="font-weight: 300; margin-bottom: 0; font-size: 24px;">Nome: {{outcrop.name}}</div>
           </div>
           <div class="line"></div>
           <div style="padding: 15px; font-size: 18px; font-weight: 100; line-height: 2.0;">
             <div class="col-lg-4">
               <div>Coordenadas geográficas:</div>
-              <div>Latitude: 15.80091 S</div>
-              <div>Longitude: 47.92337</div>
+              <div>Latitude: {{outcrop.latitude}}</div>
+              <div>Longitude: {{outcrop.longitude}}</div>
             </div>
             <div class="col-lg-4">
               <div>Coordenadas UTM:</div>
-              <div>Zona longitudinal: S</div>
-              <div>Esting: 21474.83647m</div>
-              <div>Northing: 21474.83647m</div>
+              <div>Zona longitudinal: {{outcrop.horizontal_datum}}</div>
+              <div>Easting: {{outcrop.easting}}m</div>
+              <div>Northing: {{outcrop.northing}}m</div>
             </div>
             <div class="col-lg-4">
-              <div>Altitude: 0.0m</div>
-              <div>Toponímia: alta</div>
-              <div>Descrição: pedra azul</div>
+              <div>Altitude: {{outcrop.altitude}}m</div>
+              <div>Toponímia: {{outcrop.toponomy}}</div>
+              <div>Descrição: {{outcrop.description}}</div>
             </div>
         </div>
         </div>
@@ -40,7 +40,7 @@
                 Adicionar nova
               </button>
             </div>
-            <div ng-repeat="t in tabCtrl.tabs" ui-sref-active="active" class="mail-navigation"
+            <div ng-repeat="t in tabs" ui-sref-active="active" class="mail-navigation"
                  ng-click="selectTab(t.label)">
               {{t.name}}<span class="new-mails" ng-show="t.newMails">{{t.newMails}}</span>
             </div>
