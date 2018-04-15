@@ -9,9 +9,7 @@
     function DeleteOutcropCtrl($scope, $filter,$uibModalInstance,outcropId,Outcrop) {
 
         $scope.deleteOutcrop = function () {
-            debugger;
             Outcrop.deleteOutcrop(outcropId).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

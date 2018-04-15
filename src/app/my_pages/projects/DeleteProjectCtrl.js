@@ -9,9 +9,7 @@
     function DeleteProjectCtrl($scope, $filter,$uibModalInstance,projectId,Project) {
 
         $scope.deleteProject = function () {
-            debugger;
             Project.deleteProject(projectId).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

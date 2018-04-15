@@ -9,9 +9,7 @@
     function DeleteRockCtrl($scope, $filter,$uibModalInstance,rockId,Rock) {
 
         $scope.deleteRock = function () {
-            debugger;
             Rock.deleteRock(rockId).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

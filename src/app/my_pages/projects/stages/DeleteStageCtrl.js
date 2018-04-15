@@ -9,9 +9,7 @@
     function DeleteStageCtrl($scope, $filter,$uibModalInstance,stageId,Stage) {
 
         $scope.deleteStage = function () {
-            debugger;
             Stage.deleteStage(stageId).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

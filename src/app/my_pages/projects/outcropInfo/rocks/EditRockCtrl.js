@@ -9,11 +9,9 @@
     function EditRockCtrl($scope, $filter,$uibModalInstance,Rock,rockObject) {
 
         $scope.rock = rockObject;
-        debugger;
 
         $scope.editRock = function () {
             Rock.updateRock($scope.rock).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

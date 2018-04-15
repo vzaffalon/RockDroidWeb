@@ -43,12 +43,12 @@
                 <div ng-show="location.type == 'utm'">
                         <div class="form-group" style="padding-right: 0px; padding-left: 0px;">
                                 <label for="name">Zona longitudinal</label>
-                                <input class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="Zona longitudinal">
+                                <input class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="1 a 60">
                         </div>
 
                         <div class="form-group">
                                 <label for="name">Zona latitudinal</label>
-                                <select style="display: block !important;" class="form-control selectpicker" title="Zona latitudinal" ng-model="selectedZone" selectpicker>
+                                <select style="display: block !important;" class="form-control selectpicker" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
                                         <option value="N">N</option>
                                         <option value="S">S</option>
                                 </select>

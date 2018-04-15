@@ -11,37 +11,31 @@
         $scope.outcrop = {};
         $scope.initialDate = moment();
         $scope.outcrop.stage_id = stageId;
-
-        $scope.selectedZone = 'N';
         $scope.latitudeZone = 'N';
         $scope.longitudeZone = 'E';
 
         $scope.location = {};
         $scope.location.type = 'wgs';
 
-        debugger;
         $scope.$watch('location.type', function(location) {
-            debugger;
             var conversion = "";
             switch (location) {
                 case 'wgs':
                     if($scope.outcrop.easting && $scope.outcrop.northing){
-                        debugger;
+                        changeLatitudelongitude();
                         conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum);
                         $scope.outcrop.latitude = conversion.latitude;
                         $scope.outcrop.longitude = conversion.longitude;
-                        debugger;
                     }
                     break;
 
                 case 'utm':
                     if($scope.outcrop.latitude && $scope.outcrop.longitude){
-                        debugger;
+                        changeLatitudelongitude();
                         conversion = UtmConverter.fromLatLon($scope.outcrop.latitude, $scope.outcrop.longitude);
                         $scope.outcrop.easting = conversion.easting;
                         $scope.outcrop.northing = conversion.northing;
-                        $scope.outcrop.horizontal_datum = conversion.zoneLetter;
-                        debugger;
+                        $scope.outcrop.horizontal_datum = conversion.zoneNum;
                     }
                     break;
 
@@ -51,8 +45,8 @@
             }
         });
 
-        $scope.$watch('latitudeZone', function(location) {
-            switch (location) {
+        var changeLatitudelongitude = function (params) {
+            switch ($scope.latitudeZone) {
                 case 'N':
                     if($scope.outcrop.latitude < 0){
                         $scope.outcrop.latitude = -($scope.outcrop.latitude)
@@ -69,11 +63,7 @@
                 default:
                     break;
             }
-
-        });
-
-        $scope.$watch('longitudeZone', function(location) {
-            switch (location) {
+            switch ($scope.longitudeZone) {
                 case 'E':
                     if($scope.outcrop.longitude < 0){
                         $scope.outcrop.longitude = -($scope.outcrop.longitude)
@@ -91,13 +81,11 @@
                 default:
                     break;
             }
-
-        });
+        }
 
         $scope.newOutcrop = function () {
-            debugger;
+            changeLatitudelongitude();
             Outcrop.createOutcrop($scope.outcrop).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

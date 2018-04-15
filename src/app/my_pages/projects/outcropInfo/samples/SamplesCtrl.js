@@ -12,7 +12,6 @@
   
       var getSamples = function () {
         Sample.listSamples().then(function (response) {
-          debugger;
           $scope.samples1 = angular.copy(response.data);
         }) 
       }

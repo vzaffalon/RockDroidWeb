@@ -9,9 +9,7 @@
     function DeleteSampleCtrl($scope, $filter,$uibModalInstance,sampleId,Sample) {
 
         $scope.deleteSample = function () {
-            debugger;
             Sample.deleteSample(sampleId).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

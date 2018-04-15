@@ -14,11 +14,14 @@
         $state.go('outcrops',{stageId: stage.uuid});
       }
 
+      $scope.goBack = function () {
+        $state.go('projects');
+      }
+
       $scope.stages = [];
   
       var getStages = function () {
         Stage.listStages().then(function (response) {
-          debugger;
           $scope.stages1 = response.data;
         }) 
       }

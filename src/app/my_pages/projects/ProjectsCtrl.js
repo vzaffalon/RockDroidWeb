@@ -11,7 +11,6 @@
     $scope.smartTablePageSize = 8;
 
     $scope.projects = [];
-    debugger;
 
     $scope.goToStages = function (project) {
       $state.go('stages',{projectId: project.uuid});
@@ -20,7 +19,6 @@
     var getProjects = function () {
       Project.listProjects().then(function (response) {
         $scope.projects1 = response.data;
-        debugger;
       }) 
     }
 
@@ -34,7 +32,7 @@
         size: 'md',
         resolve: {
           userId: function () {
-            return '7c41df28098935a81504727064243022e6dca-e3d9-44ee-bca8-36ee74f4278f';
+            return 'on91auRlxAwb9MdxYDppoA';
           }
         }
       });

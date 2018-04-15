@@ -13,7 +13,6 @@
 
         $scope.editStage = function () {
             Stage.updateStage($scope.stage).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

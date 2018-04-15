@@ -10,17 +10,17 @@
           <div style="padding: 15px; font-size: 18px; font-weight: 100; line-height: 2.0;">
             <div class="col-lg-4">
               <div>Coordenadas geográficas:</div>
-              <div>Latitude: {{outcrop.latitude}}</div>
-              <div>Longitude: {{outcrop.longitude}}</div>
+              <div>Latitude: {{latitudeShow}}° {{latitudeZone}}</div>
+              <div>Longitude: {{longitudeShow}}° {{longitudeZone}}</div>
             </div>
             <div class="col-lg-4">
               <div>Coordenadas UTM:</div>
               <div>Zona longitudinal: {{outcrop.horizontal_datum}}</div>
-              <div>Easting: {{outcrop.easting}}m</div>
-              <div>Northing: {{outcrop.northing}}m</div>
+              <div>Easting: {{outcrop.easting}} m</div>
+              <div>Northing: {{outcrop.northing}} m</div>
             </div>
             <div class="col-lg-4">
-              <div>Altitude: {{outcrop.altitude}}m</div>
+              <div>Altitude: {{outcrop.altitude}} m</div>
               <div>Toponímia: {{outcrop.toponomy}}</div>
               <div>Descrição: {{outcrop.description}}</div>
             </div>
@@ -36,8 +36,8 @@
         <div class="letter-layout">
           <div class="mail-navigation-container" ng-class="{'expanded' : !tabCtrl.navigationCollapsed}">
             <div class="text-center">
-              <button type="button" class="btn btn-default compose-button" ng-click="tabCtrl.showCompose('','','')">
-                Adicionar nova
+              <button type="button" class="btn btn-default compose-button" ng-click="goBack()">
+                  ❮ Voltar
               </button>
             </div>
             <div ng-repeat="t in tabs" ui-sref-active="active" class="mail-navigation"

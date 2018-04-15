@@ -12,7 +12,6 @@
 
         $scope.editSample = function () {
             Sample.updateSample($scope.sample).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

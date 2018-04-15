@@ -32,7 +32,6 @@
             }
 
             Rock.createRock($scope.rock).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

@@ -13,7 +13,6 @@
 
         $scope.newSample = function () {
             Sample.createSample($scope.sample).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

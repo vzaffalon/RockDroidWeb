@@ -9,9 +9,7 @@
     function DeleteStructureCtrl($scope, $filter,$uibModalInstance,structureId,Structure) {
 
         $scope.deleteStructure = function () {
-            debugger;
             Structure.deleteStructure(structureId).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

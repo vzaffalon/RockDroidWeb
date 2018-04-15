@@ -13,7 +13,6 @@
 
   var getRocks = function () {
     Rock.listRocks().then(function (response) {
-      debugger;
       $scope.rocks1 = response.data;
     }) 
   }
@@ -28,7 +27,6 @@
       size: 'md',
       resolve: {
         rockObject: function () {
-          debugger;
           return angular.copy(rock);
         }
       }

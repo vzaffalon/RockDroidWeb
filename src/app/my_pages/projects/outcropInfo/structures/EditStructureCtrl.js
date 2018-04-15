@@ -12,7 +12,6 @@
 
         $scope.editStructure = function () {
             Structure.updateStructure($scope.structure).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

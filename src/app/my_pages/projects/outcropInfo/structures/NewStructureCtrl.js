@@ -16,7 +16,6 @@
 
         $scope.newStructure = function () {
             Structure.createStructure($scope.structure).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

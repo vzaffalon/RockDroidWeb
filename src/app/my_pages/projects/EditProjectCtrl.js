@@ -12,7 +12,6 @@
 
         $scope.editProject = function () {
             Project.updateProject($scope.project).then(function (response) {
-                debugger;
                 $uibModalInstance.close();
             })
         }

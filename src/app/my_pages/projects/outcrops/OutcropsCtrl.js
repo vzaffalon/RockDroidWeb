@@ -18,11 +18,15 @@
         }) 
       }
 
+      $scope.goBack = function(){
+        $state.go('stages',{stageId: $stateParams.stageId});
+      }
+      
+
       getOutcrops();
 
 
       $scope.goToOutcropInfo = function(id){
-        debugger;
         $state.go('outcrop_info',{outcropId: id});
       }
 
