@@ -1,3 +1,15 @@
+<style>
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+</style>
 <div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Novo afloramento</span></div>
 <div style="padding: 15px;">
         <form>
@@ -76,6 +88,25 @@
                 <div class="form-group">
                         <label for="name">Descrição</label>
                         <input type="text" ng-model="outcrop.description" class="form-control" id="input04" placeholder="Descrição">
+                </div>
+                <div class="form-group">
+                        <label for="name">Fotos</label>
+                        <div>
+                                        <div class="btn btn-default" ngf-select="upload($files)" ngf-multiple="true">Adicionar foto</div>
+                                        <div ngf-drop ngf-select ng-model="files" class="drop-box" 
+                                            ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                                            accept="image/*,application/pdf" 
+                                            ngf-pattern="'image/*,application/pdf'">
+                                            
+                                            <p ng-hide="files.length > 0">Arraste uma imagem ou clique em adicionar foto<p>
+                                            <ul>
+                                                <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+                                            </ul>
+                                        
+                                        </div>
+                                        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                                    </div>
+                        </div>
                 </div>
                 <div style="text-align: right;">
                         <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>

@@ -7,7 +7,6 @@
   
     angular.module('RockDroid.pages', [
       'ui.router',
-  
       'RockDroid.pages.dashboard',
       'RockDroid.pages.maps',
       'RockDroid.pages.projects',

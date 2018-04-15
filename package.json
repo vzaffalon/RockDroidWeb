@@ -48,6 +48,7 @@
   "dependencies": {
     "flexboxgrid": "^6.3.1",
     "moment": "^2.21.0",
+    "ng-file-upload": "^12.2.13",
     "utm": "^1.1.1"
   }
 }

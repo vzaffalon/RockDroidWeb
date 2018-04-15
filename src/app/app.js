@@ -12,6 +12,7 @@ angular.module('RockDroid', [
   'ui.slimscroll',
   'ngJsTree',
   'angular-progress-button-styles',
+  'ngFileUpload',
 
   'RockDroid.theme',
   'RockDroid.pages',

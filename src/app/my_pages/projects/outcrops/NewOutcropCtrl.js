@@ -6,7 +6,7 @@
         .controller('NewOutcropCtrl', NewOutcropCtrl);
   
     /** @ngInject */
-    function NewOutcropCtrl($scope, $filter,$uibModalInstance,Outcrop,stageId,UtmConverter) {
+    function NewOutcropCtrl($scope, $filter,$uibModalInstance,Outcrop,stageId,UtmConverter,OutcropPhoto,$q,Upload) {
 
         $scope.outcrop = {};
         $scope.initialDate = moment();
@@ -86,13 +86,41 @@
         $scope.newOutcrop = function () {
             changeLatitudelongitude();
             Outcrop.createOutcrop($scope.outcrop).then(function (response) {
-                $uibModalInstance.close();
+                var promises = [];
+                if ($scope.files && $scope.files.length) {
+                    for (var i = 0; i < $scope.files.length; i++) {
+                      var file = $scope.files[i];
+                      var outcropPhoto =
+                      {
+                          outcrop_id: response.data.outcrop_id,
+                          base64image: file,
+                          filename:  response.data.outcrop_id + "_outcrop"
+                      }
+                      debugger;
+                      promises.push(OutcropPhoto.createOutcropPhoto(outcropPhoto).then(function (response) {
+                          
+                      }))
+                      $q.all(promises).then(function() {
+                        $uibModalInstance.close();
+                      })
+                    }
+                }
             })
         }
 
         $scope.closeModal = function () {
             $uibModalInstance.dismiss();
         }
+
+        $scope.upload = function (files) {
+            Upload.base64DataUrl(files).then(function(urls){
+                for (var i = 0; i < urls.length; i++) {
+                    $scope.files.push(urls[i]);
+                }  
+            });
+        }
+
+        $scope.files = [];
   }
   
   })();
