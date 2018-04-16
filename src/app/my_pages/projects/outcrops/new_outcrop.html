@@ -91,21 +91,18 @@
                 </div>
                 <div class="form-group">
                         <label for="name">Fotos</label>
-                        <div>
-                                        <div ngf-drop ngf-select ng-model="addedFiles" class="drop-box" 
+                                        <div ngf-drop ngf-select ng-model="addedFiles" class="drop-box col-md-12" 
                                             ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
-                                            accept="image/*,application/pdf" 
+                                            accept="image/*,application/pdf"
                                             ngf-pattern="'image/*,application/pdf'" style="cursor: pointer;">
                                             
                                             <p ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
                                             <div ng-repeat="photo in files" class="col-md-4">
-                                                <img data-ng-src="{{photo}}" style="width: 120px; height: 120px;"/>
+                                                <img data-ng-src="{{photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
                                             </div>
                                         
                                         </div>
                                         <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-                                    </div>
-                        </div>
                 </div>
                 <div class="modal-footer">
                         <div style="text-align: right;">
