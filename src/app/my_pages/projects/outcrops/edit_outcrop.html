@@ -71,7 +71,7 @@
             <div class="form-group">
                         <label for="photos">Fotos</label>
                         <div ng-repeat="photo in outcropPhotos">
-                                        <img  data-ng-src="data:image/png;base64,{{photo.base64image}}"/>
+                                        <img data-ng-src="{{photo.base64image}}"/>
                         </div>
            </div>
             <div style="text-align: right;">

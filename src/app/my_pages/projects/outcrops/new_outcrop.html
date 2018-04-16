@@ -92,25 +92,26 @@
                 <div class="form-group">
                         <label for="name">Fotos</label>
                         <div>
-                                        <div class="btn btn-default" ngf-select="upload($files)" ngf-multiple="true">Adicionar foto</div>
-                                        <div ngf-drop ngf-select ng-model="files" class="drop-box" 
+                                        <div ngf-drop ngf-select ng-model="addedFiles" class="drop-box" 
                                             ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
                                             accept="image/*,application/pdf" 
-                                            ngf-pattern="'image/*,application/pdf'">
+                                            ngf-pattern="'image/*,application/pdf'" style="cursor: pointer;">
                                             
-                                            <p ng-hide="files.length > 0">Arraste uma imagem ou clique em adicionar foto<p>
-                                            <ul>
-                                                <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
-                                            </ul>
+                                            <p ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
+                                            <div ng-repeat="photo in files" class="col-md-4">
+                                                <img data-ng-src="{{photo}}" style="width: 120px; height: 120px;"/>
+                                            </div>
                                         
                                         </div>
                                         <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
                                     </div>
                         </div>
                 </div>
-                <div style="text-align: right;">
-                        <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
-                        <button type="submit" class="btn btn-danger" ng-click="newOutcrop()">Confirmar</button>
+                <div class="modal-footer">
+                        <div style="text-align: right;">
+                                <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                                <button type="submit" class="btn btn-danger" ng-click="newOutcrop()">Confirmar</button>
+                        </div>
                 </div>
         </form>
 </div>

@@ -83,44 +83,62 @@
             }
         }
 
-        $scope.newOutcrop = function () {
-            changeLatitudelongitude();
-            Outcrop.createOutcrop($scope.outcrop).then(function (response) {
-                var promises = [];
-                if ($scope.files && $scope.files.length) {
-                    for (var i = 0; i < $scope.files.length; i++) {
-                      var file = $scope.files[i];
-                      var outcropPhoto =
-                      {
-                          outcrop_id: response.data.outcrop_id,
-                          base64image: file,
-                          filename:  response.data.outcrop_id + "_outcrop"
-                      }
-                      debugger;
-                      promises.push(OutcropPhoto.createOutcropPhoto(outcropPhoto).then(function (response) {
-                          
-                      }))
-                      $q.all(promises).then(function() {
-                        $uibModalInstance.close();
-                      })
-                    }
-                }
-            })
-        }
+        $scope.files = [];
 
-        $scope.closeModal = function () {
-            $uibModalInstance.dismiss();
-        }
-
-        $scope.upload = function (files) {
+        $scope.fileToBase64 = function (files) {
+            debugger;
             Upload.base64DataUrl(files).then(function(urls){
                 for (var i = 0; i < urls.length; i++) {
                     $scope.files.push(urls[i]);
                 }  
+                debugger;
             });
         }
 
-        $scope.files = [];
+        $scope.$watch('addedFiles', function(files) {
+            if(files && files.length > 0){
+                Upload.base64DataUrl(files).then(function(urls){
+                    for (var i = 0; i < urls.length; i++) {
+                        $scope.files.push(urls[i]);
+                    }  
+                    debugger;
+                });
+            }
+        })
+
+        var uploadPictures = function () {
+            var promises = [];
+            if ($scope.files && $scope.files.length) {
+                for (var i = 0; i < $scope.files.length; i++) {
+                  var file = $scope.files[i];
+                  var outcropPhoto =
+                  {
+                      outcrop_id: response.data.uuid,
+                      base64image: file,
+                      filename:  response.data.uuid + "_outcrop_photo"
+                  }
+                  debugger;
+                  promises.push(OutcropPhoto.createOutcropPhoto(outcropPhoto).then(function (response) {
+                      debugger;
+                  }))
+                  $q.all(promises).then(function() {
+                    $uibModalInstance.close();
+                  })
+                }
+            }
+        }
+
+        $scope.newOutcrop = function () {
+            changeLatitudelongitude();
+            Outcrop.createOutcrop($scope.outcrop).then(function (response) {
+               uploadPictures();
+            })
+        }
+
+
+        $scope.closeModal = function () {
+            $uibModalInstance.dismiss();
+        }
   }
   
   })();
