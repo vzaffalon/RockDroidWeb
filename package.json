@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "angular-ui-grid": "^4.4.6",
+    "chart.js": "^2.7.2",
     "flexboxgrid": "^6.3.1",
     "moment": "^2.21.0",
     "ng-file-upload": "^12.2.13",

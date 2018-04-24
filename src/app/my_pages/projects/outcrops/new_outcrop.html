@@ -4,7 +4,6 @@
     border: 5px dashed #DDD;
     text-align: center;
     padding-top: 25px;
-    margin: 10px;
 }
 .dragover {
     border: 5px dashed blue;
@@ -34,8 +33,8 @@
 
                 <div ng-show="location.type == 'wgs'">
                     <div class="form-group">
-                            <label for="name">Latitude</label>
-                            <input type="number" ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="0° a 90°">
+                            <label style="margin-top: 5px;" for="name">Latitude</label>
+                            <input type="number" style="margin-bottom: 5px;" ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="0° a 90°">
                             <select style="display: block !important;" class="form-control selectpicker" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
                                 <option value="N">N</option>
                                 <option value="S">S</option>
@@ -44,7 +43,7 @@
 
                     <div class="form-group">
                             <label for="name">Longitude</label>
-                            <input type="number" ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="0° a 180°">
+                            <input type="number" style="margin-bottom: 5px;" ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="0° a 180°">
                             <select style="display: block !important;" class="form-control selectpicker" title="Zona latitudinal" ng-model="longitudeZone" selectpicker>
                                 <option value="E">E</option>
                                 <option value="W">W</option>
@@ -54,12 +53,12 @@
 
                 <div ng-show="location.type == 'utm'">
                         <div class="form-group" style="padding-right: 0px; padding-left: 0px;">
-                                <label for="name">Zona longitudinal</label>
+                                <label style="margin-top: 10px;" for="name">Zona longitudinal</label>
                                 <input class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="1 a 60">
                         </div>
 
                         <div class="form-group">
-                                <label for="name">Zona latitudinal</label>
+                                <label style="margin-top: 10px;" for="name">Zona latitudinal</label>
                                 <select style="display: block !important;" class="form-control selectpicker" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
                                         <option value="N">N</option>
                                         <option value="S">S</option>
@@ -91,13 +90,14 @@
                 </div>
                 <div class="form-group">
                         <label for="name">Fotos</label>
-                                        <div ngf-drop ngf-select ng-model="addedFiles" class="drop-box col-md-12" 
+                                        <div style="margin-bottom: 10px;" ngf-drop ngf-select ng-model="addedFiles" class="drop-box col-md-12" 
                                             ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
                                             accept="image/*,application/pdf"
                                             ngf-pattern="'image/*,application/pdf'" style="cursor: pointer;">
                                             
-                                            <p ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
+                                            <p style="cursor: pointer;" ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
                                             <div ng-repeat="photo in files" class="col-md-4">
+                                                        <div style="z-index: 99999; cursor: pointer; font-size: 18px; padding: 5px;" ng-click="removePhoto($index)">X</div>
                                                 <img data-ng-src="{{photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
                                             </div>
                                         

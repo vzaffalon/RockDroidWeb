@@ -1,3 +1,14 @@
+<style>
+                .drop-box {
+                    background: #F8F8F8;
+                    border: 5px dashed #DDD;
+                    text-align: center;
+                    padding-top: 25px;
+                }
+                .dragover {
+                    border: 5px dashed blue;
+                }
+</style>
 <div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Editar afloramento</span></div>
 <div style="padding: 15px;">
     <form>
@@ -23,21 +34,21 @@
             <div ng-show="location.type == 'wgs'">
                 <div class="form-group">
                         <label for="name">Latitude</label>
-                        <input type="number" ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="Latitude">
+                        <input style="margin-bottom: 5px;" type="number" ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="Latitude">
                 </div>
 
                 <div class="form-group">
                         <label for="name">Longitude</label>
-                        <input type="number" ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="Longitude">
+                        <input style="margin-bottom: 5px;" type="number" ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="Longitude">
                 </div>
             </div>
 
             <div ng-show="location.type == 'utm'">
-                    <div class="form-group" style="padding-right: 0px; padding-left: 0px;">
+                    <div style="margin-top: 5px;" class="form-group" style="padding-right: 0px; padding-left: 0px;">
                             <label for="name">Zona longitudinal</label>
                             <div>
-                                    <input class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="Zona longitudinal">
-                                    <select class="col-sm-6 form-control selectpicker" style="display: block !important;" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
+                                    <input style="margin-bottom: 5px;" class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="Zona longitudinal">
+                                    <select style="margin-bottom: 5px;" class="col-sm-6 form-control selectpicker" style="display: block !important;" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
                                             <option>N</option>
                                             <option>S</option>
                                     </select>
@@ -67,12 +78,21 @@
                     <label for="name">Descrição</label>
                     <input type="text" ng-model="outcrop.description" class="form-control" id="input04" placeholder="Descrição">
             </div>
-
-            <div class="form-group">
+           <div class="form-group">
                         <label for="photos">Fotos</label>
-                        <div ng-repeat="photo in outcropPhotos">
-                                        <img data-ng-src="{{photo.base64image}}"/>
+                        <div style="margin-bottom: 10px;" ngf-drop ngf-select ng-model="addedFiles" class="drop-box col-md-12" 
+                        ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                        accept="image/*,application/pdf"
+                        ngf-pattern="'image/*,application/pdf'" style="cursor: pointer;">
+                
+                        <p style="cursor: pointer;" ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
+                        <div style="display: flex; flex-direction: row;" ng-repeat="photo in files" class="col-md-4">
+                                <div style="z-index: 99999; cursor: pointer; font-size: 18px; padding: 5px;" ng-click="removePhoto(photo,$index)">X</div>
+                                <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
                         </div>
+            
+                        </div>
+                        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>            
            </div>
             <div style="text-align: right;">
                     <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>

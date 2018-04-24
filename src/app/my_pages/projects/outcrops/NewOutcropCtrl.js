@@ -86,12 +86,10 @@
         $scope.files = [];
 
         $scope.fileToBase64 = function (files) {
-            debugger;
             Upload.base64DataUrl(files).then(function(urls){
                 for (var i = 0; i < urls.length; i++) {
                     $scope.files.push(urls[i]);
                 }  
-                debugger;
             });
         }
 
@@ -99,14 +97,23 @@
             if(files && files.length > 0){
                 Upload.base64DataUrl(files).then(function(urls){
                     for (var i = 0; i < urls.length; i++) {
-                        $scope.files.push(urls[i]);
+                        var found = false;
+                        for (var j = 0; j < $scope.files.length; j++) {
+                           if($scope.files[j] == urls[i]){
+                               found = true;
+                           }
+                        }
+                        if(found){
+                            //abre modal avisando que foto ja foi adicionada.
+                        }else{
+                            $scope.files.push(urls[i]);
+                        }
                     }  
-                    debugger;
                 });
             }
         })
 
-        var uploadPictures = function () {
+        var uploadPictures = function (response) {
             var promises = [];
             if ($scope.files && $scope.files.length) {
                 for (var i = 0; i < $scope.files.length; i++) {
@@ -117,9 +124,7 @@
                       base64image: file,
                       filename:  response.data.uuid + "_outcrop_photo"
                   }
-                  debugger;
                   promises.push(OutcropPhoto.createOutcropPhoto(outcropPhoto).then(function (response) {
-                      debugger;
                   }))
                   $q.all(promises).then(function() {
                     $uibModalInstance.close();
@@ -128,10 +133,15 @@
             }
         }
 
+        $scope.removePhoto = function (index) {
+            $scope.files.splice(index, 1);
+        }
+
+
         $scope.newOutcrop = function () {
             changeLatitudelongitude();
             Outcrop.createOutcrop($scope.outcrop).then(function (response) {
-               uploadPictures();
+               uploadPictures(response);
             })
         }
 
@@ -139,6 +149,7 @@
         $scope.closeModal = function () {
             $uibModalInstance.dismiss();
         }
+
   }
   
   })();
