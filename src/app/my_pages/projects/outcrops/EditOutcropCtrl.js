@@ -151,6 +151,7 @@
             if ($scope.files && $scope.files.length) {
                 for (var i = 0; i < $scope.files.length; i++) {
                   var file = $scope.files[i];
+                  if(!file.uuid){
                   var outcropPhoto =
                   {
                       outcrop_id: response.data.uuid,
@@ -159,11 +160,12 @@
                   }
                   promises.push(OutcropPhoto.createOutcropPhoto(outcropPhoto).then(function (response) {
                   }))
-                  $q.all(promises).then(function() {
-                    $uibModalInstance.close();
-                  })
+                }
                 }
             }
+            $q.all(promises).then(function() {
+                $uibModalInstance.close();
+              })
         }
 
         $scope.closeModal = function () {

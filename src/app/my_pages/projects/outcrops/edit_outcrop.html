@@ -87,7 +87,7 @@
                 
                         <p style="cursor: pointer;" ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
                         <div style="display: flex; flex-direction: row;" ng-repeat="photo in files" class="col-md-4">
-                                <div style="z-index: 99999; cursor: pointer; font-size: 18px; padding: 5px;" ng-click="removePhoto(photo,$index)">X</div>
+                                <div style="z-index: 99999; cursor: pointer; font-size: 18px; padding: 5px;" ng-click="removePhoto(photo,$index); $event.stopPropagation();">X</div>
                                 <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
                         </div>
             
