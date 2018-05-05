@@ -83,6 +83,8 @@
                 $q.all(promises).then(function() {
                     $uibModalInstance.close();
                   })
+            }else{
+                $uibModalInstance.close();
             }
         }
 

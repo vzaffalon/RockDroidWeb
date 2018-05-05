@@ -162,6 +162,8 @@
                   }))
                 }
                 }
+            }else{
+                $uibModalInstance.close();
             }
             $q.all(promises).then(function() {
                 $uibModalInstance.close();

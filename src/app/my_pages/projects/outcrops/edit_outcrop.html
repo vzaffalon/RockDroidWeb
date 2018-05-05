@@ -13,7 +13,7 @@
 <div style="padding: 15px;">
     <form>
             <div class="form-group">
-              <label for="name">Nome</label>
+              <label for="name">Nome <a style="color: #E85656">*</a></label>
               <input type="text" ng-model="outcrop.name" class="form-control" id="name" placeholder="Nome">
             </div>
             <div class="input-demo radio-demo row">
@@ -33,35 +33,37 @@
 
             <div ng-show="location.type == 'wgs'">
                 <div class="form-group">
-                        <label for="name">Latitude</label>
+                        <label for="name">Latitude <a style="color: #E85656">*</a></label>
                         <input style="margin-bottom: 5px;" type="number" ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="Latitude">
                 </div>
 
                 <div class="form-group">
-                        <label for="name">Longitude</label>
+                        <label for="name">Longitude <a style="color: #E85656">*</a></label>
                         <input style="margin-bottom: 5px;" type="number" ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="Longitude">
                 </div>
             </div>
 
             <div ng-show="location.type == 'utm'">
-                    <div style="margin-top: 5px;" class="form-group" style="padding-right: 0px; padding-left: 0px;">
-                            <label for="name">Zona longitudinal</label>
-                            <div>
-                                    <input style="margin-bottom: 5px;" class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="Zona longitudinal">
-                                    <select style="margin-bottom: 5px;" class="col-sm-6 form-control selectpicker" style="display: block !important;" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
-                                            <option>N</option>
-                                            <option>S</option>
-                                    </select>
-                            </div>
-                    </div>
+                        <div class="form-group" style="padding-right: 0px; padding-left: 0px;">
+                                        <label style="margin-top: 10px;" for="name">Zona longitudinal <a style="color: #E85656">*</a></label>
+                                        <input class="col-sm-6 form-control" type="number" ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="1 a 60">
+                                </div>
+        
+                                <div class="form-group">
+                                        <label style="margin-top: 10px;" for="name">Zona latitudinal <a style="color: #E85656">*</a></label>
+                                        <select style="display: block !important;" class="form-control selectpicker" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
+                                                <option value="N">N</option>
+                                                <option value="S">S</option>
+                                        </select>
+                                </div>
 
                     <div class="form-group">
-                            <label for="name">Easting</label>
+                            <label for="name">Easting <a style="color: #E85656">*</a></label>
                             <input type="number" ng-model="outcrop.easting" class="form-control" id="easting" placeholder="Easting">
                     </div>
 
                     <div class="form-group">
-                            <label for="name">Northing</label>
+                            <label for="name">Northing <a style="color: #E85656">*</a></label>
                             <input type="number" ng-model="outcrop.northing" class="form-control" id="northing" placeholder="Northing">
                     </div>
             </div>

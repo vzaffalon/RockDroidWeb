@@ -11,7 +11,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('maps', {
+        .state('pages.maps', {
           url: '/maps',
           controller: 'MapsCtrl',
           templateUrl: 'app/my_pages/map/maps.html',

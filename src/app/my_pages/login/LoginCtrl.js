@@ -8,6 +8,10 @@
     /** @ngInject */
     function LoginCtrl($scope, $filter, editableOptions, editableThemes,$state) {
 
+
+        $scope.goToDashboard = function(){
+            $state.go('pages.dashboard')
+        }
   }
   
   })();

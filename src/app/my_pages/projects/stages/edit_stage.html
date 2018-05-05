@@ -2,7 +2,7 @@
 <div style="padding: 15px;">
         <form>
                 <div class="form-group">
-                  <label for="name">Nome</label>
+                  <label for="name">Nome da etapa <a style="color: #E85656">*</a></label>
                   <input type="text" ng-model="stage.name" class="form-control" id="name" placeholder="Nome">
                 </div>
                 <div class="form-group">
@@ -10,6 +10,7 @@
                         <input type="text" ng-model="stage.city" class="form-control" id="city" placeholder="Município">
                 </div>
                 <div class="form-group">
+                                <label for="name">UF</label>
                         <select ng-model="stage.uf" class="form-control selectpicker" style="display: block !important;" title="Distrito" ng-model="selectedDistrict" selectpicker>
                                 <option ng-repeat="district in districts">{{district}}</option>
                         </select>

@@ -11,7 +11,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('tutorial', {
+      .state('pages.tutorial', {
         url: '/tutorial',
         controller: 'TutorialCtrl',
         templateUrl: 'app/my_pages/tutorial/tutorial.html',

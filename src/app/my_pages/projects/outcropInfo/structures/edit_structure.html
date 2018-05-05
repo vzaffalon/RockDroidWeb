@@ -1,8 +1,19 @@
+<style>
+                .drop-box {
+                    background: #F8F8F8;
+                    border: 5px dashed #DDD;
+                    text-align: center;
+                    padding-top: 25px;
+                }
+                .dragover {
+                    border: 5px dashed blue;
+                }
+                </style>
 <div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Editar estrutura</span></div>
 <div style="padding: 15px;">
     <form>
             <div class="form-group">
-                <label for="name">Tipo:</label>
+                <label for="name">Tipo: <a style="color: #E85656">*</a></label>
                 <div class="input-demo radio-demo row">
                         <div class="col-md-4">
                         <label class="radio-inline custom-radio nowrap">
@@ -20,35 +31,51 @@
             </div>
 
 
-            <div ng-show="true">
+            <div ng-show="structure.structure_type == 'primary'">
                 <div class="form-group">
-                        <label for="description">Descrição</label>
+                        <label for="description">Descrição <a style="color: #E85656">*</a></label>
                         <input ng-model="structure.description" type="text" class="form-control" id="description" placeholder="Descrição">
                 </div>
             </div>
 
-            <div ng-show="true">
+            <div ng-show="structure.structure_type == 'secondary'">
                     <div class="form-group">
-                            <label for="name">Tipo de plano</label>
-                            <input type="structure.name" class="form-control" id="name" placeholder="Tipo de plano">
+                            <label for="name">Tipo de plano <a style="color: #E85656">*</a></label>
+                            <input ng-model="structure.name" type="text" class="form-control" id="name" placeholder="Tipo de plano">
                     </div>
                     <div class="form-group">
                             <label for="phase">Fase</label>
-                            <input type="structure.phase" class="form-control" id="phase" placeholder="Fase">
+                            <input ng-model="structure.phase" type="text" class="form-control" id="phase" placeholder="Fase">
                     </div>
 
                     <div class="form-group">
-                            <label for="dip">Mergulho</label>
-                            <input type="structure.dip" class="form-control" id="dip" placeholder="Mergulho">
+                            <label for="dip">Mergulho <a style="color: #E85656">*</a></label>
+                            <input ng-model="structure.dipe" type="number" class="form-control" id="dip" placeholder="0° a 90°">
                     </div>
 
                     <div class="form-group">
-                            <label for="dip_direction">Direção do mergulho</label>
-                            <input ng-model="structure.dip_direction" type="text" class="form-control" id="dip_direction" placeholder="Direção do mergulho">
+                            <label for="dip_direction">Direção do mergulho <a style="color: #E85656">*</a></label>
+                            <input ng-model="structure.dip_direction" type="number" class="form-control" id="dip_direction" placeholder="0° a 360°">
                     </div>
             </div>
 
             
+            <div class="form-group">
+                        <label for="photos">Fotos</label>
+                        <div style="margin-bottom: 10px;" ngf-drop ngf-select ng-model="addedFiles" class="drop-box col-md-12" 
+                        ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                        accept="image/*,application/pdf"
+                        ngf-pattern="'image/*,application/pdf'" style="cursor: pointer;">
+                
+                        <p style="cursor: pointer;" ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
+                        <div style="display: flex; flex-direction: row;" ng-repeat="photo in files" class="col-md-4">
+                                <div style="z-index: 99999; cursor: pointer; font-size: 18px; padding: 5px;" ng-click="removePhoto(photo,$index); $event.stopPropagation();">X</div>
+                                <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+                        </div>
+            
+                        </div>
+                        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>            
+           </div>
 
             <div style="text-align: right;">
                     <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>

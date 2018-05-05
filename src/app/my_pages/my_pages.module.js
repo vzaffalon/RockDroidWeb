@@ -20,8 +20,16 @@
         .config(routeConfig);
   
     /** @ngInject */
-    function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-      $urlRouterProvider.otherwise('/dashboard');
+    function routeConfig($urlRouterProvider, baSidebarServiceProvider,$stateProvider) {
+      $urlRouterProvider.otherwise('/login');
+      $stateProvider
+      .state('pages', {
+        abstract: true,
+
+        // Note: abstract still needs a ui-view for its children to populate.
+        // You can simply add it inline here.
+        templateUrl: 'app/my_pages/pages.html',
+    })
   
       // baSidebarServiceProvider.addStaticItem({
       //   title: 'Pages',

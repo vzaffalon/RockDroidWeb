@@ -11,8 +11,11 @@
   /** @ngInject */
   function BaSidebarCtrl($scope, baSidebarService) {
 
+    debugger;
     $scope.menuItems = baSidebarService.getMenuItems();
+    debugger;
     $scope.defaultSidebarState = $scope.menuItems[0].stateRef;
+    debugger;
 
     $scope.hoverItem = function ($event) {
       $scope.showHoverElem = true;

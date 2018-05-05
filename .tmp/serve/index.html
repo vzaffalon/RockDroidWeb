@@ -45,18 +45,7 @@
 <body>
 <div class="body-bg"></div>
 <main ng-if="$pageFinishedLoading" ng-class="{ 'menu-collapsed': $baSidebarService.isMenuCollapsed() }">
-
-  <ba-sidebar></ba-sidebar>
-  <page-top></page-top>
-
-  <div class="al-main">
-    <div class="al-content">
-      <content-top></content-top>
-      <div ui-view autoscroll="true" autoscroll-body-top></div>
-    </div>
-  </div>
-
-  <back-top></back-top>
+    <div ui-view autoscroll="true" autoscroll-body-top></div>
 </main>
 
 <div id="preloader" ng-show="!$pageFinishedLoading">
@@ -159,6 +148,7 @@
 <script src="app/my_pages/dashboard/DashboardCtrl.js"></script>
 <script src="app/my_pages/login/LoginCtrl.js"></script>
 <script src="app/my_pages/login/RegisterCtrl.js"></script>
+<script src="app/my_pages/login/main.js"></script>
 <script src="app/my_pages/map/MapsCtrl.js"></script>
 <script src="app/my_pages/projects/DeleteProjectCtrl.js"></script>
 <script src="app/my_pages/projects/EditProjectCtrl.js"></script>

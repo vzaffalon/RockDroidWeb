@@ -130,6 +130,8 @@
                     $uibModalInstance.close();
                   })
                 }
+            }else{
+                $uibModalInstance.close();
             }
         }
 
