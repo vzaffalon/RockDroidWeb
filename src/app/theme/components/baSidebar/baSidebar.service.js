@@ -21,14 +21,12 @@
 
         this.getMenuItems = function() {
           var states = defineMenuItemStates();
-          debugger;
           var menuItems = states.filter(function(item) {
             if(item.level = 1){
               item.level = 0;
             }
             return item.level == 0;
           });
-          debugger;
 
           menuItems.forEach(function(item) {
             var children = states.filter(function(child) {
@@ -36,7 +34,6 @@
             });
             item.subMenu = children.length ? children : null;
           });
-          debugger;
 
           return menuItems.concat(staticMenuItems);
         };
@@ -60,12 +57,9 @@
           var result = [];
           _iterateSubItems(item);
           return result;
-          debugger;
 
           function _iterateSubItems(currentItem) {
-            debugger;
             currentItem.subMenu && currentItem.subMenu.forEach(function(subItem) {
-              debugger;
               subItem.stateRef && result.push(subItem.stateRef);
               _iterateSubItems(subItem);
             });
@@ -78,7 +72,6 @@
                 return s.sidebarMeta;
               })
               .map(function(s) {
-                debugger;
                 var meta = s.sidebarMeta;
                 return {
                   name: s.name,

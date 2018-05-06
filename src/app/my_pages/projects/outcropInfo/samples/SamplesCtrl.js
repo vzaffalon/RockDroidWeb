@@ -12,7 +12,12 @@
   
       var getSamples = function () {
         Sample.listSamples().then(function (response) {
+          debugger;
+          $scope.samples = []
+          $scope.sample1 = []
+          $scope.samples = angular.copy(response.data);
           $scope.samples1 = angular.copy(response.data);
+          debugger;
         }) 
       }
 

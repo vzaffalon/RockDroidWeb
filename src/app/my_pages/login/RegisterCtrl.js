@@ -8,6 +8,9 @@
     /** @ngInject */
     function RegisterCtrl($scope, $filter, editableOptions, editableThemes,$state) {
 
+        $scope.goToLogin = function(){
+            $state.go('login');
+        }
   }
   
   })();

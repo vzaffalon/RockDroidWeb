@@ -12,6 +12,10 @@
         $scope.goToDashboard = function(){
             $state.go('pages.dashboard')
         }
+
+        $scope.goToRegister = function(){
+            $state.go('register')
+        }
   }
   
   })();

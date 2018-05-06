@@ -13,7 +13,7 @@
     $scope.projects = [];
 
     $scope.goToStages = function (project) {
-      $state.go('stages',{projectId: project.uuid});
+      $state.go('pages.stages',{projectId: project.uuid});
     }
 
     var getProjects = function () {

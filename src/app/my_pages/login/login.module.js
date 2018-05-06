@@ -17,7 +17,7 @@
         url: '/register',
         controller: 'RegisterCtrl',
         templateUrl: 'app/my_pages/login/register.html',
-        title: 'Registro',
+        title: 'Cadastro',
       })
     }
   

@@ -19,7 +19,7 @@
       }
 
       $scope.goBack = function(){
-        $state.go('stages',{stageId: $stateParams.stageId});
+        $state.go('pages.stages',{stageId: $stateParams.stageId});
       }
       
 
@@ -27,7 +27,7 @@
 
 
       $scope.goToOutcropInfo = function(id){
-        $state.go('outcrop_info',{outcropId: id});
+        $state.go('pages.outcrop_info',{outcropId: id});
       }
 
       $scope.newOutcrop = function () {

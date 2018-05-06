@@ -15,7 +15,6 @@
         $scope.structure.structure_type = 'primary';
 
         $scope.newStructure = function () {
-            debugger;
             var auxStructure =  angular.copy($scope.structure);
             switch(auxStructure.structure_type){
                 case "primary":
@@ -25,7 +24,6 @@
                     auxStructure.structure_type = 1
                 break;
             }
-            debugger;
             Structure.createStructure(auxStructure).then(function (response) {
                 uploadPictures(response)
             })

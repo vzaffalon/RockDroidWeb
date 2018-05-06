@@ -11,11 +11,11 @@
       $scope.smartTablePageSize = 8;
 
       $scope.goToOutcrops = function (stage) {
-        $state.go('outcrops',{stageId: stage.uuid});
+        $state.go('pages.outcrops',{stageId: stage.uuid});
       }
 
       $scope.goBack = function () {
-        $state.go('projects');
+        $state.go('pages.projects');
       }
 
       $scope.stages = [];

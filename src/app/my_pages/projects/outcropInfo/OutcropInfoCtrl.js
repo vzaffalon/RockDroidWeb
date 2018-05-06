@@ -12,14 +12,14 @@
         $scope.latitudeZone = "N"
         $scope.longitudeZone = "E"
 
-        $state.go('outcrop_info.rocks');
+        $state.go('pages.outcrop_info.rocks');
 
         $scope.selectTab = function (tab) {
-            $state.go('outcrop_info.' + tab);
+            $state.go('pages.outcrop_info.' + tab);
         }
 
         $scope.goBack = function(){
-            $state.go('outcrops',{outcropId: $stateParams.outcropId});
+            $state.go('pages.outcrops',{outcropId: $stateParams.outcropId});
         }
 
         var getLatitudeLongitudeZone = function () {

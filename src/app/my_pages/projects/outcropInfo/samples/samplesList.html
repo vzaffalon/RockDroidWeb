@@ -23,7 +23,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="sample in samples"
-                        class="side-message-navigation-item little-human shineHover {{m.tag}}" style="cursor: pointer;" ng-click="goToStages();">
+                        class="side-message-navigation-item shineHover {{m.tag}}" style="cursor: pointer;" ng-click="goToStages();">
                           <td>{{sample.name}}</td>
                           <td>{{sample.created_at | date : 'd/M/yyyy'}}</td>
                           <td>
