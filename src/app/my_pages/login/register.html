@@ -419,6 +419,7 @@
   <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
+          <div ng-show="error">{{error}}</div>
           <form class="login100-form validate-form">
             <div style="display: flex; flex: 1; align-items: center; flex-direction: column; margin-bottom: 20px;">
                 <img src="assets/img/rock_droid_logo.png" style="height: 100px;"></img>
@@ -428,34 +429,34 @@
             </span>
 
 
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                <input class="input100" type="text" name="nome">
+            <div class="wrap-input100 validate-input">
+                <input ng-model="user.name" class="input100" type="text" name="nome">
                 <span class="focus-input100" data-placeholder="Nome"></span>
               </div>
   
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-              <input class="input100" type="text" name="email">
-              <span class="focus-input100" data-placeholder="Email"></span>
+            <div class="wrap-input100 validate-input">
+              <input ng-model="user.email" class="input100" type="text" name="email">
+              <span  class="focus-input100" data-placeholder="Email"></span>
             </div>
   
             <div class="wrap-input100 validate-input" data-validate="Enter password">
               <span class="btn-show-pass">
                 <i class="zmdi zmdi-eye"></i>
               </span>
-              <input class="input100" type="password" name="pass">
+              <input  ng-model="password" class="input100" type="password" name="pass">
               <span class="focus-input100" data-placeholder="Password"></span>
             </div>
 
 
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                <input class="input100" type="text" name="Confirmar senha">
+            <div  class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                <input ng-model="password_confirmation" class="input100" type="text" name="Confirmar senha">
                 <span class="focus-input100" data-placeholder="Confirmar senha"></span>
               </div>
   
             <div class="container-login100-form-btn">
               <div class="wrap-login100-form-btn">
                 <div class="login100-form-bgbtn"></div>
-                <button ng-click="goToDashboard();" class="login100-form-btn">
+                <button ng-click="createNewUser();" class="login100-form-btn">
                   Cadastrar-se
                 </button>
               </div>

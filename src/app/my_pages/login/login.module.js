@@ -1,7 +1,7 @@
 (function () {
     'use strict';
   
-    angular.module('auth', [])
+    angular.module('auth', ['dtrw.bcrypt'])
       .config(routeConfig);
   
     /** @ngInject */

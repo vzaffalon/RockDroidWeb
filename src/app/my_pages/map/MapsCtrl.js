@@ -7,13 +7,15 @@
   /** @ngInject */
   function MapsCtrl($timeout) {
     function initialize() {
-      var mapCanvas = document.getElementById('google-maps');
-      var mapOptions = {
-        center: new google.maps.LatLng(44.5403, -78.5463),
-        zoom: 8,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(mapCanvas, mapOptions);
+      var map = L.map('mapid').setView([51.505, -0.09], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+      
+      L.marker([51.5, -0.09]).addTo(map)
+          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+          .openPopup();
     }
 
     $timeout(function(){
