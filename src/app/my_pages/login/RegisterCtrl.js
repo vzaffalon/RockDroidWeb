@@ -10,42 +10,58 @@
 
         $scope.user = {};
         $scope.password = "";
-        $scope.
-        $scope.error = ""
+        $scope.password_confirmation = "";
+        $scope.user.name = "";
+        $scope.user.email = "";
+        $scope.errors = [];
 
-        $scope.goToLogin = function(){
-            $state.go('login');
+        $scope.goToLogin = function(user_email){
+            debugger;
+            $state.go('login',{userEmail: user_email});
         }
-
-
-        $scope.createNewUser = function () {
-            if($scope.password == $scope.password_confirmation){
-                $scope.user.password_hash = $scope.passwordToHash($scope.password);
-                debugger;
-                debugger;
-                UserModel.createUser($scope.user).then(function (response) {
-                    debugger;
-                    if(response.data){
-                        $scope.goToLogin();
-                    }
-                })   
-            }else{
-                $scope.error = "Senha e confirmação de senha devem ser iguais."
-            }
-        }
-
-
 
         var workload  = 12;
 
+        $scope.createNewUser = function () {
+            $scope.errors = [];
+            if(!$scope.user.name){
+                $scope.errors.push("Preencha o campo nome.");
+            }
+
+            if(!$scope.user.email){
+                $scope.errors.push("Preencha o campo email.");
+            }
+
+            if(!$scope.password){
+                $scope.errors.push("Preencha o campo senha.");
+                return;
+            }
+
+            if(!$scope.password_confirmation){
+                $scope.errors.push("Preencha o campo confirmação da senha.");
+                return;
+            }
+
+            if($scope.password == $scope.password_confirmation){
+                        $scope.user.password = $scope.password;
+                        User.createUser($scope.user).then(function (response) {
+                            if(response.data){
+                                debugger;
+                                $scope.goToLogin(response.data.email);
+                            }
+                        }, function(){
+                            $scope.errors.push("Usuário já existe.")
+                        }) 
+            }else{
+                $scope.errors.push("Senha e confirmação de senha devem ser iguais.")
+            }
+        }
+
         $scope.passwordToHash = function (password_plaintext) {
-            bcrypt.genSalt(workload, function(err, salt) {
-                bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+            return bcrypt.genSalt(workload, function(err, salt) {
+                return bcrypt.hash(password_plaintext, salt, function(err, hash) {
                     // Store hash in your password DB.
-                    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-                        // Store hash in your password DB.
-                        return (hash);
-                    });
+                    return (hash);
                 });
             });
         }

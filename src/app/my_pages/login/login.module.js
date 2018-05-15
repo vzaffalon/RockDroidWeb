@@ -12,6 +12,12 @@
         controller: 'LoginCtrl',
         templateUrl: 'app/my_pages/login/login.html',
         title: 'Login',
+        resolve: {
+          userEmail: function($stateParams) {
+            debugger;
+            return $stateParams.userEmail;;
+          }
+        }
       })
       .state('register', {
         url: '/register',

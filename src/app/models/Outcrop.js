@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('RockDroid.pages').factory('Outcrop', function ($http, $q, ApiEndpoint) {
+angular.module('RockDroid.pages').factory('Outcrop', function ($http, $q, ApiEndpoint,$window) {
     var dfd = $q.defer();
     var baseUrl = ApiEndpoint + '/outcrops/';
 
     var OutcropModel = {};
+
+    $http.defaults.headers.common.Authorization = $window.localStorage.auth_token;
 
     OutcropModel.getOutcrop = function(id) {
         return $http({

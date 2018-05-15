@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('RockDroid.pages').factory('Stage', function ($http, $q, ApiEndpoint) {
+angular.module('RockDroid.pages').factory('Stage', function ($http, $q, ApiEndpoint,$window) {
     var dfd = $q.defer();
     var baseUrl = ApiEndpoint + '/stages/';
 
     var StageModel = {};
+
+    $http.defaults.headers.common.Authorization = $window.localStorage.auth_token;
 
     StageModel.getStage = function(id) {
         return $http({

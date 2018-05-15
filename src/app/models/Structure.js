@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('RockDroid.pages').factory('Structure', function ($http, $q, ApiEndpoint) {
+angular.module('RockDroid.pages').factory('Structure', function ($http, $q, ApiEndpoint,$window) {
     var dfd = $q.defer();
     var baseUrl = ApiEndpoint + '/structures/';
 
     var StructureModel = {};
+
+    $http.defaults.headers.common.Authorization = $window.localStorage.auth_token;
 
     StructureModel.getStructure = function(id) {
         return $http({

@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('RockDroid.pages').factory('Project', function ($http, $q, ApiEndpoint) {
+angular.module('RockDroid.pages').factory('Project', function ($http, $q, ApiEndpoint,$window) {
     var dfd = $q.defer();
     var baseUrl = ApiEndpoint + '/projects/';
 
     var ProjectModel = {};
+
+    $http.defaults.headers.common.Authorization = $window.localStorage.auth_token;
 
     ProjectModel.getProject = function(id) {
         return $http({

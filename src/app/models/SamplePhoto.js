@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('RockDroid.pages').factory('SamplePhoto', function ($http, $q, ApiEndpoint) {
+angular.module('RockDroid.pages').factory('SamplePhoto', function ($http, $q, ApiEndpoint,$window) {
     var dfd = $q.defer();
     var baseUrl = ApiEndpoint + '/sample_photos/'
 
     var SamplePhotoModel = {};
+
+    $http.defaults.headers.common.Authorization = $window.localStorage.auth_token;
 
     SamplePhotoModel.createSamplePhoto = function(data) {
 

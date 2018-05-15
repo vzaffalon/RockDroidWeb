@@ -71,11 +71,11 @@
   cursor: pointer; }
 
 ::-webkit-scrollbar-track {
-  background: transparent; }
+  background: rgba(0, 0, 0, 0); }
 
 body {
   scrollbar-face-color: #d9d9d9;
-  scrollbar-track-color: transparent; }
+  scrollbar-track-color: rgba(0, 0, 0, 0); }
 
 html {
   position: relative;

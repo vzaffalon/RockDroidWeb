@@ -6,7 +6,7 @@
       .controller('ProjectsCtrl', ProjectsCtrl);
 
   /** @ngInject */
-  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project,$uibModal) {
+  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project,$uibModal,$window) {
 
     $scope.smartTablePageSize = 8;
 
@@ -32,7 +32,7 @@
         size: 'md',
         resolve: {
           userId: function () {
-            return 'on91auRlxAwb9MdxYDppoA';
+            return $window.localStorage.user_id;
           }
         }
       });

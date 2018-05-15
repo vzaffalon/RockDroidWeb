@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('RockDroid.pages').factory('Rock', function ($http, $q, ApiEndpoint) {
+angular.module('RockDroid.pages').factory('Rock', function ($http, $q, ApiEndpoint,$window) {
     var dfd = $q.defer();
     var baseUrl = ApiEndpoint + '/rocks/';
 
     var RockModel = {};
+    $http.defaults.headers.common.Authorization = $window.localStorage.auth_token;
 
     RockModel.getRock = function(id) {
         return $http({
