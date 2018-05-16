@@ -29,8 +29,10 @@
         class="side-message-navigation-item shineHover {{m.tag}}" style="cursor: pointer;">
           <td>{{rock.name}}</td>
           <td>{{getRockType(rock.rock_type)}}</td>
-          <td>{{rock.texture}}</td>
-          <td>{{rock.mineralogy}}</td>
+          <td ng-show="rock.texture">{{rock.texture}}</td>
+          <td ng-show="!rock.texture">-</td>
+          <td ng-show="rock.mineralogy">{{rock.mineralogy}}</td>
+          <td ng-show="!rock.mineralogy">-</td>
           <td>{{rock.created_at | date : 'd/M/yyyy'}}</td>
           <td>
               <div class="buttons">

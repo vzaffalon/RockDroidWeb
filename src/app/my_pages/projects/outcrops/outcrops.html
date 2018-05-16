@@ -30,9 +30,12 @@
                   <tbody>
                   <tr ng-repeat="outcrop in outcrops" style="cursor: pointer;">
                     <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.name}}</td>
-                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.altitude}}</td>
-                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.toponomy}}</td>
-                    <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.description}}</td>
+                    <td ng-show="outcrop.altitude" ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.altitude}}</td>
+                    <td ng-show="!outcrop.altitude" ng-click="goToOutcropInfo(outcrop.uuid);">-</td>
+                    <td ng-show="outcrop.toponomy" ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.toponomy}}</td>
+                    <td ng-show="!outcrop.toponomy" ng-click="goToOutcropInfo(outcrop.uuid);">-</td>
+                    <td ng-show="outcrop.description" ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.description}}</td>
+                    <td ng-show="!outcrop.description" ng-click="goToOutcropInfo(outcrop.uuid);">-</td>
                     <td ng-click="goToOutcropInfo(outcrop.uuid);">{{outcrop.created_at | date : 'd/M/yyyy'}}</td>
                     <td>
                         <div class="buttons">

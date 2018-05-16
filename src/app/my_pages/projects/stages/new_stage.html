@@ -3,7 +3,7 @@
         <form>
                 <div class="form-group">
                   <label for="name">Nome da etapa <a style="color: #E85656">*</a></label>
-                  <input type="text" ng-model="stage.name" class="form-control" id="name" placeholder="Nome">
+                  <input type="text" ng-model="stage.name" required class="form-control" id="name" placeholder="Nome">
                 </div>
                 <div class="form-group">
                         <label for="name">Município</label>
@@ -20,7 +20,7 @@
                         <!-- <div class="col-xlg-6 col-md-12 col-sm-6" ng-controller="datepickerpopupCtrl"> -->
                                 <label>Data de início:  <a style="color: #E85656">*</a> <em>{{dt | date:'fullDate' }}</em></label>
                                 <p class="input-group">
-                                    <input ng-model="stage.initial_date" type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                    <input ng-model="stage.initial_date" required type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
                                   <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
                                   </span>
@@ -30,7 +30,7 @@
                 </div>
                 
                 <div style="text-align: right;">
-                                <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                                <button class="btn btn-default" ng-click="closeModal()">Cancelar</button>
                                 <button type="submit" class="btn btn-danger" ng-click="newStage()">Confirmar</button>
                 </div>
         </form>

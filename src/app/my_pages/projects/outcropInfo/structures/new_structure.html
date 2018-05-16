@@ -34,14 +34,14 @@
                 <div ng-show="structure.structure_type == 'primary'">
                     <div class="form-group">
                             <label for="description">Descrição <a style="color: #E85656">*</a></label>
-                            <input ng-model="structure.description" type="text" class="form-control" id="description" placeholder="Descrição">
+                            <input ng-model="structure.description" type="text" required class="form-control" id="description" placeholder="Descrição">
                     </div>
                 </div>
 
                 <div ng-show="structure.structure_type == 'secondary'">
                         <div class="form-group">
                                 <label for="name">Tipo de plano <a style="color: #E85656">*</a></label>
-                                <input ng-model="structure.name" type="text" class="form-control" id="name" placeholder="Tipo de plano">
+                                <input ng-model="structure.name" type="text" required class="form-control" id="name" placeholder="Tipo de plano">
                         </div>
                         <div class="form-group">
                                 <label for="phase">Fase</label>
@@ -50,12 +50,12 @@
 
                         <div class="form-group">
                                 <label for="dip">Mergulho <a style="color: #E85656">*</a></label>
-                                <input ng-model="structure.dip" type="number" class="form-control" id="dip" placeholder="0° a 90°">
+                                <input ng-model="structure.dip" type="number" required class="form-control" id="dip" placeholder="0° a 90°">
                         </div>
 
                         <div class="form-group">
                                 <label for="dip_direction">Direção do mergulho <a style="color: #E85656">*</a></label>
-                                <input ng-model="structure.dip_direction" type="text" class="form-control" id="dip_direction" placeholder="0° a 360°">
+                                <input ng-model="structure.dip_direction" type="text" required class="form-control" id="dip_direction" placeholder="0° a 360°">
                         </div>
                 </div>
 
@@ -78,7 +78,7 @@
                 </div>
 
                 <div style="text-align: right;">
-                        <button type="submit" class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                        <button class="btn btn-default" ng-click="closeModal()">Cancelar</button>
                         <button type="submit" class="btn btn-danger" ng-click="newStructure()">Confirmar</button>
                 </div>
         </form>
