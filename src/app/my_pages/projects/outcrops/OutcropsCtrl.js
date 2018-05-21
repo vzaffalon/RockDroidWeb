@@ -13,13 +13,13 @@
       $scope.outcrops = [];
   
       var getOutcrops = function () {
-        Outcrop.listOutcrops().then(function (response) {
+        Outcrop.listOutcropsFromStage($stateParams.stageId).then(function (response) {
           $scope.outcrops1 = response.data;
         }) 
       }
 
       $scope.goBack = function(){
-        $state.go('pages.stages',{stageId: $stateParams.stageId});
+        $state.go('pages.stages',{stageId: $stateParams.stageId,projectId: $stateParams.projectId});
       }
       
 
@@ -27,7 +27,7 @@
 
 
       $scope.goToOutcropInfo = function(id){
-        $state.go('pages.outcrop_info',{outcropId: id});
+        $state.go('pages.outcrop_info',{outcropId: id,stageId: $stateParams.stageId,projectId: $stateParams.projectId});
       }
 
       $scope.newOutcrop = function () {

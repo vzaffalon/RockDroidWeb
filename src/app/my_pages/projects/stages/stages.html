@@ -11,7 +11,20 @@
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div ba-panel>
-              <div class="horizontal-scroll">
+                <div ng-show="stages.length == 0">
+                    <div class="add-row-editable-table" style="display: flex; justify-content: space-between;">
+                        <button class="btn btn-default compose-button" ng-click="goBack()">❮ Voltar</button>
+                        <div></div>
+                    </div>
+                    <div style="text-align: center; padding: 10px">
+                      <img src="assets/img/new_stage.png" alt="Smiley face" height="200" width="200"></img>
+                      <div style="font-size: 15px; padding: 10px;">Crie sua primeira etapa</div>
+                      <div class="add-row-editable-table">
+                          <button class="btn btn-primary" ng-click="newStage()">Nova etapa</button>
+                      </div>
+                  </div>
+                  </div>
+              <div ng-show="stages.length != 0" class="horizontal-scroll">
                 <div class="add-row-editable-table" style="display: flex; justify-content: space-between;">
                     <button class="btn btn-default compose-button" ng-click="goBack()">❮ Voltar</button>
                     <button class="btn btn-primary" ng-click="newStage()">Nova etapa</button>
@@ -38,8 +51,10 @@
                   <tbody>
                   <tr ng-repeat="stage in stages" style="cursor: pointer;">
                     <td ng-click="goToOutcrops(stage);">{{stage.name}}</td>
-                    <td ng-click="goToOutcrops(stage);">{{stage.city}}</td>
-                    <td ng-click="goToOutcrops(stage);">{{stage.uf}}</td>
+                    <td ng-show="stage.city" ng-click="goToOutcrops(stage);">{{stage.city}}</td>
+                    <td ng-show="!stage.city" ng-click="goToOutcrops(stage);">-</td>
+                    <td ng-show="stage.uf" ng-click="goToOutcrops(stage);">{{stage.uf}}</td>
+                    <td ng-show="!stage.uf" ng-click="goToOutcrops(stage);">-</td>
                     <td ng-click="goToOutcrops(stage);">{{stage.initial_date | date : 'd/M/yyyy'}}</td>
                     <td ng-click="goToOutcrops(stage);">{{stage.created_at | date : 'd/M/yyyy'}}</td>
                     <td>

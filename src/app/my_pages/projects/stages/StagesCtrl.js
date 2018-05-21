@@ -9,9 +9,11 @@
     function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Stage,$stateParams) {
   
       $scope.smartTablePageSize = 8;
+      debugger;
 
       $scope.goToOutcrops = function (stage) {
-        $state.go('pages.outcrops',{stageId: stage.uuid});
+        debugger;
+        $state.go('pages.outcrops',{stageId: stage.uuid,projectId: $stateParams.projectId});
       }
 
       $scope.goBack = function () {
@@ -21,7 +23,7 @@
       $scope.stages = [];
   
       var getStages = function () {
-        Stage.listStages().then(function (response) {
+        Stage.listStagesFromProject($stateParams.projectId).then(function (response) {
           $scope.stages1 = response.data;
         }) 
       }

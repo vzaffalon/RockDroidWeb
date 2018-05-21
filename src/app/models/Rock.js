@@ -30,6 +30,17 @@ angular.module('RockDroid.pages').factory('Rock', function ($http, $q, ApiEndpoi
         });
     };
 
+
+    RockModel.listRocksFromOutcrop = function(outcrop_id) {
+        return $http({
+            url: baseUrl,
+            method: "GET",
+            params: {
+                outcrop_id: outcrop_id
+            }
+        });
+    };
+
     RockModel.updateRock = function (data) {
         return $http({
             url: baseUrl + data.uuid,

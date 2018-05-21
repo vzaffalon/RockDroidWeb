@@ -6,14 +6,26 @@
   'use strict';
 
   angular.module('RockDroid.theme.components')
-      .directive('pageTop', pageTop);
+      .directive('pageTop', ['$window','User', function($window,User) {
 
-  /** @ngInject */
-  function pageTop() {
-    return {
-      restrict: 'E',
-      templateUrl: 'app/theme/components/pageTop/pageTop.html'
-    };
-  }
+        function link(scope, element, attrs) {
+          scope.user = {};
+          var user_id= $window.localStorage.user_id;
+          User.getUser(user_id).then(function (response) {
+              scope.user = response.data;
+          })
+
+          scope.logOut = function(){
+            $window.localStorage.user_id = null;
+            $state.go('login')
+          }
+        }
+      
+        return {
+          link: link,
+          restrict: 'E',
+          templateUrl: 'app/theme/components/pageTop/pageTop.html'
+        };
+      }]);
 
 })();

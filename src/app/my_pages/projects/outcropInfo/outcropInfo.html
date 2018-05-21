@@ -10,8 +10,8 @@
           <div style="padding: 15px; font-size: 18px; font-weight: 100; line-height: 2.0;">
             <div class="col-lg-4">
               <div>Coordenadas geográficas:</div>
-              <div>Latitude: {{latitudeShow}}° {{latitudeZone}}</div>
-              <div>Longitude: {{longitudeShow}}° {{longitudeZone}}</div>
+              <div>Latitude: {{outcrop.latitude}}° {{latitudeZone}}</div>
+              <div>Longitude: {{outcrop.longitude}}° {{longitudeZone}}</div>
             </div>
             <div class="col-lg-4">
               <div>Coordenadas UTM:</div>
@@ -20,9 +20,9 @@
               <div>Northing: {{outcrop.northing}} m</div>
             </div>
             <div class="col-lg-4">
-              <div>Altitude: {{outcrop.altitude}} m</div>
-              <div>Toponímia: {{outcrop.toponomy}}</div>
-              <div>Descrição: {{outcrop.description}}</div>
+              <div ng-show="outcrop.altitude">Altitude: {{outcrop.altitude}} m</div>
+              <div ng-show="outcrop.toponomy">Toponímia: {{outcrop.toponomy}}</div>
+              <div ng-show="outcrop.description">Descrição: {{outcrop.description}}</div>
             </div>
         </div>
         </div>

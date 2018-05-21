@@ -1,0 +1,18 @@
+<div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Selecionando estrutura secundária</span></div>
+<div style="padding: 15px;">
+        <form>
+                <div ng-show="structures.length == 0">
+                        Nenhuma estrutura secundária criada.
+                </div>
+                <div ng-click="selectStructure(structure)" style="cursor: pointer; padding: 10px; font-size: 16px;" ng-show="structures.length != 0" ng-repeat="structure in structures">
+                        <div>{{structure.name}}</div>
+                        <div>Fase: {{structure.phase}}</div>
+                        <div>Mergulho: {{structure.name}}</div>
+                        <div>Direção: {{structure.dip_direction}}</div>
+                        <div style="background: #EFEFEF; height: 1px; margin-top: 5px;" ></div>
+                </div>
+                <div style="text-align: right;">
+                        <button class="btn btn-default" ng-click="closeModal()">Cancelar</button>
+                </div>
+        </form>
+</div>

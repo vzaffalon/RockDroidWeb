@@ -14,7 +14,6 @@
         title: 'Login',
         resolve: {
           userEmail: function($stateParams) {
-            debugger;
             return $stateParams.userEmail;;
           }
         }

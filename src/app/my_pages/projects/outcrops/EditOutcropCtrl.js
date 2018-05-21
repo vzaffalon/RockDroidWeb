@@ -6,7 +6,7 @@
         .controller('EditOutcropCtrl', EditOutcropCtrl);
   
     /** @ngInject */
-    function EditOutcropCtrl($scope, $filter,$uibModalInstance,Outcrop,outcropObject,UtmConverter,OutcropPhoto,Upload,$q) {
+    function EditOutcropCtrl($scope, $filter,$uibModalInstance,Outcrop,outcropObject,UtmConverter,OutcropPhoto,Upload,$q,$uibModal) {
 
         $scope.outcrop = outcropObject;
 
@@ -97,16 +97,28 @@
 
 
         $scope.removePhoto = function (photo,index) {
-            if(photo.uuid){
-                OutcropPhoto.deleteOutcropPhoto(photo.uuid).then(function (response) {
-                    if(response.data.message){
-                        $scope.files.splice(index, 1);
-                    }
-                }) 
-            }else{
-                //se imagem adicionada mas ainda nao clicou em confirmar
-                $scope.files.splice(index, 1);
-            }
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/my_pages/common/delete_picture_confirmation_modal.html',
+                controller: 'DeletePictureConfirmationModalCtrl',
+                size: 'md',
+                resolve: {
+                }
+              });
+              modalInstance.result.then(function () {
+                if(photo.uuid){
+                    OutcropPhoto.deleteOutcropPhoto(photo.uuid).then(function (response) {
+                        if(response.data.message){
+                            $scope.files.splice(index, 1);
+                        }
+                    }) 
+                }else{
+                    //se imagem adicionada mas ainda nao clicou em confirmar
+                    $scope.files.splice(index, 1);
+                }
+              }, function () {
+                
+              });
         }
 
         $scope.editOutcrop = function () {

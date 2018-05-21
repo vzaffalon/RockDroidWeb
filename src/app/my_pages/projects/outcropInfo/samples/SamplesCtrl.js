@@ -11,7 +11,7 @@
       $scope.samples = [];
   
       var getSamples = function () {
-        Sample.listSamples().then(function (response) {
+        Sample.listSamplesFromOutcrop($stateParams.outcropId).then(function (response) {
           $scope.samples = angular.copy(response.data);
           $scope.samples1 = angular.copy(response.data);
         }) 

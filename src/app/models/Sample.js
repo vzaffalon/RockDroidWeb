@@ -31,6 +31,16 @@ angular.module('RockDroid.pages').factory('Sample', function ($http, $q, ApiEndp
         });
     };
 
+    SampleModel.listSamplesFromOutcrop = function(outcrop_id) {
+        return $http({
+            url: baseUrl,
+            method: "GET",
+            params:{
+                outcrop_id: outcrop_id
+            }
+        });
+    };
+
     SampleModel.updateSample = function (data) {
         return $http({
             url: baseUrl + data.uuid,

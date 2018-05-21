@@ -28,12 +28,25 @@
           controller: 'OutcropsCtrl',
           templateUrl: 'app/my_pages/projects/outcrops/outcrops.html',
           title: 'Afloramentos',
+          params: {
+              projectId:  null
+          }
+        })
+        .state('pages.profile', {
+          url: '/profile',
+          controller: 'ProfileCtrl',
+          templateUrl: 'app/my_pages/profile/profile.html',
+          title: 'Minha conta',
         })
         .state('pages.outcrop_info', {
           url: '/outcrops/:outcropId/outcrop_info',
           controller: 'OutcropInfoCtrl',
           templateUrl: 'app/my_pages/projects/outcropInfo/outcropInfo.html',
           title: 'Informações do afloramento',
+          params: {
+            stageId:  null,
+            projectId: null
+        }
         })
         .state('pages.outcrop_info.rocks', {
           url: '/rocks',

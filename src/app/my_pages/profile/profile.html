@@ -1,0 +1,23 @@
+<div class="widgets">
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div ba-panel style="text-align: center">
+                <img ng-show="user.user_image" ngf-select="uploadFile($file)" style="cursor: pointer; padding: 10px;  border-radius: 50%;"  src="{{user.user_image}}" alt="Description" width="200" height="200"/>
+                <img ng-show="!user.user_image" ngf-select="uploadFile($file)" style="cursor: pointer; padding: 10px;  border-radius: 50%;" src="assets/img/profile_placeholder.png" alt="Description" width="200" height="200"/>
+                <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>            
+                <div style="font-size: 18px; padding: 7px;">Nome</div>
+                <div style="font-size: 14px; padding: 7px;">{{user.name}}</div>
+                <div style="font-size: 18px; padding: 7px;">Email</div>
+                <div style="font-size: 14px; padding: 7px;">{{user.email}}</div>
+                <div style="font-size: 18px; padding: 7px;">Conta criada em</div>
+                <div style="font-size: 14px; padding: 7px;">{{user.created_at}}</div>
+                <div style="font-size: 18px; padding: 7px;">Tipo de conta</div>
+                <div style="font-size: 14px; padding: 7px;" ng-show="user.is_teacher">Professor</div>
+                <div style="font-size: 14px; padding: 7px;" ng-show="!user.is_teacher">Aluno</div>
+                <div style="font-size: 14px; padding: 7px;" ng-show="user.is_teacher">Contas do tipo professor tem acesso a todos os projetos no sistema</div>
+              </div>
+            </div>
+        </div>
+      
+</div>

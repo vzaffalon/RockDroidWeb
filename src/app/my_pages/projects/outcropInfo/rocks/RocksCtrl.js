@@ -12,7 +12,7 @@
   $scope.rocks = [];
 
   var getRocks = function () {
-    Rock.listRocks().then(function (response) {
+    Rock.listRocksFromOutcrop($stateParams.outcropId).then(function (response) {
       $scope.rocks1 = response.data;
     }) 
   }

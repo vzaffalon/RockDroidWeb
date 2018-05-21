@@ -31,6 +31,16 @@ angular.module('RockDroid.pages').factory('Stage', function ($http, $q, ApiEndpo
         });
     };
 
+    StageModel.listStagesFromProject = function(project_id) {
+        return $http({
+            url: baseUrl,
+            method: "GET",
+            params: {
+                project_id: project_id
+            }
+        });
+    };
+
     StageModel.updateStage = function (data) {
         return $http({
             url: baseUrl + data.uuid,

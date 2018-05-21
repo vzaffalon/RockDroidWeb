@@ -16,7 +16,6 @@
         $scope.errors = [];
 
         $scope.goToLogin = function(user_email){
-            debugger;
             $state.go('login',{userEmail: user_email});
         }
 
@@ -46,7 +45,6 @@
                         $scope.user.password = $scope.password;
                         User.createUser($scope.user).then(function (response) {
                             if(response.data){
-                                debugger;
                                 $scope.goToLogin(response.data.email);
                             }
                         }, function(){

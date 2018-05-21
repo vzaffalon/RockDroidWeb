@@ -6,13 +6,17 @@
         .controller('NewStructureCtrl', NewStructureCtrl);
   
     /** @ngInject */
-    function NewStructureCtrl($scope, $filter,$uibModalInstance,Structure,outcropId,Upload,$q,StructurePhoto) {
+    function NewStructureCtrl($scope, $filter,$uibModalInstance,Structure,outcropId,Upload,$q,StructurePhoto,is_secondary) {
 
 
         $scope.structure = {};
         $scope.structure.outcrop_id = outcropId;
 
         $scope.structure.structure_type = 'primary';
+        if(is_secondary){
+            $scope.structure.structure_type = 'secondary';
+        }
+       
 
         $scope.newStructure = function () {
             var auxStructure =  angular.copy($scope.structure);

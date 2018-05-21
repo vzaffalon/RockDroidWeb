@@ -31,6 +31,17 @@ angular.module('RockDroid.pages').factory('Structure', function ($http, $q, ApiE
         });
     };
 
+    StructureModel.listStructuresFromOutcrop = function(outcrop_id) {
+        return $http({
+            url: baseUrl,
+            method: "GET",
+            params: {
+                outcrop_id: outcrop_id
+            }
+        });
+    };
+
+
     StructureModel.updateStructure = function (data) {
         return $http({
             url: baseUrl + data.uuid,

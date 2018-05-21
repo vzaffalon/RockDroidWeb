@@ -14,6 +14,24 @@ angular.module('RockDroid.pages').factory('User', function ($http, $q, ApiEndpoi
         });
     };
 
+
+    UserModel.getUser = function(user_id) {
+
+        return $http({
+            url: baseUrl + user_id,
+            method: "GET"
+        });
+    };
+
+    UserModel.updateUser = function(user_id,data) {
+        return $http({
+            url: baseUrl + user_id,
+            method: "PATCH",
+            data: data,
+        });
+    };
+
+
     UserModel.login = function(email,password){
         var data = {
             "email": email,

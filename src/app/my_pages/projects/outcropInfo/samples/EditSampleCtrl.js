@@ -30,16 +30,28 @@
         getSamplePhotos();
 
         $scope.removePhoto = function (photo,index) {
-            if(photo.uuid){
-                SamplePhoto.deleteSamplePhoto(photo.uuid).then(function (response) {
-                    if(response.data.message){
-                        $scope.files.splice(index, 1);
-                    }
-                }) 
-            }else{
-                //se imagem adicionada mas ainda nao clicou em confirmar
-                $scope.files.splice(index, 1);
-            }
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/my_pages/common/delete_picture_confirmation_modal.html',
+                controller: 'DeletePictureConfirmationModalCtrl',
+                size: 'md',
+                resolve: {
+                }
+              });
+              modalInstance.result.then(function () {
+                if(photo.uuid){
+                    SamplePhoto.deleteSamplePhoto(photo.uuid).then(function (response) {
+                        if(response.data.message){
+                            $scope.files.splice(index, 1);
+                        }
+                    }) 
+                }else{
+                    //se imagem adicionada mas ainda nao clicou em confirmar
+                    $scope.files.splice(index, 1);
+                }
+              }, function () {
+                
+              });
         }
 
         $scope.fileToBase64 = function (files) {

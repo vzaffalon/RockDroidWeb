@@ -11,7 +11,7 @@
       $scope.structures = [];
   
       var getStructures = function () {
-        Structure.listStructures().then(function (response) {
+        Structure.listStructuresFromOutcrop($stateParams.outcropId).then(function (response) {
           $scope.structures = [];
           $scope.structures1 = [];
           for(var i =0;i< response.data.length;i++){
@@ -72,6 +72,10 @@
           resolve: {
             outcropId: function () {
               return $stateParams.outcropId;
+            }
+            ,
+            is_secondary: function () {
+              return false;
             }
           }
         });

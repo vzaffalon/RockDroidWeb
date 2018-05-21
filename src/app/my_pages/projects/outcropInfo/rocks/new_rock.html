@@ -81,11 +81,30 @@
                 </div>
 
                 <div class="form-group">
-                        <label for="name">Estrutura primária</label>
+                        <div>
+                                <label for="name">Estruturas primária</label>
+                                <img src="assets/img/add.png" ng-click="openSelectPrimaryStructureModal()" style="cursor: pointer; margin-left: 8px;" width="15" height="15">
+                        </div>
+                        <div ng-repeat="primary_structure in primary_structures">
+                                        <div style="display: flex; flex-direction: row;">
+                                                        <div>{{primary_structure.description}}</div>
+                                                        <img src="assets/img/minus.png" ng-click="deletePrimaryStructure(primary_structure)" style="cursor: pointer; margin-left: 8px;" width="15" height="15">
+                                                </div>
+                        </div>
+                        <div style="background: #EFEFEF; height: 1px; margin-top: 5px; margin-bottom: 5px;" ></div>
                 </div>
 
                 <div class="form-group">
-                        <label for="name">Estrutura secundária</label>
+                        <div>
+                        <label for="name">Estruturas secundária</label>
+                        <img src="assets/img/add.png" ng-click="openSelectSecondaryStructureModal()" style="cursor: pointer; margin-left: 8px;" width="15" height="15">
+                        <div ng-repeat="secondary_structure in secondary_structures">
+                                        <div style="display: flex; flex-direction: row;">
+                                                        <div>{{secondary_structure.name}}</div>
+                                                        <img src="assets/img/minus.png" ng-click="deleteSecondaryStructure(secondary_structure)" style="cursor: pointer; margin-left: 8px;" width="15" height="15">
+                                                </div>
+                        </div>
+                        <div style="background: #EFEFEF; height: 1px; margin-top: 5px; margin-bottom: 5px;" ></div>
                 </div>
 
                 <div class="form-group">

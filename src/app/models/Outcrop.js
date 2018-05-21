@@ -34,6 +34,28 @@ angular.module('RockDroid.pages').factory('Outcrop', function ($http, $q, ApiEnd
         });
     };
 
+
+    OutcropModel.listOutcropsFromStage = function(stage_id) {
+        return $http({
+            url: baseUrl,
+            method: "GET",
+            params: {
+                stage_id: stage_id
+            }
+        });
+    };
+
+    OutcropModel.listUserOutcrops = function(user_id) {
+        return $http({
+            url: baseUrl + 'user_outcrops',
+            method: "GET",
+            params: {
+                user_id: user_id
+            }
+        });
+    };
+
+
     OutcropModel.updateOutcrop = function (data) {
         return $http({
             url: baseUrl + data.uuid,

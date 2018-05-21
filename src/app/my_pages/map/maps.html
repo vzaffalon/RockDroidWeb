@@ -3,6 +3,65 @@
 </style>
 <div class="widgets">
 
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div ba-panel>
+                <div ng-show="outcrops.length == 0">
+                  <div style="text-align: center; padding: 10px">
+                    <img src="assets/img/new_outcrop.png" alt="Smiley face" height="200" width="200"></img>
+                    <div style="font-size: 15px; padding: 10px;">Não possui nenhum afloramento</div>
+                  </div>
+                </div>
+              <div ng-show="outcrops.length != 0" class="horizontal-scroll">
+                <table class="table table-bordered table-hover table-condensed" st-table="outcrops" st-safe-src="outcrops1">
+                  <thead>
+                     
+                  <tr class="sortable ">
+                    <th st-sort="firstName">Nome</th>
+                    <th st-sort="firstName">Altitude</th>
+                    <th st-sort="firstName">Latitude</th>
+                    <th st-sort="firstName">Longitude</th>
+                    <th st-sort="firstName">Toponímia</th>
+                    <th st-sort="firstName">Descrição</th>
+                    <th st-sort="firstName">Criado em</th>
+                  </tr>
+                  <!-- <tr>
+                    <th></th>
+                    <th><input st-search="firstName" placeholder="Buscar por Nome" class="input-sm form-control search-input"
+                               type="search"/></th>
+                    <th><input st-search="lastName" placeholder="Buscar por data de criação" class="input-sm form-control search-input"
+                               type="search"/></th>
+                  </tr> -->
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="outcrop in outcrops" style="cursor: pointer;">
+                    <td ng-click="goToMapLocation(outcrop);">{{outcrop.name}}</td>
+                    <td ng-show="outcrop.altitude" ng-click="goToMapLocation(outcrop);">{{outcrop.altitude}}</td>
+                    <td ng-show="!outcrop.altitude" ng-click="goToMapLocation(outcrop);">-</td>
+                    <td ng-show="outcrop.latitude" ng-click="goToMapLocation(outcrop);">{{outcrop.latitude}}</td>
+                    <td ng-show="outcrop.latitude" ng-click="goToMapLocation(outcrop);">{{outcrop.longitude}}</td>
+                    <td ng-show="outcrop.toponomy" ng-click="goToMapLocation(outcrop);">{{outcrop.toponomy}}</td>
+                    <td ng-show="!outcrop.toponomy" ng-click="goToMapLocation(outcrop);">-</td>
+                    <td ng-show="outcrop.description" ng-click="goToMapLocation(outcrop);">{{outcrop.description}}</td>
+                    <td ng-show="!outcrop.description" ng-click="goToMapLocation(outcrop);">-</td>
+                    <td ng-click="goToMapLocation(outcrop);">{{outcrop.created_at | date : 'd/M/yyyy'}}</td>
+                  </tr>
+                  </tbody>
+                  <tfoot >
+                  <tr>
+                    <td colspan="10" class="text-center" style="padding-bottom: 15px;">
+                      <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                    </td>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+
   <div class="row">
     <div class="col-md-12" ui-view autoscroll="true" autoscroll-body-top>
       <div ba-panel ba-panel-title="Mapa de afloramentos" class="viewport100">

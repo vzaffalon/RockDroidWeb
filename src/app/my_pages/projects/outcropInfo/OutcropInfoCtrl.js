@@ -19,7 +19,8 @@
         }
 
         $scope.goBack = function(){
-            $state.go('pages.outcrops',{outcropId: $stateParams.outcropId});
+            debugger;
+            $state.go('pages.outcrops',{outcropId: $stateParams.outcropId,stageId: $stateParams.stageId,projectId: $stateParams.projectId});
         }
 
         var getLatitudeLongitudeZone = function () {
