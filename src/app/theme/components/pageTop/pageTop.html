@@ -8,7 +8,7 @@
   </div> -->
 
   
-  <div class="user-profile clearfix">
+  <div class="user-profile clearfix" ng-controller="PageTopCtrl">
     <div class="al-user-profile" uib-dropdown>
       <a uib-dropdown-toggle class="profile-toggle-link">
         <img ng-show="user.user_image" src="{{user.user_image}}">
@@ -17,11 +17,11 @@
       <ul  class="top-dropdown-menu profile-dropdown" uib-dropdown-menu>
         <li><i class="dropdown-arr"></i></li>
         <li><a ui-sref="pages.profile"><i style="margin-right: 6px" class="fa fa-user"></i>Minha conta</a></li>
-        <li><a  onClick="logOut()" class="signout"><i style="margin-right: 6px" class="fa fa-power-off"></i>Sair</a></li>
+        <li><a ng-click="logOut()" class="signout"><i style="margin-right: 6px" class="fa fa-power-off"></i>Sair</a></li>
       </ul>
     </div>
     <msg-center></msg-center>
-    <div style="    position: absolute;
+    <div style="position: absolute;
     right: 200px;
     top: 0;
     height: 66px;

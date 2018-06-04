@@ -6,7 +6,7 @@
       .controller('ProjectsCtrl', ProjectsCtrl);
 
   /** @ngInject */
-  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project,$uibModal,$window) {
+  function ProjectsCtrl($scope, $filter, editableOptions, editableThemes,$state,Project,$uibModal,$window,User) {
 
     $scope.smartTablePageSize = 8;
 
@@ -16,13 +16,20 @@
       $state.go('pages.stages',{projectId: project.uuid});
     }
 
+    var user_id = $window.localStorage.user_id;
+    User.getUser(user_id).then(function (response) {
+      $scope.user = response.data;
+  })
+
     var getProjects = function () {
       Project.listProjects().then(function (response) {
-        $scope.projects1 = response.data;
+        $scope.projects1 = response.data.projects;
+        $scope.users = response.data.users;
       }) 
     }
 
     getProjects();
+    
 
     $scope.newProject = function () {
       var modalInstance = $uibModal.open({

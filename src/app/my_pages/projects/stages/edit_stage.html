@@ -20,7 +20,7 @@
                         <!-- <div class="col-xlg-6 col-md-12 col-sm-6" ng-controller="datepickerpopupCtrl"> -->
                                 <label>Data de início: <em>{{dt | date:'fullDate' }}</em></label>
                                 <p class="input-group">
-                                    <input ng-model="stage.initial_date" type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                        <input ng-model="stage.initial_date" required type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" datepicker-options="options" is-open="$parent.opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
                                   <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
                                   </span>
@@ -30,8 +30,8 @@
                 </div>
                 
                 <div style="text-align: right;">
-                                <button class="btn btn-default" ng-click="closeModal()">Cancelar</button>
-                                <button type="submit" class="btn btn-danger" ng-click="editStage()">Confirmar</button>
+                                <button class="btn btn-default form-button" ng-click="closeModal()">Cancelar</button>
+                                <button type="submit" class="btn btn-danger form-button" ng-click="editStage()">Confirmar</button>
                 </div>
         </form>
 </div>

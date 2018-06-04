@@ -19,7 +19,6 @@
         }
 
         $scope.goBack = function(){
-            debugger;
             $state.go('pages.outcrops',{outcropId: $stateParams.outcropId,stageId: $stateParams.stageId,projectId: $stateParams.projectId});
         }
 

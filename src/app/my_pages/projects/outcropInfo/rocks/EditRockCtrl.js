@@ -100,7 +100,6 @@
                     $scope.secondary_structures.push(response.data[i]);
                   }
                 }
-                debugger;
               }) 
             
         }
@@ -149,7 +148,6 @@
 
 
         var createRockStructureAssociations = function (response) {
-            debugger;
             var promises = [];
             for(var i=0;i<$scope.primary_structures.length;i++){
                 if($scope.primary_structures[i].new){

@@ -9,8 +9,10 @@
     function EditStageCtrl($scope, $filter,$uibModalInstance,Stage,stageObject) {
 
         $scope.stage = stageObject;
+        $scope.stage.initial_date = moment($scope.stage.initial_date).toDate();
 
         $scope.editStage = function () {
+            $scope.stage.initial_date = moment($scope.stage.initial_date).valueOf();
             Stage.updateStage($scope.stage).then(function (response) {
                 $uibModalInstance.close();
             })
@@ -19,6 +21,17 @@
         $scope.closeModal = function () {
             $uibModalInstance.dismiss();
         }
+
+        $scope.open = function(){
+            $scope.$parent.opened = true
+        }
+
+        $scope.options = {
+            timezone: 'pt-br',
+            minDate: moment(),
+            initDate: moment(),
+          };
+
 
         $scope.districts = [{
             "ID": "1",

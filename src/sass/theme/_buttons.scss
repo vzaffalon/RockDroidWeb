@@ -8,10 +8,22 @@ $hover: 24;
   border-radius: 5px;
   transition: all 0.1s ease;
 }
-
 .btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
+
+.main-btn{
+  margin: 3px 7px;
+}
+
+.back-btn-padding{
+  margin: 3px 0px 0px 7px;
+}
+
+.form-button{
+  margin: 2px;
+}
+
 
 @mixin styleButton($color, $borderColor) {
   background: $color;

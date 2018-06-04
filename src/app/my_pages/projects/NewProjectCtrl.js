@@ -12,6 +12,7 @@
         $scope.project.user_id = userId;
 
         $scope.newProject = function () {
+            $scope.project.creation_date = moment($scope.project.creation_date).valueOf()
             Project.createProject($scope.project).then(function (response) {
                 $uibModalInstance.close();
             })

@@ -1,8 +1,8 @@
-<div class="row pie-charts">
+<div><div class="row pie-charts">
     <div class="pie-chart-item-container" ng-repeat="chart in charts">
       <div ba-panel>
         <div class="pie-chart-item">
-          <div class="chart" rel="{{ ::chart.color }}" data-percent="60"> <span class="percent"></span> </div>
+          <div class="chart" rel="{{ ::chart.color }}" data-percent="100"> <span class="percent"></span> </div>
           <div class="description">
             <div>{{ ::chart.description }}</div>
             <div class="description-stats">{{ ::chart.stats }}</div>
@@ -12,3 +12,65 @@
       </div>
     </div>
   </div>
+  <div class="col-lg-6 col-md-12 col-sm-12"
+  ba-panel
+  ba-panel-title="Fotos de afloramentos"
+  ba-panel-class="medium-panel">
+  <div>
+      <div ng-show="pictures.outcrop_photos.length == 0">
+          Nenhuma foto de afloramento registrada
+        </div>
+  <div ng-show="pictures.outcrop_photos.length > 0"></div>
+  <div style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.outcrop_photos" class="col-md-4">
+    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+  </div>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 col-sm-12"
+ba-panel
+ba-panel-title="Fotos de Rochas"
+ba-panel-class="medium-panel">
+<div ng-show="pictures.rock_photos.length == 0">
+  Nenhuma foto de rocha registrada
+</div>
+  <div  ng-show="pictures.rock_photos.length > 0" style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.rock_photos" class="col-md-4">
+    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+  </div>
+</div>
+<div class="col-lg-6 col-md-12 col-sm-12"
+ba-panel
+ba-panel-title="Fotos de Estruturas"
+ba-panel-class="medium-panel">
+<div ng-show="pictures.structure_photos.length == 0">
+  Nenhuma foto de estrutura registrada
+</div>
+  <div ng-show="pictures.structure_photos.length > 0" style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.structure_photos" class="col-md-4">
+    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+  </div>
+</div>
+<div class="col-lg-6 col-md-12 col-sm-12"
+ba-panel
+ba-panel-title="Fotos de Amostras"
+ba-panel-class="medium-panel">
+<div ng-show="pictures.sample_photos.length == 0">
+  Nenhuma foto de amostra registrada
+</div>
+<div  ng-show="pictures.sample_photos.length > 0" style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.sample_photos" class="col-md-4">
+  <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 col-sm-12"
+ba-panel
+ba-panel-title="Etapas por UF"
+ba-panel-class="medium-panel">
+<dashboard-map></dashboard-map>
+</div>
+
+<div class="col-lg-6 col-md-12 col-sm-12"
+ba-panel
+ba-panel-title="Afloramentos por altitude"
+ba-panel-class="medium-panel">
+  <div id="barChart" class="admin-chart" ng-controller="DashboardCtrl"></div>
+</div>
+</div>
+</div>

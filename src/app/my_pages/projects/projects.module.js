@@ -53,7 +53,7 @@
           templateUrl: 'app/my_pages/projects/outcropInfo/rocks/rocksList.html',
           title: 'Rochas',
           controller: "RocksCtrl",
-          controllerAs: "listCtrl"
+          controllerAs: "listCtrl",
         })
         .state('pages.outcrop_info.primary_structures', {
           url: '/structures',
@@ -61,6 +61,7 @@
           title: 'Estruturas Primárias',
           controller: "PrimaryStructuresCtrl",
           controllerAs: "listCtrl"
+          
         })
 
         .state('pages.outcrop_info.secondary_structures', {

@@ -16,7 +16,15 @@
         if($scope.outcrop.latitude > 0){
             $scope.latitudeZone = 'N';
         }else{
+            $scope.outcrop.latitude = -$scope.outcrop.latitude
             $scope.latitudeZone = 'S';
+        }
+
+        if($scope.outcrop.longitude > 0){
+            $scope.longitudeZone = 'E';
+        }else{
+            $scope.outcrop.longitude = -$scope.outcrop.longitude
+            $scope.longitudeZone = 'W';
         }
         $scope.files = [];
 
@@ -59,16 +67,8 @@
 
         var changeLatitudelongitude = function (params) {
             switch ($scope.latitudeZone) {
-                case 'N':
-                    if($scope.outcrop.latitude < 0){
-                        $scope.outcrop.latitude = -($scope.outcrop.latitude)
-                    } 
-                break;
-
                 case 'S':
-                        if($scope.outcrop.latitude > 0){
-                            $scope.outcrop.latitude = -($scope.outcrop.latitude)
-                        }
+                    $scope.outcrop.latitude = -($scope.outcrop.latitude)
                 break;
 
             
@@ -76,18 +76,9 @@
                     break;
             }
             switch ($scope.longitudeZone) {
-                case 'E':
-                    if($scope.outcrop.longitude < 0){
-                        $scope.outcrop.longitude = -($scope.outcrop.longitude)
-                    } 
-                    break;
-
                 case 'W':
-                    if($scope.outcrop.longitude > 0){
-                        $scope.outcrop.longitude = -($scope.outcrop.longitude)
-                    }
-              
-                    break;
+                    $scope.outcrop.longitude = -($scope.outcrop.longitude)
+                 break;
 
             
                 default:

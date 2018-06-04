@@ -15,10 +15,20 @@
         $scope.stage.project_id = projectId;
 
         $scope.newStage = function () {
+            $scope.stage.initial_date = moment($scope.stage.initial_date).valueOf()
             Stage.createStage($scope.stage).then(function (response) {
                 $uibModalInstance.close();
             })
         }
+
+        $scope.open = function(){
+            $scope.$parent.opened = true
+        }
+
+        $scope.options = {
+            timezone: 'pt-br',
+            minDate: moment(),
+          };
 
         $scope.closeModal = function () {
             $uibModalInstance.dismiss();

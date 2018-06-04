@@ -11,23 +11,23 @@
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div ba-panel>
-                <div ng-show="stages.length == 0">
+                <div ng-show="stages1.length == 0">
                     <div class="add-row-editable-table" style="display: flex; justify-content: space-between;">
-                        <button class="btn btn-default compose-button" ng-click="goBack()">❮ Voltar</button>
+                        <button class="btn btn-default compose-button back-btn-padding" ng-click="goBack()">❮ Voltar</button>
                         <div></div>
                     </div>
                     <div style="text-align: center; padding: 10px">
                       <img src="assets/img/new_stage.png" alt="Smiley face" height="200" width="200"></img>
                       <div style="font-size: 15px; padding: 10px;">Crie sua primeira etapa</div>
                       <div class="add-row-editable-table">
-                          <button class="btn btn-primary" ng-click="newStage()">Nova etapa</button>
+                          <button class="btn btn-primary main-btn" ng-click="newStage()">Nova etapa</button>
                       </div>
                   </div>
                   </div>
               <div ng-show="stages.length != 0" class="horizontal-scroll">
                 <div class="add-row-editable-table" style="display: flex; justify-content: space-between;">
                     <button class="btn btn-default compose-button" ng-click="goBack()">❮ Voltar</button>
-                    <button class="btn btn-primary" ng-click="newStage()">Nova etapa</button>
+                    <button class="btn btn-primary main-btn" ng-click="newStage()">Nova etapa</button>
                 </div>
                 <table class="table table-bordered table-hover table-condensed" st-table="stages" st-safe-src="stages1">
                   <thead>

@@ -281,7 +281,16 @@ a {
   transition: all 0.1s ease; }
 
 .btn:hover {
-  transform: scale(1.2); }
+  transform: scale(1.1); }
+
+.main-btn {
+  margin: 3px 7px; }
+
+.back-btn-padding {
+  margin: 3px 0px 0px 7px; }
+
+.form-button {
+  margin: 2px; }
 
 .open > .btn.dropdown-toggle.btn.btn-primary {
   background: #209e91;

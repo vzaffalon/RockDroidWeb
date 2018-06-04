@@ -9,10 +9,8 @@
     function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Stage,$stateParams) {
   
       $scope.smartTablePageSize = 8;
-      debugger;
 
       $scope.goToOutcrops = function (stage) {
-        debugger;
         $state.go('pages.outcrops',{stageId: stage.uuid,projectId: $stateParams.projectId});
       }
 

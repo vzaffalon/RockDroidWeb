@@ -22,8 +22,7 @@
             switch (location) {
                 case 'wgs':
                     if($scope.outcrop.easting && $scope.outcrop.northing){
-                        changeLatitudelongitude();
-                        conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum);
+                        conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum,$scope.outcrop.zoneLetter);
                         $scope.outcrop.latitude = conversion.latitude;
                         $scope.outcrop.longitude = conversion.longitude;
                     }
@@ -31,11 +30,19 @@
 
                 case 'utm':
                     if($scope.outcrop.latitude && $scope.outcrop.longitude){
-                        changeLatitudelongitude();
-                        conversion = UtmConverter.fromLatLon($scope.outcrop.latitude, $scope.outcrop.longitude);
+                        var latitudeAux = $scope.outcrop.latitude;
+                        var longitudeAux = $scope.outcrop.longitude;
+                        if($scope.latitudeZone == 'S'){
+                            latitudeAux = -latitudeAux;
+                        }
+                        if($scope.longitudeZone == 'W'){
+                            longitudeAux = -longitudeAux;
+                        }
+                        conversion = UtmConverter.fromLatLon(latitudeAux,longitudeAux);
                         $scope.outcrop.easting = conversion.easting;
                         $scope.outcrop.northing = conversion.northing;
                         $scope.outcrop.horizontal_datum = conversion.zoneNum;
+                        $scope.outcrop.zoneLetter = conversion.zoneLetter;
                     }
                     break;
 
@@ -44,44 +51,6 @@
                     break;
             }
         });
-
-        var changeLatitudelongitude = function (params) {
-            switch ($scope.latitudeZone) {
-                case 'N':
-                    if($scope.outcrop.latitude < 0){
-                        $scope.outcrop.latitude = -($scope.outcrop.latitude)
-                    } 
-                break;
-
-                case 'S':
-                        if($scope.outcrop.latitude > 0){
-                            $scope.outcrop.latitude = -($scope.outcrop.latitude)
-                        }
-                break;
-
-            
-                default:
-                    break;
-            }
-            switch ($scope.longitudeZone) {
-                case 'E':
-                    if($scope.outcrop.longitude < 0){
-                        $scope.outcrop.longitude = -($scope.outcrop.longitude)
-                    } 
-                    break;
-
-                case 'W':
-                    if($scope.outcrop.longitude > 0){
-                        $scope.outcrop.longitude = -($scope.outcrop.longitude)
-                    }
-              
-                    break;
-
-            
-                default:
-                    break;
-            }
-        }
 
         $scope.files = [];
 

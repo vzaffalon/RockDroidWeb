@@ -7,13 +7,13 @@
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div ba-panel>
-                <div ng-show="outcrops.length == 0">
+                <div ng-show="outcrops1.length == 0">
                   <div style="text-align: center; padding: 10px">
                     <img src="assets/img/new_outcrop.png" alt="Smiley face" height="200" width="200"></img>
                     <div style="font-size: 15px; padding: 10px;">Não possui nenhum afloramento</div>
                   </div>
                 </div>
-              <div ng-show="outcrops.length != 0" class="horizontal-scroll">
+              <div ng-show="outcrops1.length != 0" class="horizontal-scroll">
                 <table class="table table-bordered table-hover table-condensed" st-table="outcrops" st-safe-src="outcrops1">
                   <thead>
                      
@@ -65,6 +65,38 @@
   <div class="row">
     <div class="col-md-12" ui-view autoscroll="true" autoscroll-body-top>
       <div ba-panel ba-panel-title="Mapa de afloramentos" class="viewport100">
+          <div style="display: flex; flex-direction: row;">
+              <div class="form-group">
+                  <label for="name">Latitude</label>
+                  <div style="display: flex; flex-direction: row;">
+                    <input type="number" style="margin-bottom: 5px; width: 160px;" required ng-model="outcrop.latitude" class="form-control" placeholder="0° a 90°">
+                    <select style="display: block !important;  width: 80px; margin-left: 10px;" class="form-control selectpicker" ng-model="lat.latitudeZone" >
+                        <option value="N">N</option>
+                        <option value="S">S</option>
+                    </select>
+                </div>
+              </div>
+    
+              <div style="display: flex; flex-direction: column; margin-left: 16px;" class="form-group" >
+                    <label for="name">Longitude</label>
+                    <div style="display: flex; flex-direction: row;">
+                      <input type="number" style="margin-bottom: 5px;  width: 160px;" required ng-model="outcrop.longitude" class="form-control" placeholder="0° a 180°">
+                      <select style="display: block !important;  width: 80px; margin-left: 10px;" class="form-control selectpicker" title="Zona latitudinal" ng-model="lat.longitudeZone" >
+                          <option value="E">E</option>
+                          <option value="W">W</option>
+                      </select>
+                  </div>
+              </div>
+              <button style="width: 105px;
+              height: 40px;
+              margin-left: 10px;
+              margin-top: 16px;" class="btn btn-default form-button" ng-click="clearCoordinates()">Limpar</button>
+              <button style="width: 105px;
+              height: 40px;
+              margin-left: 10px;
+              margin-top: 16px;" type="submit" class="btn btn-danger form-button" ng-click="searchCoordinates()">Buscar</button>
+          </div>
+          
         <div id="mapid"></div>
       </div>      
     </div>

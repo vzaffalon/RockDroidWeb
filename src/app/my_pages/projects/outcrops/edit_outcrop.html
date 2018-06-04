@@ -33,13 +33,25 @@
 
             <div ng-show="location.type == 'wgs'">
                 <div class="form-group">
-                        <label for="name">Latitude <a style="color: #E85656">*</a></label>
-                        <input style="margin-bottom: 5px;" type="number" required ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="Latitude">
+                                <label style="margin-top: 5px;" for="name">Latitude <a style="color: #E85656">*</a></label>
+                                <div style="display: flex; flex-direction: row;">
+                                    <input type="number" style="margin-bottom: 5px; width: 430px;" required ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="0° a 90°">
+                                    <select style="display: block !important; width: 130px; margin-left: 8px;" class="form-control selectpicker" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
+                                            <option value="N">N</option>
+                                            <option value="S">S</option>
+                                    </select>
+                                </div>
                 </div>
 
                 <div class="form-group">
-                        <label for="name">Longitude <a style="color: #E85656">*</a></label>
-                        <input style="margin-bottom: 5px;" type="number" required ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="Longitude">
+                                <label for="name">Longitude <a style="color: #E85656">*</a></label>
+                                <div style="display: flex; flex-direction: row;">
+                                    <input type="number" style="margin-bottom: 5px; width: 430px;" required ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="0° a 180°">
+                                    <select style="display: block !important; width: 130px; margin-left: 8px;" class="form-control selectpicker" title="Zona latitudinal" ng-model="longitudeZone" selectpicker>
+                                            <option value="E">E</option>
+                                            <option value="W">W</option>
+                                    </select>
+                                </div>
                 </div>
             </div>
 
@@ -97,8 +109,8 @@
                         <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>            
            </div>
             <div style="text-align: right;">
-                    <button class="btn btn-default" ng-click="closeModal()">Cancelar</button>
-                    <button type="submit" class="btn btn-danger" ng-click="editOutcrop()">Confirmar</button>
+                    <button class="btn btn-default form-button" ng-click="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-danger form-button" ng-click="editOutcrop()">Confirmar</button>
             </div>
     </form>
 </div>
