@@ -1,8 +1,54 @@
-<div><div class="row pie-charts">
+<style>
+
+.i-project {
+  display: inline-block;
+  background: url("../../../assets/img/project.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; 
+}
+
+.i-stage {
+  display: inline-block;
+  background: url("../../../assets/img/stage.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; 
+}
+
+
+.i-outcrop {
+  display: inline-block;
+  background: url("../../../assets/img/outcrop.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; 
+}
+
+.i-rock {
+  display: inline-block;
+  background: url("../../../assets/img/rock.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; 
+}
+.i-structure {
+  display: inline-block;
+  background: url("../../../assets/img/structure.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px; 
+}
+</style>
+<div><div class="pie-charts">
     <div class="pie-chart-item-container" ng-repeat="chart in charts">
       <div ba-panel>
         <div class="pie-chart-item">
-          <div class="chart" rel="{{ ::chart.color }}" data-percent="100"> <span class="percent"></span> </div>
           <div class="description">
             <div>{{ ::chart.description }}</div>
             <div class="description-stats">{{ ::chart.stats }}</div>
@@ -22,11 +68,11 @@
         </div>
   <div ng-show="pictures.outcrop_photos.length > 0"></div>
   <div style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.outcrop_photos" class="col-md-4">
-    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+    <img  ng-click="downloadPhoto(photo)" data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px; cursor: pointer;"/>
   </div>
 </div>
 </div>
-<div class="col-lg-6 col-md-12 col-sm-12"
+<div class="col-lg-6 col-md-12 col-sm-12 medium-panel"
 ba-panel
 ba-panel-title="Fotos de Rochas"
 ba-panel-class="medium-panel">
@@ -61,14 +107,14 @@ ba-panel-class="medium-panel">
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12"
 ba-panel
-ba-panel-title="Etapas por UF"
+ba-panel-title="Número de etapas por UF"
 ba-panel-class="medium-panel">
 <dashboard-map></dashboard-map>
 </div>
 
 <div class="col-lg-6 col-md-12 col-sm-12"
 ba-panel
-ba-panel-title="Afloramentos por altitude"
+ba-panel-title="Número de afloramentos por altitude"
 ba-panel-class="medium-panel">
   <div id="barChart" class="admin-chart" ng-controller="DashboardCtrl"></div>
 </div>

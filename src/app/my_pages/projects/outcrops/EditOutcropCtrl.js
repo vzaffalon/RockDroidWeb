@@ -12,6 +12,7 @@
 
         $scope.location = {};
         $scope.location.type = 'wgs';
+        $scope.errors=[];
 
         if($scope.outcrop.latitude > 0){
             $scope.latitudeZone = 'N';
@@ -41,21 +42,38 @@
             switch (location) {
                 case 'wgs':
                     if($scope.outcrop.easting && $scope.outcrop.northing){
-                        changeLatitudelongitude();
-                        conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum);
-                        $scope.outcrop.latitude = conversion.latitude;
-                        $scope.outcrop.longitude = conversion.longitude;
-  
+                        conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum,$scope.outcrop.zoneLetter);
+                        var latitude = conversion.latitude;
+                        if(conversion.latitude < 0){
+                            latitude = -latitude;
+                            $scope.latitudeZone = 'S';
+                        }
+                        var longitude = conversion.longitude;
+                        if(conversion.longitude < 0){
+                            longitude = -longitude;
+                            $scope.longitudeZone = 'W';
+                        }
+
+                        $scope.outcrop.latitude = latitude;
+                        $scope.outcrop.longitude = longitude;
                     }
                     break;
 
                 case 'utm':
                     if($scope.outcrop.latitude && $scope.outcrop.longitude){
-                        changeLatitudelongitude();
-                        conversion = UtmConverter.fromLatLon($scope.outcrop.latitude, $scope.outcrop.longitude);
+                        var latitudeAux = $scope.outcrop.latitude;
+                        var longitudeAux = $scope.outcrop.longitude;
+                        if($scope.latitudeZone == 'S'){
+                            latitudeAux = -latitudeAux;
+                        }
+                        if($scope.longitudeZone == 'W'){
+                            longitudeAux = -longitudeAux;
+                        }
+                        conversion = UtmConverter.fromLatLon(latitudeAux,longitudeAux);
                         $scope.outcrop.easting = conversion.easting;
                         $scope.outcrop.northing = conversion.northing;
                         $scope.outcrop.horizontal_datum = conversion.zoneNum;
+                        $scope.outcrop.zoneLetter = conversion.zoneLetter;
                     }
                     break;
 
@@ -64,28 +82,6 @@
                     break;
             }
         });
-
-        var changeLatitudelongitude = function (params) {
-            switch ($scope.latitudeZone) {
-                case 'S':
-                    $scope.outcrop.latitude = -($scope.outcrop.latitude)
-                break;
-
-            
-                default:
-                    break;
-            }
-            switch ($scope.longitudeZone) {
-                case 'W':
-                    $scope.outcrop.longitude = -($scope.outcrop.longitude)
-                 break;
-
-            
-                default:
-                    break;
-            }
-        }
-
 
         $scope.removePhoto = function (photo,index) {
             var modalInstance = $uibModal.open({
@@ -113,10 +109,46 @@
         }
 
         $scope.editOutcrop = function () {
-            changeLatitudelongitude();
-            Outcrop.updateOutcrop($scope.outcrop).then(function (response) {
+            var outcrop = angular.copy($scope.outcrop);
+            $scope.errors = [];
+            if($scope.location.type = 'wgs'){
+                if($scope.latitudeZone == 'N'){
+                    if(outcrop.northing < 0 || outcrop.northing > 9350000){
+                        $scope.errors.push("Northing deve estar entre os valores 0 e 9,350,000");
+                        return;
+                    }
+                }
+               
+                if($scope.latitudeZone == 'S'){
+                    if(outcrop.northing < 1100000 || outcrop.northing > 10000000){
+                        $scope.errors.push("Northing deve estar entre os valores 1,100,000 e 10,000,000");
+                        return;
+                    }
+                }
+    
+                if(outcrop.easting < 166000 || outcrop.easting > 834000){
+                    $scope.errors.push("Easting deve estar entre os valores 166,000 e 834,000");
+                    return;
+                }
+    
+    
+                if(outcrop.horizontal_datum < 1 || outcrop.horizontal_datum > 60){
+                    $scope.errors.push("Zona longitudinal deve estra entre 1 a 60");
+                    return;
+                }
+            }
+        
+            if($scope.latitudeZone == 'S'){
+              outcrop.latitude = -outcrop.latitude
+            }
+            if($scope.longitudeZone == 'W'){
+               outcrop.longitude = -outcrop.longitude
+            }
+            Outcrop.updateOutcrop(outcrop).then(function (response) {
                 if($scope.files.length > 0){
                     uploadPictures(response);
+                }else{
+                    $uibModalInstance.close();
                 }
             })
         }

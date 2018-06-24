@@ -22,6 +22,7 @@
           controller: 'StagesCtrl',
           templateUrl: 'app/my_pages/projects/stages/stages.html',
           title: 'Etapas',
+          parent: 'pages'
         })
         .state('pages.outcrops', {
           url: '/stages/:stageId/outcrops',

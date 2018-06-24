@@ -3,7 +3,15 @@
     background-color: #f1f1f1;
     color: black;
     border-radius: 50%;
-}
+  }
+
+    .back-btn-padding{
+      margin: 3px 0px 0px 7px;
+    }
+
+    .modal{
+      padding-top: 70px;
+    }
 
 </style>
 <div class="widgets">
@@ -13,11 +21,11 @@
             <div ba-panel>
                 <div ng-show="stages1.length == 0">
                     <div class="add-row-editable-table" style="display: flex; justify-content: space-between;">
-                        <button class="btn btn-default compose-button back-btn-padding" ng-click="goBack()">❮ Voltar</button>
+                        <button class=" back-btn-padding btn btn-default compose-button back-btn-padding" ng-click="goBack()">❮ Voltar</button>
                         <div></div>
                     </div>
                     <div style="text-align: center; padding: 10px">
-                      <img src="assets/img/new_stage.png" alt="Smiley face" height="200" width="200"></img>
+                      <img src="assets/img/new_stage.png" alt="Smiley face" height="145" width="145"></img>
                       <div style="font-size: 15px; padding: 10px;">Crie sua primeira etapa</div>
                       <div class="add-row-editable-table">
                           <button class="btn btn-primary main-btn" ng-click="newStage()">Nova etapa</button>

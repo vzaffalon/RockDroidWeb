@@ -17,6 +17,10 @@
             $state.go('pages.dashboard')
         }
 
+        $scope.goToTutorial = function(){
+            $state.go('pages.tutorial')
+        }
+
         $scope.goToRegister = function(){
             $state.go('register')
         }
@@ -28,7 +32,12 @@
                              if(response.data){
                                 $window.localStorage.auth_token = $base64.encode(response.data.email) + ':' + $base64.encode(response.data.password_hash)//base 64 de email mais : mais senha
                                 $window.localStorage.user_id = response.data.uuid;
-                                $scope.goToDashboard();
+                                if(!$window.localStorage.first_time_accessed){
+                                    $window.localStorage.first_time_accessed = true;
+                                    $scope.goToTutorial();
+                                }else{
+                                    $scope.goToDashboard();
+                                }
                              }
                         },(function (error) {
                             $scope.errors.push("Usuário ou senha invalidos.");   

@@ -12,7 +12,7 @@
 
         $scope.editSample = function () {
             Sample.updateSample($scope.sample).then(function (response) {
-                $uibModalInstance.close();
+                uploadPictures(response)
             })
         }
 

@@ -9,10 +9,23 @@
     .controller('BaSidebarCtrl', BaSidebarCtrl);
 
   /** @ngInject */
-  function BaSidebarCtrl($scope, baSidebarService) {
+  function BaSidebarCtrl($scope, baSidebarService,$window) {
  
     $scope.menuItems = baSidebarService.getMenuItems();
     $scope.defaultSidebarState = $scope.menuItems[0].stateRef;
+    if($window.localStorage.selectedMenuItem){
+      $scope.selectedMenuItem = $window.localStorage.selectedMenuItem;
+    }else{
+      $scope.selectedMenuItem = 0;
+      $window.localStorage.selectedMenuItem = 0
+    }
+
+
+
+    $scope.setSelectedMenu = function(itemValue){
+      $scope.selectedMenuItem = itemValue;
+      $window.localStorage.selectedMenuItem = itemValue;
+    }
 
     $scope.hoverItem = function ($event) {
       $scope.showHoverElem = true;

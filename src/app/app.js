@@ -17,4 +17,5 @@ angular.module('RockDroid', [
   'RockDroid.pages',
   'auth',
   'base64',
+  'ngFileSaver'
 ]);

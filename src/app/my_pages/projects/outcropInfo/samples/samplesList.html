@@ -1,10 +1,27 @@
+<style>
+    .modal{
+      padding-top: 30px;
+    }
+</style>
 <div class="side-message-navigation" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
-        <div class="mail-messages-control side-message-navigation-item" style="text-align: right;">
+  <div ng-show="samples1.length == 0">
+    <div style="text-align: center; padding: 10px; margin-top: 60px;">
+      <img src="assets/img/new_outcrop.png" alt="Smiley face" height="145" width="145"></img>
+      <div style="font-size: 15px; padding: 10px;">Crie sua primeira amostra</div>
+      <div class="add-row-editable-table">
+          <button type="button" class="btn btn-primary compose-button" ng-click="newSample();">
+              Nova amostra
+          </button>
+      </div>
+    </div>
+  </div>      
+  <div ng-show="samples.length != 0">
+  <div class="mail-messages-control side-message-navigation-item" style="text-align: right;">
                 <button type="button" class="btn btn-primary compose-button" ng-click="newSample();">
                         Nova amostra
                 </button>
         </div>
-        <div class="messages">
+        <div class="messages" style="padding: 10px;">
                 <table class="table table-bordered table-hover table-condensed" st-table="samples" st-safe-src="samples1">
                         <thead>
                            
@@ -43,4 +60,5 @@
                         </tfoot>
                 </table>
         </div>
+      </div>
       </div>

@@ -49,5 +49,15 @@ angular.module('RockDroid.pages').factory('Project', function ($http, $q, ApiEnd
         });
     };
 
+    ProjectModel.getAllProjectData = function (uuid) {
+        return $http({
+            url: baseUrl + 'get_all_project_data',
+            method: "GET",
+            params: {
+                uuid: uuid,
+            }
+        });
+    };
+
     return ProjectModel;
 });

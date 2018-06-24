@@ -8,10 +8,21 @@
 .dragover {
     border: 5px dashed blue;
 }
+.alert-danger {
+        border-color: #953b39;
+        color: #ffffff;
+        background-color: #F04747;
+        text-shadow: none;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
 </style>
 <div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Novo afloramento</span></div>
 <div style="padding: 15px;">
         <form>
+                <div ng-show="errors.length > 0" style="padding-bottom: 10px;">
+                        <div ng-repeat="error in errors" class="alert-danger"> {{error}} </div>
+                </div>
                 <div class="form-group">
                   <label for="name">Nome <a style="color: #E85656">*</a></label>
                   <input type="text" ng-model="outcrop.name" required class="form-control" id="name" placeholder="Nome">
@@ -35,7 +46,7 @@
                     <div class="form-group">
                             <label style="margin-top: 5px;" for="name">Latitude <a style="color: #E85656">*</a></label>
                             <div style="display: flex; flex-direction: row;">
-                                <input type="number" style="margin-bottom: 5px; width: 430px;" required ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="0° a 90°">
+                                <input min="0"  step="0.00000001" type="number" style="margin-bottom: 5px; width: 430px;" required ng-model="outcrop.latitude" class="form-control" id="latitude" placeholder="0° a 90°">
                                 <select style="display: block !important; width: 130px; margin-left: 8px;" class="form-control selectpicker" title="Zona latitudinal" ng-model="latitudeZone" selectpicker>
                                         <option value="N">N</option>
                                         <option value="S">S</option>
@@ -46,7 +57,7 @@
                     <div class="form-group">
                             <label for="name">Longitude <a style="color: #E85656">*</a></label>
                             <div style="display: flex; flex-direction: row;">
-                                <input type="number" style="margin-bottom: 5px; width: 430px;" required ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="0° a 180°">
+                                <input min="0"  step="0.00000001" type="number" style="margin-bottom: 5px; width: 430px;" required ng-model="outcrop.longitude" class="form-control" id="longitude" placeholder="0° a 180°">
                                 <select style="display: block !important; width: 130px; margin-left: 8px;" class="form-control selectpicker" title="Zona latitudinal" ng-model="longitudeZone" selectpicker>
                                         <option value="E">E</option>
                                         <option value="W">W</option>
@@ -58,7 +69,7 @@
                 <div ng-show="location.type == 'utm'">
                         <div class="form-group" style="padding-right: 0px; padding-left: 0px;">
                                 <label style="margin-top: 10px;" for="name">Zona longitudinal <a style="color: #E85656">*</a></label>
-                                <input class="col-sm-6 form-control" type="number" required ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="1 a 60">
+                                <input min="1" class="col-sm-6 form-control" type="number" required ng-model="outcrop.horizontal_datum" id="horizontal_datum" placeholder="1 a 60">
                         </div>
 
                         <div class="form-group">
@@ -71,12 +82,12 @@
 
                         <div class="form-group">
                                 <label for="name">Easting <a style="color: #E85656">*</a></label>
-                                <input type="number" ng-model="outcrop.easting" required class="form-control" id="easting" placeholder="Easting">
+                                <input min="0" type="number" ng-model="outcrop.easting" required class="form-control" id="easting" placeholder="166000 a 834000">
                         </div>
 
                         <div class="form-group">
                                 <label for="name">Northing <a style="color: #E85656">*</a></label>
-                                <input type="number" ng-model="outcrop.northing" required class="form-control" id="northing" placeholder="Northing">
+                                <input min="0" type="number" ng-model="outcrop.northing" required class="form-control" id="northing" placeholder="0 a 10000000">
                         </div>
                 </div>
 
@@ -110,7 +121,7 @@
                 </div>
                 <div class="modal-footer">
                         <div style="text-align: right;">
-                                <button class="btn btn-default form-button" ng-click="closeModal()">Cancelar</button>
+                                <button type="reset" class="btn btn-default form-button" ng-click="closeModal()">Cancelar</button>
                                 <button type="submit" class="btn btn-danger form-button" ng-click="newOutcrop()">Confirmar</button>
                         </div>
                 </div>

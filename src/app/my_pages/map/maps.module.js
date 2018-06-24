@@ -16,10 +16,6 @@
           controller: 'MapsCtrl',
           templateUrl: 'app/my_pages/map/maps.html',
           title: 'Mapa',
-          sidebarMeta: {
-            icon: 'ion-ios-location-outline',
-            order: 100,
-          },
         })
   }
 

@@ -20,10 +20,11 @@ $panel-heading-font-size: 16px;
     height: $xsmall-panel-height;
   }
   &.medium-panel {
-    height: $medium-panel-height;
+    height: 400px;
+    overflow: auto;
   }
   &.xmedium-panel {
-    height: $extra-medium-panel-height;
+    height: 480px;
   }
   &.large-panel {
     height: $large-panel-height;
@@ -50,7 +51,7 @@ $panel-heading-font-size: 16px;
 .panel {
   > .panel-body {
     padding: 15px 22px;
-    height: 100%;
+    height: auto;
   }
   > .panel-heading {
     color: $default-text;

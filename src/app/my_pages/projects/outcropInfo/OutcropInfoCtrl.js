@@ -6,20 +6,33 @@
         .controller('OutcropInfoCtrl', OutcropInfoCtrl);
   
     /** @ngInject */
-    function OutcropInfoCtrl($scope, $filter, editableOptions, editableThemes,$state,$stateParams,Outcrop,UtmConverter) {
+    function OutcropInfoCtrl($scope, $filter, editableOptions, editableThemes,$state,$stateParams,Outcrop,UtmConverter,$window) {
 
         $scope.outcrop = {};
         $scope.latitudeZone = "N"
         $scope.longitudeZone = "E"
-
+        $scope.selectedTab = 'rocks'
         $state.go('pages.outcrop_info.rocks');
 
         $scope.selectTab = function (tab) {
+            $scope.selectedTab = tab;
             $state.go('pages.outcrop_info.' + tab);
         }
 
         $scope.goBack = function(){
-            $state.go('pages.outcrops',{outcropId: $stateParams.outcropId,stageId: $stateParams.stageId,projectId: $stateParams.projectId});
+            var outcropId = $stateParams.outcropId;
+            var stageId = $stateParams.stageId;
+            var projectId = $stateParams.projectId;
+            if(!outcropId){
+                outcropId = $window.localStorage.getItem('outcropId');
+            }
+            if(!stageId){
+                stageId = $window.localStorage.getItem('stageId')
+            }
+            if(!projectId){
+                projectId = $window.localStorage.getItem('projectId')
+            }
+            $state.go('pages.outcrops',{outcropId: outcropId,stageId: stageId,projectId: projectId});
         }
 
         var getLatitudeLongitudeZone = function () {
@@ -48,7 +61,11 @@
           
 
         var getOutcrop = function () {
-            Outcrop.getOutcrop($stateParams.outcropId).then(function (response) {
+            var outcropId = $stateParams.outcropId;
+            if(!outcropId){
+                outcropId = $window.localStorage.getItem('outcropId');
+            }
+            Outcrop.getOutcrop(outcropId).then(function (response) {
               $scope.outcrop = response.data;
               getEastingNorthing();
               getLatitudeLongitudeZone();
@@ -70,14 +87,13 @@
         var tabs =  [{
             label: 'rocks',
             name: 'Rochas',
-            newMails: 7
           }, {
             label: 'primary_structures',
-            name: 'Estrutura Primária'
+            name: 'Estruturas Primárias'
           },
           {
             label: 'secondary_structures',
-            name: 'Estrutura Secundária'
+            name: 'Estruturas Secundárias'
           },
            {
             label: 'samples',

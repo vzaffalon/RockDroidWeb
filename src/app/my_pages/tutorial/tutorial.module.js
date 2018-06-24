@@ -16,10 +16,6 @@
         controller: 'TutorialCtrl',
         templateUrl: 'app/my_pages/tutorial/tutorial.html',
           title: 'Tutorial',
-          sidebarMeta: {
-            icon: 'ion-ios-pulse',
-            order: 400,
-          },
       });
   }
 })();

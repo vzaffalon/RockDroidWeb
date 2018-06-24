@@ -1,3 +1,12 @@
+<style>
+  .title-color{
+    color: #209e91
+  }
+  .section-container{
+    padding: 7px;
+    width: 200px;
+  }
+</style>
 <div class="widgets">
 
         <div class="row">
@@ -5,16 +14,29 @@
             <div ba-panel style="text-align: center">
                 <img ng-show="user.user_image" ngf-select="uploadFile($file)" style="cursor: pointer; padding: 10px;  border-radius: 50%;"  src="{{user.user_image}}" alt="Description" width="200" height="200"/>
                 <img ng-show="!user.user_image" ngf-select="uploadFile($file)" style="cursor: pointer; padding: 10px;  border-radius: 50%;" src="assets/img/profile_placeholder.png" alt="Description" width="200" height="200"/>
-                <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>            
-                <div style="font-size: 18px; padding: 7px;">Nome</div>
-                <div style="font-size: 14px; padding: 7px;">{{user.name}}</div>
-                <div style="font-size: 18px; padding: 7px;">Email</div>
-                <div style="font-size: 14px; padding: 7px;">{{user.email}}</div>
-                <div style="font-size: 18px; padding: 7px;">Conta criada em</div>
-                <div style="font-size: 14px; padding: 7px;">{{user.created_at}}</div>
-                <div style="font-size: 18px; padding: 7px;">Tipo de conta</div>
-                <div style="font-size: 14px; padding: 7px;" ng-show="user.is_teacher">Professor</div>
-                <div style="font-size: 14px; padding: 7px;" ng-show="!user.is_teacher">Aluno</div>
+                <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>     
+                <div style="display: flex; flex-direction: row; justify-content: center;">
+                  <div class="section-container">  
+                    <div class="title-color" style="font-size: 18px; padding: 7px;">Nome</div>
+                    <div style="font-size: 14px; padding: 7px;">{{user.name}}</div>
+                  </div>  
+                  <div class="section-container"> 
+                    <div  class="title-color" style="font-size: 18px; padding: 7px;">Email</div>
+                    <div style="font-size: 14px; padding: 7px;">{{user.email}}</div>
+                  </div>  
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: center;">       
+                  <div class="section-container"> 
+                    <div  class="title-color" style="font-size: 18px; padding: 7px;">Conta criada em</div>
+                    <div style="font-size: 14px; padding: 7px;">{{user.created_at | date : 'd/M/yyyy'}}</div>
+                  </div>  
+                  <div class="section-container"> 
+                    <div  class="title-color" style="font-size: 18px; padding: 7px;">Tipo de conta</div>
+                
+                    <div style="font-size: 14px; padding: 7px;" ng-show="user.is_teacher">Professor</div>
+                    <div style="font-size: 14px; padding: 7px;" ng-show="!user.is_teacher">Aluno</div>
+                  </div> 
+                </div>
                 <div style="font-size: 14px; padding: 7px;" ng-show="user.is_teacher">Contas do tipo professor tem acesso a todos os projetos no sistema</div>
               </div>
             </div>

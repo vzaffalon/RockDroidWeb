@@ -1,3 +1,8 @@
+<style>
+  .selected-row-background{
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+</style>
 <div class="row mail-client-container transparent">
   <div class="col-md-12">
     <div ba-panel ba-panel-class="mail-panel" style="height: 200px">
@@ -40,7 +45,7 @@
                   ❮ Voltar
               </button>
             </div>
-            <div ng-repeat="t in tabs" ui-sref-active="active" class="mail-navigation"
+            <div ng-class="{'selected-row-background': t.label == selectedTab}" ng-repeat="t in tabs" ui-sref-active="active" class="mail-navigation"
                  ng-click="selectTab(t.label)">
               {{t.name}}<span class="new-mails" ng-show="t.newMails">{{t.newMails}}</span>
             </div>

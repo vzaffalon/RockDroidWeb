@@ -1,10 +1,29 @@
+<style>
+    .modal{
+      padding-top: 30px;
+    }
+</style>
 <div class="side-message-navigation" ng-class="{'expanded': tabCtrl.navigationCollapsed}">
-        <div class="mail-messages-control side-message-navigation-item" style="text-align: right;">
+  <div ng-show="structures1.length == 0">
+    <div style="text-align: center; padding: 10px; margin-top: 60px;">
+      <img src="assets/img/new_outcrop.png" alt="Smiley face" height="145" width="145"></img>
+      <div style="font-size: 15px; padding: 10px;">Crie sua primeira estrutura secundária</div>
+      <div class="add-row-editable-table">
+          <button type="button" class="btn btn-primary compose-button" ng-click="newStructure();">
+              Nova estrutura
+          </button>
+      </div>
+    </div>
+  </div>     
+  
+  <div ng-show="structures.length != 0">
+  
+  <div class="mail-messages-control side-message-navigation-item" style="text-align: right;">
                 <button type="button" class="btn btn-primary compose-button" ng-click="newStructure();">
                     Nova estrutura
                 </button>
         </div>
-        <div class="messages">
+        <div class="messages" style="padding: 10px;">
                 <table class="table table-bordered table-hover table-condensed" st-table="structures" st-safe-src="structures1">
                         <thead>
                            
@@ -29,9 +48,9 @@
                         class="side-message-navigation-item shineHover {{m.tag}}" style="cursor: pointer;">
                           <td>{{getStructureType(structure.structure_type)}}</td>
                           <td ng-show="structure.phase">{{structure.phase}}</td>
-                          <td ng-show="!structure.phase">{{structure.phase}}</td>
-                          <td>{{structure.dip}}</td>
-                          <td>{{structure.dip_direction}}</td>
+                          <td ng-show="!structure.phase">-</td>
+                          <td>{{structure.dip}}°</td>
+                          <td>{{structure.dip_direction}}°</td>
                           <td>{{structure.created_at | date : 'd/M/yyyy'}}</td>
                           <td>
                               <div class="buttons">
@@ -50,4 +69,5 @@
                         </tfoot>
             </table>
         </div>
+      </div>
       </div>

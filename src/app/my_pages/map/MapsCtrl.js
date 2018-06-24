@@ -26,7 +26,7 @@
 
     $scope.goToMapLocation = function(outcrop){
       myMap.invalidateSize(); 
-      myMap.setView(new L.LatLng(outcrop.latitude, outcrop.longitude), 15)
+      myMap.setView(new L.LatLng(outcrop.latitude, outcrop.longitude), 13)
     }
 
     $scope.searchCoordinates = function(){
@@ -75,17 +75,16 @@
       $scope.outcrop.latitude = "";
       $scope.outcrop.longitude = "";
       myMap.invalidateSize(); 
-      myMap.setView(new L.LatLng($scope.outcrops[0].latitude, $scope.outcrops[0].longitude), 15)
+      myMap.setView(new L.LatLng($scope.outcrops[0].latitude, $scope.outcrops[0].longitude), 13)
     }
 
     function initialize() {
       setTimeout(function(){
-            myMap = L.map('mapid').setView(new L.LatLng($scope.outcrops[0].latitude, $scope.outcrops[0].longitude), 15);
+            myMap = L.map('mapid');
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(myMap);
           
-            myMap.invalidateSize(); 
             for(var i=0;i<$scope.outcrops.length;i++){
               var outcrop = $scope.outcrops[i];
               if(!outcrop.altitude){
@@ -100,13 +99,22 @@
               var message = 'Nome: ' + outcrop.name + "<br>" 
               + 'Altitude: ' + outcrop.altitude + "<br>" 
               + 'Latitude: ' + outcrop.latitude + "<br>" 
-              + 'Longintude: ' + outcrop.longitude  + "<br>" 
+              + 'Longitude: ' + outcrop.longitude  + "<br>" 
               + 'Toponímia: ' + outcrop.toponomy  + "<br>" 
               + 'Descrição: ' + outcrop.description;
               L.marker([outcrop.latitude, outcrop.longitude]).addTo(myMap)
                 .bindPopup(message)
                 .openPopup();
             }
+
+            myMap.invalidateSize(); 
+            if($scope.outcrops.length > 0){
+              myMap.setView(new L.LatLng($scope.outcrops[0].latitude, $scope.outcrops[0].longitude), 13);
+            }else{
+              myMap.setView(new L.LatLng(-15.7675, -47.8719), 13);
+            }
+           
+
           }, 1000);
     }
       

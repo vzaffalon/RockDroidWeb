@@ -16,10 +16,6 @@
           controller: 'DashboardCtrl',
           templateUrl: 'app/my_pages/dashboard/dashboard.html',
           title: 'Dashboard',
-          sidebarMeta: {
-            icon: 'ion-android-home',
-            order: 0,
-          },
         });
   }
 

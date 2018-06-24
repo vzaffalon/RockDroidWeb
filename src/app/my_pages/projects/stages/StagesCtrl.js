@@ -6,12 +6,18 @@
         .controller('StagesCtrl', StagesCtrl);
   
     /** @ngInject */
-    function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Stage,$stateParams) {
+    function StagesCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Stage,$stateParams,$window) {
   
       $scope.smartTablePageSize = 8;
 
       $scope.goToOutcrops = function (stage) {
-        $state.go('pages.outcrops',{stageId: stage.uuid,projectId: $stateParams.projectId});
+        var projectId =  $window.localStorage.getItem('projectId');
+        if(!projectId){
+          projectId = $window.localStorage.getItem('projectId');
+        }
+        $window.localStorage.setItem('stageId',stage.uuid);
+       
+        $state.go('pages.outcrops',{stageId: stage.uuid, projectId: projectId});
       }
 
       $scope.goBack = function () {

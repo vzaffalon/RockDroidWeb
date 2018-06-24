@@ -6,7 +6,7 @@
         .controller('OutcropsCtrl', OutcropsCtrl);
   
     /** @ngInject */
-    function OutcropsCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Outcrop,$stateParams) {
+    function OutcropsCtrl($scope, $filter, editableOptions, editableThemes,$state,$uibModal,Outcrop,$stateParams,$window) {
   
       $scope.smartTablePageSize = 8;
 
@@ -19,7 +19,16 @@
       }
 
       $scope.goBack = function(){
-        $state.go('pages.stages',{stageId: $stateParams.stageId,projectId: $stateParams.projectId});
+        var stageId = $stateParams.stageId;
+        var projectId = $stateParams.projectId;
+        if(!stageId){
+          stageId = $window.localStorage.getItem('stageId');
+        }
+        if(!projectId){
+          projectId = $window.localStorage.getItem('projectId');
+        }
+
+        $state.go('pages.stages',{stageId: stageId,projectId: projectId});
       }
       
 
@@ -27,7 +36,17 @@
 
 
       $scope.goToOutcropInfo = function(id){
-        $state.go('pages.outcrop_info',{outcropId: id,stageId: $stateParams.stageId,projectId: $stateParams.projectId});
+        var stageId = $stateParams.stageId;
+        var projectId = $stateParams.projectId;
+        if(!stageId){
+          stageId = $window.localStorage.getItem('stageId');
+        }
+        if(!projectId){
+          projectId = $window.localStorage.getItem('projectId');
+        }
+        $window.localStorage.setItem('outcropId',id);
+
+        $state.go('pages.outcrop_info',{outcropId: id,stageId: stageId,projectId: projectId});
       }
 
       $scope.newOutcrop = function () {

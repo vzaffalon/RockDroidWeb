@@ -1,10 +1,16 @@
+<style>
+  .export-button{
+    background-color: #DFB81C;
+    color: #fff;
+  }
+</style>
 <div class="widgets">
 
   <div class="row">
     <div class="col-lg-12 col-md-12">
       <div ba-panel>
           <div ng-show="projects1.length == 0" style="text-align: center; padding: 10px">
-              <img src="assets/img/new_project.png" alt="Smiley face" height="200" width="200"></img>
+              <img src="assets/img/new_project.png" alt="Smiley face" height="145" width="145"></img>
               <div style="font-size: 15px; padding: 10px;">Crie seu primeiro projeto</div>
               <div class="add-row-editable-table">
                   <button class="btn btn-primary main-btn" ng-click="newProject()">Novo projeto</button>
@@ -18,7 +24,7 @@
             <thead>
                
             <tr class="sortable ">
-              <th ng-show="user.is_teacher" st-sort="firstName">Criador</th>
+              <th st-sort="firstName">Criador</th>
               <th st-sort="firstName">Nome</th>
               <th st-sort="lastName">Criado em</th>
               <th st-sort="lastName">Ações</th>
@@ -33,6 +39,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="project in projects" style="cursor: pointer;">
+                <td ng-show="!user.is_teacher" ng-click="goToStages(project);">{{user.name}}</td>
               <td ng-show="user.is_teacher" ng-click="goToStages(project);">{{users[$index].name}}</td>
               <td ng-click="goToStages(project);">{{project.name}}</td>
               <td ng-click="goToStages(project);">{{project.created_at | date : 'd/M/yyyy'}}</td>
@@ -40,6 +47,7 @@
                   <div class="buttons">
                       <button class="btn btn-primary editable-table-button btn-xs" ng-click="editProject(project)">Editar</button>
                       <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteProject(project.uuid)">Excluir</button>
+                      <button class="btn btn-secondary editable-table-button btn-xs export-button" type="button" ng-click="exportToXls(project.uuid)">Exportar</button>
                   </div>
               </td>
             </tr>
