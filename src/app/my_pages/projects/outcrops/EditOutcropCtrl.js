@@ -133,7 +133,7 @@
     
     
                 if(outcrop.horizontal_datum < 1 || outcrop.horizontal_datum > 60){
-                    $scope.errors.push("Zona longitudinal deve estra entre 1 a 60");
+                    $scope.errors.push("Zona longitudinal deve estar entre 1 a 60");
                     return;
                 }
             }

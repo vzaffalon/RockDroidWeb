@@ -45,14 +45,14 @@
           }
         }
       });
-      modalInstance.result.then(function (selectedItem) {
-         $scope.newStage();
+      modalInstance.result.then(function (response) {
+         $scope.newStage(response.data.uuid);
       }, function () {
         
       });
     };
 
-    $scope.newStage = function () {
+    $scope.newStage = function (projectId) {
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'app/my_pages/projects/stages/new_stage.html',
@@ -60,13 +60,13 @@
         size: 'md',
         resolve: {
           projectId: function () {
-            return $stateParams.projectId;
+            return projectId;
           }
         }
       });
 
     modalInstance.result.then(function (selectedItem) {
-      getProjects();
+      $state.go('pages.stages',{projectId: projectId});
     }, function () {
       
     });
