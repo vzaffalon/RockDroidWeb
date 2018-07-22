@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var wrench = require('wrench');
+var connect = require('gulp-connect')
 
 /**
  *  This will load all js or coffee files in the gulp directory
