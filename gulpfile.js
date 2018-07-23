@@ -26,8 +26,9 @@ gulp.task('default', ['clean'], function () {
 
 gulp.task('serveprod',[], function() {
   return gulp.src('./release/').pipe(webserver({
+      host: '0.0.0.0',
       port: process.env.PORT || 5000,
-      https: true,
+      https: false,
       open: true
   }));
 });
