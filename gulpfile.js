@@ -24,7 +24,7 @@ gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
 
-gulp.task('serveprod',['build'], function() {
+gulp.task('serveprod',[], function() {
   return gulp.src('./release/').pipe(webserver({
       port: process.env.PORT || 5000,
       https: true,
