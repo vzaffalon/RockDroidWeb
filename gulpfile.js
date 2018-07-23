@@ -21,13 +21,12 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
  */
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
-  // gulp.start('serveprod');
 });
 
-// gulp.task('serveprod',['default'], function() {
-//   connect.server({
-//     root: 'release',
-//     port: process.env.PORT || 5000, // localhost:5000
-//     livereload: false
-//   });
-// });
+gulp.task('serveprod',['build'], function() {
+  connect.server({
+    root: 'release',
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
