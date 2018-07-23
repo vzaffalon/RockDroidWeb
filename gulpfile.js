@@ -23,7 +23,7 @@ gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
 
-gulp.task('serveprod',['build'], function() {
+gulp.task('serveprod',[], function() {
   connect.server({
     root: 'release',
     port: process.env.PORT || 5000, // localhost:5000
