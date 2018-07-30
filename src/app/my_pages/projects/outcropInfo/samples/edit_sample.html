@@ -8,6 +8,16 @@
                 .dragover {
                     border: 5px dashed blue;
                 }
+                .delete-image-button{
+        position: absolute;
+        font-size: 15px !important;
+        padding: 1px 4px !important;
+        margin-left: 120px;
+    margin-top: 5px;
+    background: #1C2B36;
+    padding: 2px 5px !important;
+        color: #fff;
+    }
                 </style>
 <div style="background-color: #209e91;" class="modal-header bg-success"><i class="ion-checkmark modal-icon"></i><span>Editar amostra</span></div>
 <div style="padding: 15px;">
@@ -25,8 +35,8 @@
                 
                         <p style="cursor: pointer;" ng-hide="files.length > 0">Arraste uma imagem ou clique para adicionar uma foto</p>
                         <div style="display: flex; flex-direction: row;" ng-repeat="photo in files" class="col-md-4">
-                                <div style="z-index: 99999; cursor: pointer; font-size: 18px; padding: 5px;" ng-click="removePhoto(photo,$index); $event.stopPropagation();">X</div>
-                                <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+                                <div class="delete-image-button" style="z-index: 99999; cursor: pointer; font-size: 18px; padding: 5px;" ng-click="removePhoto(photo,$index); $event.stopPropagation();">X</div>
+                                <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 130px; height: 130px; margin-left:10px; margin-right:10px; margin-top:5px; margin-bottom: 20px;"/>
                         </div>
             
                         </div>

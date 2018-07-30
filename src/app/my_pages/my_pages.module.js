@@ -21,7 +21,10 @@
   
     /** @ngInject */
     function routeConfig($urlRouterProvider, baSidebarServiceProvider,$stateProvider) {
-      $urlRouterProvider.otherwise('/login');
+      $urlRouterProvider.otherwise(function ($injector) {
+        var $state = $injector.get('$state');
+        $state.go('login');
+    });
       $stateProvider
       .state('pages', {
         abstract: true,

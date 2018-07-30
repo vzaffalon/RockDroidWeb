@@ -35,7 +35,7 @@ angular.module('RockDroid.pages').factory('User', function ($http, $q, ApiEndpoi
     UserModel.login = function(email,password){
         var data = {
             "email": email,
-            "password_hash": password,
+            "password": password,
         }
         return $http({
             url: baseUrl + "login",

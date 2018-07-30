@@ -28,7 +28,7 @@
                         <thead>
                            
                         <tr class="sortable ">
-                          <th st-sort="firstName">Tipo de estrutura</th>
+                          <th st-sort="firstName">Tipo de plano</th>
                           <th st-sort="lastName">Fase</th>
                           <th st-sort="lastName">Mergulho</th>
                           <th st-sort="lastName">Direção do mergulho</th>
@@ -46,7 +46,7 @@
                         <tbody>
                         <tr ng-repeat="structure in structures"
                         class="side-message-navigation-item shineHover {{m.tag}}" style="cursor: pointer;">
-                          <td>{{getStructureType(structure.structure_type)}}</td>
+                          <td>{{structure.name}}</td>
                           <td ng-show="structure.phase">{{structure.phase}}</td>
                           <td ng-show="!structure.phase">-</td>
                           <td>{{structure.dip}}°</td>

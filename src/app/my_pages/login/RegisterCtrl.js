@@ -54,15 +54,6 @@
                 $scope.errors.push("Senha e confirmação de senha devem ser iguais.")
             }
         }
-
-        $scope.passwordToHash = function (password_plaintext) {
-            return bcrypt.genSalt(workload, function(err, salt) {
-                return bcrypt.hash(password_plaintext, salt, function(err, hash) {
-                    // Store hash in your password DB.
-                    return (hash);
-                });
-            });
-        }
     }
 })();
   

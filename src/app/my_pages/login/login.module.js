@@ -7,6 +7,12 @@
     /** @ngInject */
     function routeConfig($stateProvider, $urlRouterProvider) {
       $stateProvider
+      .state('register', {
+        url: '/register',
+        controller: 'RegisterCtrl',
+        templateUrl: 'app/my_pages/login/register.html',
+        title: 'Cadastro',
+      })
       .state('login', {
         url: '/login',
         controller: 'LoginCtrl',
@@ -17,12 +23,6 @@
             return $stateParams.userEmail;;
           }
         }
-      })
-      .state('register', {
-        url: '/register',
-        controller: 'RegisterCtrl',
-        templateUrl: 'app/my_pages/login/register.html',
-        title: 'Cadastro',
       })
     }
   

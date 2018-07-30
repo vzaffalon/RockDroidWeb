@@ -68,7 +68,7 @@
         </div>
   <div ng-show="pictures.outcrop_photos.length > 0"></div>
   <div style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.outcrop_photos" class="col-md-4">
-    <img  ng-click="downloadPhoto(photo)" data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px; cursor: pointer;"/>
+    <img  ng-click="downloadPhoto(photo)" data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 130px; height: 130px; margin-left:10px; margin-right:10px; margin-top:5px; margin-bottom: 20px; cursor: pointer;"/>
   </div>
 </div>
 </div>
@@ -80,7 +80,7 @@ ba-panel-class="medium-panel">
   Nenhuma foto de rocha registrada
 </div>
   <div  ng-show="pictures.rock_photos.length > 0" style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.rock_photos" class="col-md-4">
-    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 130px; height: 130px; margin-left:10px; margin-right:10px; margin-top:5px; margin-bottom: 20px;"/>
   </div>
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12"
@@ -91,7 +91,7 @@ ba-panel-class="medium-panel">
   Nenhuma foto de estrutura registrada
 </div>
   <div ng-show="pictures.structure_photos.length > 0" style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.structure_photos" class="col-md-4">
-    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+    <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 130px; height: 130px; margin-left:10px; margin-right:10px; margin-top:5px; margin-bottom: 20px;"/>
   </div>
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12"
@@ -102,7 +102,7 @@ ba-panel-class="medium-panel">
   Nenhuma foto de amostra registrada
 </div>
 <div  ng-show="pictures.sample_photos.length > 0" style="display: flex; flex-direction: row;" ng-repeat="photo in pictures.sample_photos" class="col-md-4">
-  <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 80px; height: 80px; margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom: 20px;"/>
+  <img data-ng-src="{{photo.base64image ? photo.base64image : photo}}" style="width: 130px; height: 130px; margin-left:10px; margin-right:10px; margin-top:5px; margin-bottom: 20px;"/>
 </div>
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12"

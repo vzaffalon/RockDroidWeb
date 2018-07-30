@@ -57,7 +57,7 @@
           controllerAs: "listCtrl",
         })
         .state('pages.outcrop_info.primary_structures', {
-          url: '/structures',
+          url: '/primary_structures',
           templateUrl: 'app/my_pages/projects/outcropInfo/structures/primary_structures.html',
           title: 'Estruturas Primárias',
           controller: "PrimaryStructuresCtrl",
@@ -66,7 +66,7 @@
         })
 
         .state('pages.outcrop_info.secondary_structures', {
-          url: '/structures',
+          url: '/secondary_structures',
           templateUrl: 'app/my_pages/projects/outcropInfo/structures/secondary_structures.html',
           title: 'Estruturas Secundárias',
           controller: "SecondaryStructuresCtrl",
