@@ -30,7 +30,7 @@
             if($scope.email && $scope.password){
                         User.login($scope.email,$scope.password).then(function(response){
                              if(response.data){
-                                $window.localStorage.auth_token = $base64.encode(response.data.email) + ':' + $base64.encode(response.data.password_digest)//base 64 de email mais : mais senha
+                                $window.localStorage.auth_token = $base64.encode(response.data.email + ':' + response.data.password_digest)//base 64 de email mais : mais senha
                                 $window.localStorage.user_id = response.data.uuid;
                                 if(!$window.localStorage.first_time_accessed){
                                     $window.localStorage.first_time_accessed = true;
