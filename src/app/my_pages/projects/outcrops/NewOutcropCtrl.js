@@ -23,7 +23,7 @@
             switch (location) {
                 case 'wgs':
                     if($scope.outcrop.easting && $scope.outcrop.northing){
-                        conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum,$scope.outcrop.zoneLetter);
+                        conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum,'C');
                         var latitude = conversion.latitude;
                         if(conversion.latitude < 0){
                             latitude = -latitude;
@@ -124,7 +124,7 @@
         $scope.newOutcrop = function () {
             var outcrop = angular.copy($scope.outcrop);
             $scope.errors = [];
-            if($scope.location.type = 'wgs'){
+            if($scope.location.type != 'wgs'){
                 if($scope.latitudeZone == 'N'){
                     if(outcrop.northing < 0 || outcrop.northing > 9350000){
                         $scope.errors.push("Northing deve estar entre os valores 0 e 9,350,000");
@@ -144,19 +144,25 @@
                     return;
                 }
 
-
+                debugger;
                 if(outcrop.horizontal_datum < 1 || outcrop.horizontal_datum > 60){
                     $scope.errors.push("Zona longitudinal deve estar entre 1 a 60");
                     return;
                 }
-            }
 
+                debugger;
+                var conversion = UtmConverter.toLatLon($scope.outcrop.easting, $scope.outcrop.northing,$scope.outcrop.horizontal_datum,'C');
+                outcrop.latitude = conversion.latitude;
+                outcrop.longitude = conversion.longitude;
+            }else{
                 if($scope.latitudeZone == 'S'){
                     outcrop.latitude = -outcrop.latitude
                   }
                   if($scope.longitudeZone == 'W'){
                      outcrop.longitude = -outcrop.longitude
                   }
+            }
+                  debugger;
                   Outcrop.createOutcrop(outcrop).then(function (response) {
                      uploadPictures(response);
                   })

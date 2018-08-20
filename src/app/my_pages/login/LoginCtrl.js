@@ -34,8 +34,10 @@
                                 $window.localStorage.user_id = response.data.uuid;
                                 if(!$window.localStorage.first_time_accessed){
                                     $window.localStorage.first_time_accessed = true;
+                                    $window.localStorage.selectedMenuItem = 3
                                     $scope.goToTutorial();
                                 }else{
+                                    $window.localStorage.selectedMenuItem = 0
                                     $scope.goToDashboard();
                                 }
                              }

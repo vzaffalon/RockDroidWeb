@@ -5,7 +5,7 @@
       .controller('MapsCtrl', MapsCtrl);
 
   /** @ngInject */
-  function MapsCtrl($timeout,$scope,Outcrop,$window) {
+  function MapsCtrl($timeout,$scope,Outcrop,$window,$location) {
     var myMap;
 
     $scope.lat = {}
@@ -81,6 +81,7 @@
     function initialize() {
       setTimeout(function(){
             myMap = L.map('mapid');
+            L.Icon.Default.imagePath = '../../../assets/img/';
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(myMap);

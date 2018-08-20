@@ -42,6 +42,9 @@ angular.module('RockDroid.pages').factory('Sample', function ($http, $q, ApiEndp
     };
 
     SampleModel.updateSample = function (data) {
+        if(data.updated_at){
+            delete data['updated_at'];
+        }
         return $http({
             url: baseUrl + data.uuid,
             method: "PATCH",

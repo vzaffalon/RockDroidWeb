@@ -13,12 +13,14 @@
  
     $scope.menuItems = baSidebarService.getMenuItems();
     $scope.defaultSidebarState = $scope.menuItems[0].stateRef;
+    debugger;
     if($window.localStorage.selectedMenuItem){
       $scope.selectedMenuItem = $window.localStorage.selectedMenuItem;
     }else{
-      $scope.selectedMenuItem = 0;
-      $window.localStorage.selectedMenuItem = 0
+      $scope.selectedMenuItem = "0";
+      $window.localStorage.selectedMenuItem = "0"
     }
+    debugger;
 
 
 
